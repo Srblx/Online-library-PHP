@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style>
+      body {
+        background: url(./img/livre-tourner-pages_1150-146.webp);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1,
+      .btn {
+        display: grid;
+        justify-content: center;
+      }
+
+      h2 {
+        background-color: grey;
+        color: white;
+        text-decoration: underline;
+        padding-left: 10px;
+        font-style: italic;
+      }
+
+      select,
+      a,
+      .btn {
+        text-decoration: none;
+        border: none;
+        color: rgb(0, 102, 255);
+        font-size: 15px;
+        font-weight: bold;
+      }
+      footer {
+        position: absolute;
+        bottom: 0;
+        left: 41%;
+      }
+    </style>
+    <h1>Consultation</h1>
+    <div class="btn">
+      <table>
+        <tr>
+          <td><a href="acceuil.html">Accueil</a></td>
+          <td>
+            <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
+            <!-- <?php
+                        $optPoss = $_POST[option_possible];  // ou $_GET[]
+
+              swhitch($optPoss){
+                  case 1:
+                      header("location: option1.php");
+                      break;
+                  case 2:
+                      header("location: option2.php");
+                      break;
+              }
+              echo "<form >";
+     echo "<select name='Page'>";
+     for($i=1;$i<$nbp+1;$i++)
+          {
+               $adresse='index.php?page='.$i;
+               echo "<option onchange=function(){window.location.href=".$adresse.";} value='".$i."'>".$i."</option>" ;
+           }
+     echo "</select>";
+echo "</form>" ;
+            ?> -->
+            <select name="livre" id="livre">
+              <option value="1" name="1">Afficher les livres</option>
+              <option value="2" name="2" href="ajout.php">
+                Ajouter un livre
+              </option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <h2>Bienvenue sur le site de consultation de livres</h2>
+
+    <footer>Alexis SERBELLONI</footer>
+  </body>
+</html>
