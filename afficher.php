@@ -39,9 +39,6 @@
             font-weight: bold;
         }
 
-        td {
-            padding: 5px;
-        }
 
         .key {
             font-style: italic;
@@ -65,18 +62,32 @@
         footer {
             position: absolute;
             bottom: 0;
-            left: 41%;
+            left: 43%;
         }
     </style>
-    <h1>Consultation</h1>
+    <h1>Afficher un livre de la base de données</h1>
     <div class="btn">
         <table>
             <tr>
                 <td><a href="acceuil.html">Accueil</a></td>
-                <td><select name="livre" id="livre">
-                        <option value="display">Afficher les livres</option>
-                        <option value="add">Ajouter un livre</option>
-                    </select></td>
+                <td>
+                    <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
+                    <select name="livre" id="livre">
+                        <option value="">Sélectionnez une option</option>
+                        <option value="afficher.php">Afficher les livres</option>
+                        <option value="ajouter.php">Ajouter un livre</option>
+                    </select>
+                    </form>
+
+                    <script>
+                        // Fonction qui renvoie vers les deux autre fichier php avec un event onchange
+                        document.getElementById("livre").onchange = function() {
+                            if (this.value) {
+                                window.location.href = this.value;
+                            }
+                        };
+                    </script>
+                </td>
             </tr>
         </table>
     </div>
@@ -135,10 +146,7 @@
 
     //~ Cloture de la connexion a la base de données 
     mysqli_close($conn);
-
     ?>
-
-
     <footer>
         <p>Alexis SERBELLONI</p>
     </footer>

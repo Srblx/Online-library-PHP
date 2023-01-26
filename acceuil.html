@@ -13,13 +13,11 @@
         background: url(./img/livre-tourner-pages_1150-146.webp);
         font-family: Arial, Helvetica, sans-serif;
       }
-
       h1,
       .btn {
         display: grid;
         justify-content: center;
       }
-
       h2 {
         background-color: grey;
         color: white;
@@ -27,7 +25,6 @@
         padding-left: 10px;
         font-style: italic;
       }
-
       select,
       a,
       .btn {
@@ -40,7 +37,7 @@
       footer {
         position: absolute;
         bottom: 0;
-        left: 41%;
+        left: 45%;
       }
     </style>
     <h1>Consultation</h1>
@@ -50,39 +47,27 @@
           <td><a href="acceuil.html">Accueil</a></td>
           <td>
             <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
-            <!-- <?php
-                        $optPoss = $_POST[option_possible];  // ou $_GET[]
-
-              swhitch($optPoss){
-                  case 1:
-                      header("location: option1.php");
-                      break;
-                  case 2:
-                      header("location: option2.php");
-                      break;
-              }
-              echo "<form >";
-     echo "<select name='Page'>";
-     for($i=1;$i<$nbp+1;$i++)
-          {
-               $adresse='index.php?page='.$i;
-               echo "<option onchange=function(){window.location.href=".$adresse.";} value='".$i."'>".$i."</option>" ;
-           }
-     echo "</select>";
-echo "</form>" ;
-            ?> -->
             <select name="livre" id="livre">
-              <option value="1" name="1">Afficher les livres</option>
-              <option value="2" name="2" href="ajout.php">
-                Ajouter un livre
-              </option>
+              <option value="">Sélectionnez une option</option>
+              <option value="afficher.php">Afficher les livres</option>
+              <option value="ajouter.php">Ajouter un livre</option>
             </select>
+          </form>
+          
+          <script>
+            // Fonction qui renvoie vers les deux autre fichier php avec un event onchange
+            document.getElementById("livre").onchange = function() {
+              if (this.value) {
+                window.location.href = this.value;
+              }
+            };
+          </script>
           </td>
         </tr>
       </table>
     </div>
     <h2>Bienvenue sur le site de consultation de livres</h2>
 
-    <footer>Alexis SERBELLONI</footer>
+    <footer><p>Alexis SERBELLONI</p></footer>
   </body>
 </html>

@@ -32,9 +32,11 @@ if (!$conn) {
     //~ Fonction permetant de 
     $result = mysqli_query($conn, $requete);
     if ($result) {
-        echo "Insertion réussie !<br>";
+        echo "Votre livre a été ajouter a notre bibliothèque pour consulter notre liste de livre : <br>";
+        echo ' <a href="afficher.php">C\'est par ici</a>';
     } else {
-        echo "Insertion  impposible ! <br>";
+        echo "Insertion  impposible veuiller réessayer ! <br>";
+        echo ' <a href="ajouter.php">Retourner au formulaire</a>';
     }
 }
 mysqli_close($conn);
