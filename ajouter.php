@@ -169,7 +169,7 @@
                         <label for="anneeEdition">Année d'édition :</label>
                     </td>
                     <td>
-                        <input type="text" name="anneeEdition" id="anneeEdition" required>
+                        <input type="text" name="anneeEdition" id="anneeEdition">
                     </td>
                 </tr>
                 <tr>
