@@ -49,12 +49,12 @@
         }
 
         .value {
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.2);
             font-weight: bold;
         }
 
         td {
-            padding: 10px;
+            padding: 4px;
         }
 
         .styleTab {
@@ -107,29 +107,10 @@
         echo "alert('Connexion impossible a la base de données')</script>";
     } else {
         //~ Requete pour la connexion a la table 'connexion'
-        // $requete = " SELECT * FROM livre";
-        // //~ fonction pour executer la requete 'mysqli_query' ensemble es enregistrement qui se trouve dans connexion
-        // $result = mysqli_query($conn, $requete);
+        $requete = " SELECT * FROM livre";
+        //~ fonction pour executer la requete 'mysqli_query' ensemble es enregistrement qui se trouve dans connexion
+        $result = mysqli_query($conn, $requete);
 
-        //! Methode securisé
-        //~ Récupération de la valeur de la recherche à partir du formulaire
-        $search = $_POST['searchAutor'];
-
-        //~ Préparation de la requête avec des marqueurs de paramètres
-        $request = "SELECT * FROM livre WHERE nomAuteur = ?";
-
-        //~ Préparation de la requête à l'aide de la fonction mysqli_prepare()
-        $stmt = mysqli_prepare($connect, $request);
-
-        //~ Liaison des valeurs à utiliser avec les marqueurs de paramètres
-        mysqli_stmt_bind_param($stmt, "s", $search);
-
-        //~ Exécution de la requête préparée
-        mysqli_stmt_execute($stmt);
-
-        //~ Stockage du résultat de la requête
-        $result = mysqli_stmt_get_result($stmt);
-        $result = mysqli_query($connect, $request);
 
         //~ Pour affiche les données de la bdd dans un tableau 
         echo '<table border=1, class="styleTab" >';
