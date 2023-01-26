@@ -83,7 +83,7 @@
             padding: 5px;
         }
     </style>
-    <h1>Afficher un livre de la base de données</h1>
+    <h1>Afficher un livre par auteur</h1>
     <div class="btn">
         <table>
             <tr>
