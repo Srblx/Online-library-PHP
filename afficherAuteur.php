@@ -35,12 +35,12 @@
 
         #submit {
             width: 100px;
-
         }
 
         fieldset {
             border-radius: 3px;
             background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
         }
 
         h2 {
@@ -65,6 +65,22 @@
             position: absolute;
             bottom: 0;
             left: 45%;
+        }
+
+        .styleTab {
+            border-radius: 5px;
+            border-color: black;
+            margin-top: 2%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        legend {
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        td {
+            padding: 5px;
         }
     </style>
     <h1>Afficher un livre de la base de données</h1>
@@ -99,7 +115,7 @@
     </div>
     <form action="afficherAuteur.php" method="post">
         <fieldset>
-            <legend>Recherche d'un livre par nom d'auteur</legend>
+            <legend><b>Recherche d'un livre par nom d'auteur</b></legend>
             <table>
                 <tr>
                     <td>
@@ -118,37 +134,18 @@
         </fieldset>
     </form>
     <?php
-    //~ Me connecter a ma BDD
+    // Me connecter a ma BDD
     $connect = mysqli_connect('localhost', 'root', '', 'bibliotheque');
     if (!$connect) {
-        //~ Si la connexion echoue
+        // Si la connexion echoue
         echo "<script type=text/javascript>";
         echo "alert('Connexion impossible a la base de données')</script>";
     } else {
         if (isset($_POST['searchAutor'])) {
-            //~ Si la connexion fonctionne
-            //! methode non securiser (injection de SQL possible)
-            //* $search = $_POST['searchAutor'];
-            //* $request = " SELECT * FROM `livre` WHERE `nomAuteur` = '$search'";
-
-            //! Methode securisé
-            //~ Récupération de la valeur de la recherche à partir du formulaire
+            // Si la connexion fonctionne
             $search = $_POST['searchAutor'];
 
-            //~ Préparation de la requête avec des marqueurs de paramètres
-            $request = "SELECT * FROM livre WHERE nomAuteur = ?";
-
-            //~ Préparation de la requête à l'aide de la fonction mysqli_prepare()
-            $stmt = mysqli_prepare($connect, $request);
-
-            //~ Liaison des valeurs à utiliser avec les marqueurs de paramètres
-            mysqli_stmt_bind_param($stmt, "s", $search);
-
-            //~ Exécution de la requête préparée
-            mysqli_stmt_execute($stmt);
-
-            //~ Stockage du résultat de la requête
-            $result = mysqli_stmt_get_result($stmt);
+            $request = " SELECT * FROM `livre` WHERE `nomAuteur` = '$search'";
             $result = mysqli_query($connect, $request);
 
 
