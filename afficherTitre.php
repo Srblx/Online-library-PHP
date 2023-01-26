@@ -83,7 +83,7 @@
                 padding: 5px;
             }
         </style>
-        <h1>Afficher un livre par auteur</h1>
+        <h1>Afficher un livre par titre</h1>
         <div class="btn">
             <table>
                 <tr>
@@ -96,6 +96,10 @@
                             <option value="afficherAuteur.php">Recherche d'un livres par auteurs</option>
                             <option value="afficherTitre.php">Recherche d'un livre par titre</option>
                             <option value="afficheTheme.html">Recherche d'un livre par thèmes</option>
+                            <option value="afficheEdit.php">Recherche d'un livre par maison d'édition</option>
+                            <option value="affichePage.php">Recherche d'un livre par Nb de page</option>
+                            <option value="afficheLangue.php">Recherche d'un livre par langue</option>
+                            <option value="affichePrix.php">Recherche d'un livre par prix</option>
                             <option value="ajouter.php">Ajouter un livre</option>
                         </select>
                         </form>
@@ -145,11 +149,14 @@
             if (isset($_POST['titre'])) {
                 // Si la connexion fonctionne
                 $searchTitre = $_POST['titre'];
+                //&Protege les caractere speciaux d'un chaine 
                 $searchTitre = mysqli_real_escape_string($connect, $searchTitre);
 
                 $request = "SELECT * FROM `livre` WHERE `titre` = '$searchTitre'";
+                //& execute la requete sur la base de données
                 $result = mysqli_query($connect, $request);
 
+                //& Retourne le nombre de lignes dans le jeu de résultats
                 if (mysqli_num_rows($result) > 0) {
                     echo '<table border=1, class="styleTab">';
                     echo '<tr class="key">';
@@ -166,6 +173,7 @@
                     echo '<td>' . '<b>' . 'Langue' . '</b>' . '</td>';
                     echo '</tr>';
 
+                    //& Récupère la ligne suivante d'un ensemble de résultats sous forme de tableau associatif, numérique ou les deux
                     while ($donnee = mysqli_fetch_array($result)) {
                         // Les valeurs que j'affiche dans le tableau
                         echo '<tr class="value">';
@@ -191,9 +199,7 @@
         <footer>
             <p>Alexis SERBELLONI</p>
         </footer>
-    </body>
 
-    </html>
     </body>
 
     </html>

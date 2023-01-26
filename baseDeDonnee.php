@@ -54,13 +54,13 @@ if (!$conn) {
     echo "<script type=text/javascript>";
     echo "alert('Connexon a la base de données reussi')</script>";
 
-    //~ Préparer la requête
+    //& Préparer la requête
     $stmt = mysqli_prepare($conn, "INSERT INTO livre (isbn,titre,theme,nombreDePage,format,nomAuteur,PrenomAuteur,editeur,anneeEdition,prix,langue) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
-    //~ Lier les variables aux marqueurs
+    //& Lier les variables aux marqueurs
     mysqli_stmt_bind_param($stmt, "sssissssids", $isbn, $titre, $theme, $nbPage, $format, $nomAuteur, $prenomAuteur, $editeur, $anneeEdition, $prix, $langue);
 
-    //~ Valider les données entrées par l'utilisateur
+    //& Valider les données entrées par l'utilisateur
     $isbn = validate_input($_POST['isbn']);
     $titre = validate_input($_POST['titre']);
     $theme = validate_input($_POST['theme']);
@@ -80,7 +80,7 @@ if (!$conn) {
 
 
     if (mysqli_stmt_execute($stmt)) {
-        //~ fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
+        //& fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
         header('location: acceuil.html');
     } else {
         echo "Insertion  impossible veuiller réessayer ! <br>";
