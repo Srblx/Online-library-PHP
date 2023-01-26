@@ -1,5 +1,5 @@
 <?php
-//~ Connexion a ma base de données my-db
+//~ Connexion a ma base de données bibliothèque
 //&Fonction de connexion mysqli_connect(4 parametres pour effectuer la connexion )
 $conn = mysqli_connect('localhost', 'root', '', 'bibliotheque');
 
@@ -11,7 +11,6 @@ if (!$conn) {
     //~ Si la connexion fonctionne
     echo "<script type=text/javascript>";
     echo "alert('Connexon a la base de données reussi')</script>";
-    echo "Connect with succes ! <br>";
 
     //~ Variable qui contienne les valeurs a inserer dans la base de données
     $isbn = $_POST['isbn'];
