@@ -77,6 +77,7 @@
                     <select name="livre" id="livre">
                         <option value="">Sélectionnez une option</option>
                         <option value="afficher.php">Afficher les livres</option>
+                        <option value="afficherAuteur.php">Afficher les livres par auteurs</option>
                         <option value="ajouter.php">Ajouter un livre</option>
                     </select>
                     </form>

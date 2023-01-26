@@ -33,6 +33,7 @@ if (!$conn) {
     if ($result) {
         // echo "Votre livre a été ajouter a notre bibliothèque pour consulter notre liste de livre : <br>";
         // echo ' <a href="afficher.php">C\'est par ici</a>';
+        //~ fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
         echo header('location: acceuil.html');
     } else {
         echo "Insertion  impposible veuiller réessayer ! <br>";
