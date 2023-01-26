@@ -66,6 +66,11 @@
             bottom: 0;
             left: 45%;
         }
+
+        sup {
+            color: red;
+            font-size: 25px;
+        }
     </style>
     <h1>Ajouter un livre a la base de données</h1>
     <div class="btn">
@@ -110,7 +115,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="titre">Titre :</label>
+                        <label for="titre">Titre :<sup>*</sup></label>
                     </td>
                     <td>
                         <input type="text" name="titre" id="titre" required>
@@ -121,7 +126,7 @@
                         <label for="theme">Theme :</label>
                     </td>
                     <td>
-                        <input type="text" name="theme" id="theme" required>
+                        <input type="text" name="theme" id="theme">
                     </td>
                 </tr>
                 <tr>
@@ -142,7 +147,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="nomAuteur">Nom de l'auteur :</label>
+                        <label for="nomAuteur">Nom de l'auteur :<sup>*</sup></label>
                     </td>
                     <td>
                         <input type="text" name="nomAuteur" id="nomAuteur" required>
@@ -150,7 +155,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="prenomAuteur">Prénom de l'auteur :</label>
+                        <label for="prenomAuteur">Prénom de l'auteur :<sup>*</sup></label>
                     </td>
                     <td>
                         <input type="text" name="prenomAuteur" id="prenomAuteur" required>
@@ -161,7 +166,7 @@
                         <label for="editeur">Editeur :</label>
                     </td>
                     <td>
-                        <input type="text" name="editeur" id="editeur" required>
+                        <input type="text" name="editeur" id="editeur">
                     </td>
                 </tr>
                 <tr>
@@ -183,10 +188,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="langue">Langue :</label>
+                        <label for="langue">Langue : </label>
                     </td>
                     <td>
-                        <input type="text" name="langue" id="langue" required>
+                        <input type="text" name="langue" id="langue">
                     </td>
                 </tr>
                 <tr>
