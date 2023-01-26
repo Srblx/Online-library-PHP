@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recherche Par Auteur</title>
+    <title>Resultat de recherche par thème</title>
 </head>
 
 <body>
+
     <style>
         body {
             background: url(./img/livre-tourner-pages_1150-146.webp);
@@ -83,7 +84,7 @@
             padding: 5px;
         }
     </style>
-    <h1>Afficher un livre par auteur</h1>
+    <h1>Afficher un livre par thèmes</h1>
     <div class="btn">
         <table>
             <tr>
@@ -93,7 +94,7 @@
                     <select name="livre" id="livre">
                         <option value="">Sélectionnez une option</option>
                         <option value="afficher.php">Afficher les livres</option>
-                        <option value="afficherAuteur.php">Recherche d'un livre par auteurs</option>
+                        <option value="afficherAuteur.php">Recherche d'un livres par auteurs</option>
                         <option value="afficherTitre.php">Recherche d'un livre par titre</option>
                         <option value="afficheTheme.html">Recherche d'un livre par thèmes</option>
                         <option value="ajouter.php">Ajouter un livre</option>
@@ -115,26 +116,6 @@
     <h2>Bienvenue sur le site de consultation de livres</h2>
 
     </div>
-    <form action="afficherAuteur.php" method="post">
-        <fieldset>
-            <legend><b>Recherche d'un livre par nom d'auteur</b></legend>
-            <table>
-                <tr>
-                    <td>
-                        <label for="auteur">Nom de l'auteur : </label>
-                    </td>
-                    <td>
-                        <input type="text" id="searchAutor" name="searchAutor">
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" value="Rechercher" id="submit">
-                    </td>
-                </tr>
-            </table>
-        </fieldset>
-    </form>
     <?php
     // Me connecter a ma BDD
     $connect = mysqli_connect('localhost', 'root', '', 'bibliotheque');
@@ -143,11 +124,11 @@
         echo "<script type=text/javascript>";
         echo "alert('Connexion impossible a la base de données')</script>";
     } else {
-        if (isset($_POST['searchAutor'])) {
+        if (isset($_POST['theme'])) {
             // Si la connexion fonctionne
-            $search = $_POST['searchAutor'];
+            $searchTheme = $_POST['theme'];
 
-            $request = " SELECT * FROM `livre` WHERE `nomAuteur` = '$search'";
+            $request = " SELECT * FROM `livre` WHERE `theme` = '$searchTheme'";
             $result = mysqli_query($connect, $request);
 
 
@@ -187,9 +168,6 @@
         echo '</table>';
     }
     ?>
-    <footer>
-        <p>Alexis SERBELLONI</p>
-    </footer>
 </body>
 
 </html>
