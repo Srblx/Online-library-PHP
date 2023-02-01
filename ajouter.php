@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php session_start(); ?>
     <style>
         body {
             background: url(./img/9.jpg);
@@ -71,12 +72,25 @@
             color: red;
             font-size: 25px;
         }
+
+        @media screen and (max-width: 670px) {
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+        }
     </style>
     <h1>Ajouter un livre a la base de données</h1>
+    <?php
+
+    echo "Bonjour " . $_SESSION['prenom'];
+    echo $_SESSION['nom'];
+    ?>
     <div class="btn">
         <table id="tabAjout">
             <tr>
-                <td><a href="acceuil.html">Accueil</a></td>
+                <td><a href="acceuil.php">Accueil</a></td>
                 <td>
                     <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
                     <select name="livre" id="livre">

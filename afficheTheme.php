@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recherche Par Thèmes</title>
 </head>
+
 <body>
+    <?php session_start(); ?>
     <style>
         body {
             background: url(./img/9.jpg);
@@ -82,10 +85,15 @@
         }
     </style>
     <h1>Afficher un livre par thèmes</h1>
+    <?php
+
+    echo "Bonjour " . $_SESSION['prenom'];
+    echo $_SESSION['nom'];
+    ?>
     <div class="btn">
         <table>
             <tr>
-                <td><a href="acceuil.html">Accueil</a></td>
+                <td><a href="acceuil.php">Accueil</a></td>
                 <td>
                     <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
                     <select name="livre" id="livre">
@@ -93,7 +101,7 @@
                         <option value="afficher.php">Afficher les livres</option>
                         <option value="afficherAuteur.php">Recherche d'un livres par auteurs</option>
                         <option value="afficherTitre.php">Recherche d'un livre par titre</option>
-                        <option value="afficheTheme.html">Recherche d'un livre par thèmes</option>
+                        <option value="afficheTheme.php">Recherche d'un livre par thèmes</option>
                         <option value="afficheEdit.php">Recherche d'un livre par maison d'édition</option>
                         <option value="affichePage.php">Recherche d'un livre par nombre de page</option>
                         <option value="afficheLangue.php">Recherche d'un livre par langue</option>
@@ -138,4 +146,5 @@
         </fieldset>
     </form>
 </body>
+
 </html>

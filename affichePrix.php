@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php session_start(); ?>
     <style>
         body {
             background: url(./img/9.jpg);
@@ -83,11 +84,16 @@
             padding: 5px;
         }
     </style>
-    <h1>Afficher un livre par Nombre de page</h1>
+    <h1>Afficher un livre en fonction de son prix</h1>
+    <?php
+
+    echo "Bonjour " . $_SESSION['prenom'];
+    echo $_SESSION['nom'];
+    ?>
     <div class="btn">
         <table>
             <tr>
-                <td><a href="acceuil.html">Accueil</a></td>
+                <td><a href="acceuil.php">Accueil</a></td>
                 <td>
                     <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
                     <select name="livre" id="livre">
@@ -95,7 +101,7 @@
                         <option value="afficher.php">Afficher les livres</option>
                         <option value="afficherAuteur.php">Recherche d'un livres par auteurs</option>
                         <option value="afficherTitre.php">Recherche d'un livre par titre</option>
-                        <option value="afficheTheme.html">Recherche d'un livre par thèmes</option>
+                        <option value="afficheTheme.php">Recherche d'un livre par thèmes</option>
                         <option value="afficheEdit.php">Recherche d'un livre par maison d'édition</option>
                         <option value="affichePage.php">Recherche d'un livre par Nb de page</option>
                         <option value="afficheLangue.php">Recherche d'un livre par langue</option>

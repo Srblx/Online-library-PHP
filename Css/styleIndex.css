@@ -1,0 +1,37 @@
+body {
+    background-color: #333;
+}
+
+.form {
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    border-radius: 5px;
+
+}
+p {
+    background-color: #FFF;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+   
+}
+form, p {
+    border-radius: 5px ;
+}
+h1 {
+    color: #FFF;
+}
+td {
+    padding: 10px;
+}
+.bandeau {
+    background-color: rgba(73, 73, 253, 0.899);
+    margin: 0;
+    padding: 0.7%;
+  
+    
+}
+
