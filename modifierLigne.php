@@ -170,7 +170,7 @@
     //& Connection a la bdd
     $connect = mysqli_connect('localhost', 'root', '', 'bibliotheque');
 
-    //& Verification de la connexion
+    //& Verification de la connexiont
     if (!$connect) {
         die("La connexion a échoué : ");
     }
