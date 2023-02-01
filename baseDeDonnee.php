@@ -60,6 +60,12 @@ if (!$conn) {
     //& Lier les variables aux marqueurs
     mysqli_stmt_bind_param($stmt, "sssissssids", $isbn, $titre, $theme, $nbPage, $format, $nomAuteur, $prenomAuteur, $editeur, $anneeEdition, $prix, $langue);
 
+    //& Vérifier que toutes les données requises sont entrées correctement
+    if (empty($_POST['isbn']) || empty($_POST['titre']) || empty($_POST['theme']) || empty($_POST['nbPage']) || empty($_POST['format']) || empty($_POST['nomAuteur']) || empty($_POST['prenomAuteur']) || empty($_POST['editeur']) || empty($_POST['anneeEdition']) || empty($_POST['prix']) || empty($_POST['langue'])) {
+        echo "<script type=text/javascript>";
+        echo "alert('Veuillez entrer toutes les données requises')</script>";
+        exit();
+    }
     //& Valider les données entrées par l'utilisateur
     $isbn = validate_input($_POST['isbn']);
     $titre = validate_input($_POST['titre']);
