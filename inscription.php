@@ -43,14 +43,45 @@
                     <td><input type="mail" name="mail" id="mail"></td>
                 </tr>
                 <tr>
-                    <td><label for="mdp">Mot De Passe <sup>*</sup> : </label></td>
+                    <!-- <td><label for="mdp">Mot de passe <sup>*</sup> : </label></td>
                     <td><input type="password" name="mdp" id="mdp"></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" id="submit" value="S'enregistrer"></td>
+                    <td><label for="mdp2">Confirmer <sup>*</sup> : </label></td>
+                    <td><input type="password" name="mdp2" id="mdp2"></td>
+                </tr> -->
+                    <form action="<?php //! LES MOT DE PASSE NE CORRESPONDE PAS MAIS JE PEUT SOUMETTRE §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+                                    echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                        <!-- autres champs -->
+                        <!-- <table> -->
+                <tr>
+                    <td><label for="mdp">Mot de passe <sup>*</sup> : </label></td>
+                    <td> <input type="password" name="mdp"></td>
                 </tr>
-            </table>
-        </fieldset>
+                <tr>
+                    <td><label for="mdp2">Confirmer <sup>*</sup> : </label></td>
+                    <td><input type="password" name="mdp2"></td>
+                </tr>
+                <span class="error">
+                    <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        $password = $_POST["password"];
+                        $confirmPassword = $_POST["confirmPassword"];
+
+                        if ($password !== $confirmPassword) {
+                            $erreur = "Les mots de passe ne correspondent pas.";
+                            echo $erreur;
+                        }
+                    }
+                    ?></span>
+                <tr>
+                    <td><label for="reset"></label></td>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+                <!-- </table> -->
+    </form>
+
+    </table>
+    </fieldset>
     </form>
 
 </body>

@@ -6,78 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./Css/titreBarre.css">
 </head>
 
 <body>
     <?php session_start(); ?>
-    <style>
-        body {
-            background: url(./img/9.jpg);
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        h1,
-        .btn {
-            display: grid;
-            justify-content: center;
-        }
-
-        h2 {
-            background-color: grey;
-            color: white;
-            text-decoration: underline;
-            padding-left: 10px;
-            font-style: italic;
-        }
-
-        select,
-        a,
-        .btn {
-            text-decoration: none;
-            border: none;
-            color: rgb(0, 102, 255);
-            font-size: 15px;
-            font-weight: bold;
-        }
-
-
-        .key {
-            font-style: italic;
-            font-size: 22px;
-            background-color: rgba(0, 0, 0, 0.2);
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .value {
-            background-color: rgba(0, 0, 0, 0.2);
-            font-weight: bold;
-        }
-
-        td {
-            padding: 4px;
-        }
-
-        .styleTab {
-            border-radius: 5px;
-            border-color: black;
-            margin-top: 1%;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 0;
-            left: 43%;
-        }
-
-        @media screen and (min-width: 670px) {
-            form {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-            }
-        }
-    </style>
     <h1>Afficher un livre de la base de données</h1>
     <?php
 

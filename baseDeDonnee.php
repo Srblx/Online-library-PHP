@@ -87,7 +87,7 @@ if (!$conn) {
 
     if (mysqli_stmt_execute($stmt)) {
         //& fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
-        header('location: acceuil.html');
+        header('location: acceuil.php');
     } else {
         echo "Insertion  impossible veuiller réessayer ! <br>";
         echo ' <a href="ajouter.php">Retourner au formulaire</a>';

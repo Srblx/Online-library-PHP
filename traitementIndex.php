@@ -13,7 +13,7 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
 
     $connect = mysqli_connect($server, $user, $password, $dbName);
 
-    //& Requete 
+    // Requete 
     $req = "SELECT * FROM user WHERE mail = '$mail' AND mdp = '$mdp' ";
     $result = mysqli_query($connect, $req);
 
@@ -23,7 +23,7 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
         $donnees = mysqli_fetch_array($result);
         print_r($donnees);
 
-        //& Stockage des données nom prenom pour les recuperer sur d'autres page
+        // Stockage des données nom prenom pour les recuperer sur d'autres page
         $name = $donnees[1];
         $lastname = $donnees[2];
         $_SESSION['nom'] = $name;
@@ -32,7 +32,7 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
         die("Erreur lors de l'exécution de la requête: " . mysqli_error($connect));
     }
 
-    //& Compteur de ligne ayant rapport a la requete 
+    // Compteur de ligne ayant rapport a la requete 
     $nbLine = mysqli_num_rows($result);
     if ($nbLine > 0) {
         header('location: acceuil.php');
