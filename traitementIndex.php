@@ -37,7 +37,6 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
     if ($nbLine > 0) {
         header('location: acceuil.php');
     } else {
-
         echo '<style>h3{color:red;}</style><h3>Veuillez vous inscrire <a href="inscription.php">Ici</a></h3>';
     }
 }

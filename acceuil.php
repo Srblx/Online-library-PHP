@@ -49,7 +49,7 @@
   <?php
 
   echo "Bonjour " . $_SESSION['prenom'];
-  echo $_SESSION['prenom'];
+  echo $_SESSION['nom'];
   ?>
   <div class="btn">
     <table>

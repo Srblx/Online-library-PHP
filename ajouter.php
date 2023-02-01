@@ -98,7 +98,7 @@
                         <option value="afficher.php">Afficher les livres</option>
                         <option value="afficherAuteur.php">Recherche d'un livre par auteurs</option>
                         <option value="afficherTitre.php">Recherche d'un livre par titre</option>
-                        <option value="afficheTheme.html">Recherche d'un livre par thèmes</option>
+                        <option value="afficheTheme.php">Recherche d'un livre par thèmes</option>
                         <option value="afficheEdit.php">Recherche d'un livre par maison d'édition</option>
                         <option value="affichePage.php">Recherche d'un livre par Nb de page</option>
                         <option value="afficheLangue.php">Recherche d'un livre par langue</option>
