@@ -146,6 +146,8 @@
         echo '<td>' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
         echo '<td>' . '<b>' . 'Prix' . '</b>' . '</td>';
         echo '<td>' . '<b>' . 'Langue' . '</b>' . '</td>';
+        echo '<td>' . '<b>' . 'Modifier' . '</b>' . '</td>';
+        echo '<td>' . '<b>' . 'Supprimer' . '</b>' . '</td>';
         echo '</tr>';
 
         while ($donnees = mysqli_fetch_array($result)) {
@@ -164,6 +166,7 @@
             echo '<td>' . $donnees[10] . " " . '</td>';
             echo '<td>' . $donnees[11] . " " . '</td>';
 
+
             echo '</tr>';
         }
         echo '</table>';
@@ -172,7 +175,7 @@
     //~ Cloture de la connexion a la base de données 
     mysqli_close($conn);
     ?>
-    <footer>
+    <footer><a href="addDelete.php">la</a>
         <p>Alexis SERBELLONI</p>
     </footer>
 </body>
