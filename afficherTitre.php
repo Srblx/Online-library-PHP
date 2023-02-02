@@ -68,12 +68,15 @@
                         <td>
                             <input type="text" id="titre" name="titre">
                         </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" align="center">
+                        <td>
                             <input type="submit" value="Rechercher" id="submit">
                         </td>
                     </tr>
+                    <!-- <tr>
+                        <td colspan="2">
+
+                        </td>
+                    </tr> -->
                 </table>
             </fieldset>
         </form>

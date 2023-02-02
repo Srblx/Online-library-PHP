@@ -2,7 +2,7 @@ body {
     background: url(./Css/img/9.jpg) no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   body {
     font-family: Arial, sans-serif;
@@ -123,4 +123,13 @@ input[type="submit"]:hover {
 
 label {
     color: beige;
+}
+
+.key, .value {
+  background-color: rgba(255, 252, 252, 0.349);
+  font-weight: bold;
+}
+
+table {
+  margin-top: 10px;
 }
