@@ -12,7 +12,7 @@
 <body><?php session_start(); ?>
   <style>
     body {
-      background: url(./img/9.jpg);
+      background: url(./Css/img/9.jpg);
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -38,12 +38,6 @@
       color: rgb(0, 102, 255);
       font-size: 15px;
       font-weight: bold;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 0;
-      left: 45%;
     }
   </style>
   <h1>Bibliothèque en ligne</h1>

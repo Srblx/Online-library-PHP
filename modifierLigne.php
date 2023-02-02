@@ -63,16 +63,43 @@
         </table>
     </div>
     <h2>Bienvenue sur le site de consultation de livres</h2>
-    <form action="modifierLigne.php" method="post">
+    <?php
+    // UPDATE recipes SET title = :title, recipe = :recipe WHERE recipe_id = :id
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "bibliotheque";
+    // Récupérer l'ID de la ligne à partir du formulaire ou du paramètre d'URL
+    $id = $_GET['id'];
+
+    // Créer une connexion
+    $connect = mysqli_connect($servername, $username, $password, $dbname);
+
+    // Vérifier la connexion
+    if (!$connect) {
+        die("Connexion échouée : " . mysqli_connect_error());
+    }
+
+    // $new_value = $_POST['titre'];
+    // Récupérer les données de la base de données pour cette entrée
+    $sql = "SELECT * FROM livre WHERE id = $id";
+    $result = mysqli_query($connect, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    // Fermer la connexion
+    mysqli_close($connect);
+
+    ?>
+    <form action="traitmodifierLigne.php?id=<?= $id; ?>" method="post">
         <fieldset>
-            <legend id="legend"><b>Ajouter un livre</b></legend>
+            <legend id="legend"><b>Modifier les informations d'un livre</b></legend>
             <table>
                 <tr>
                     <td>
                         <label for="isbn">ISBN :</label>
                     </td>
                     <td>
-                        <input type="text" name="isbn" id="isbn">
+                        <input type="text" name="isbn" id="isbn" value="<?= $row['isbn'] ?>">
                     </td>
                 </tr>
                 <tr>
@@ -80,7 +107,7 @@
                         <label for="titre">Titre :<sup>*</sup></label>
                     </td>
                     <td>
-                        <input type="text" name="titre" id="titre" required>
+                        <input type="text" name="titre" id="titre" value="<?= $row['titre'] ?>">
                     </td>
                 </tr>
                 <tr>
@@ -88,7 +115,7 @@
                         <label for="theme">Theme :</label>
                     </td>
                     <td>
-                        <input type="text" name="theme" id="theme">
+                        <input type="text" name="theme" id="theme" value="<?= $row['theme'] ?>">
                     </td>
                 </tr>
                 <tr>
@@ -96,7 +123,7 @@
                         <label for="nbPage">Nombre de pages :</label>
                     </td>
                     <td>
-                        <input type="text" name="nbPage" id="nbPage">
+                        <input type="text" name="nbPage" id="nbPage" <?= $row['nombreDePage'] ?>>
                     </td>
                 </tr>
                 <tr>
@@ -104,7 +131,7 @@
                         <label for="format">Format
                     </td>
                     <td>
-                        <input type="text" name="format" id="format">
+                        <input type="text" name="format" id="format" value="<?= $row['format'] ?>">
                     </td>
                 </tr>
                 <tr>
@@ -112,7 +139,7 @@
                         <label for="nomAuteur">Nom de l'auteur :<sup>*</sup></label>
                     </td>
                     <td>
-                        <input type="text" name="nomAuteur" id="nomAuteur" required>
+                        <input type="text" name="nomAuteur" id="nomAuteur" value="<?= $row['nomAuteur'] ?>">
                     </td>
                 </tr>
                 <tr>
@@ -120,7 +147,7 @@
                         <label for="prenomAuteur">Prénom de l'auteur :<sup>*</sup></label>
                     </td>
                     <td>
-                        <input type="text" name="prenomAuteur" id="prenomAuteur" required>
+                        <input type="text" name="prenomAuteur" id="prenomAuteur" value="<?= $row['prenomAuteur'] ?>">
                     </td>
                 </tr>
                 <tr>
@@ -128,7 +155,7 @@
                         <label for="editeur">Editeur :</label>
                     </td>
                     <td>
-                        <input type="text" name="editeur" id="editeur">
+                        <input type="text" name="editeur" id="editeur" value="<?= $row['editeur'] ?>">
                     </td>
                 </tr>
                 <tr>
@@ -137,7 +164,7 @@
                         <label for="anneeEdition">Année d'édition :</label>
                     </td>
                     <td>
-                        <input type="text" name="anneeEdition" id="anneeEdition">
+                        <input type="text" name="anneeEdition" id="anneeEdition" <?= $row['anneeEdition'] ?>>
                     </td>
                 </tr>
                 <tr>
@@ -145,7 +172,7 @@
                         <label for="prix">Prix :</label>
                     </td>
                     <td>
-                        <input type="text" name="prix" id="prix">
+                        <input type="text" name="prix" id="prix" <?= $row['prix'] ?>>
                     </td>
                 </tr>
                 <tr>
@@ -153,44 +180,18 @@
                         <label for="langue">Langue : </label>
                     </td>
                     <td>
-                        <input type="text" name="langue" id="langue">
+                        <input type="text" name="langue" id="langue" value="<?= $row['langue'] ?>">
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <input type="submit" value="Ajouter" id="submit">
+                        <input type="submit" value="Modifier" id="submit">
                     </td>
                 </tr>
             </table>
         </fieldset>
     </form>
-    <?php
-    // UPDATE recipes SET title = :title, recipe = :recipe WHERE recipe_id = :id
 
-    //& Connection a la bdd
-    $connect = mysqli_connect('localhost', 'root', '', 'bibliotheque');
-
-    //& Verification de la connexiont
-    if (!$connect) {
-        die("La connexion a échoué : ");
-    }
-
-    //& Requete SQl
-    $modify = "UPDATE user SET titre='" . $_POST['titre'] . "', theme='" . $_POST['theme'] . "', nombreDePage='" . $_POST['nbPage'] . "', format='" . $_POST['format'] . "', nomAucteur='" . $_POST['nomAuteur'] . "', prenomAuteur='" . $_POST['prenomAuteur'] . "', editeur='" . $_POST['editeur'] . "', anneeEdition='" . $_POST['anneeEdition'] . "', prix='" . $_POST['prix'] . "', langue='" . $_POST['langue'] . "' WHERE id";
-
-
-
-    //& Execution de la requete mise a jour 
-    if ($connect->query($modify) === TRUE) {
-        //& Si la mise a jour reussi
-        echo "Mise a jour des informations reussie";
-    } else {
-        //& Si la mise a jour echoue
-        echo "Erreur lorsde la mise a jour";
-    }
-
-    mysqli_close($connect);
-    ?>
 
 </body>
 

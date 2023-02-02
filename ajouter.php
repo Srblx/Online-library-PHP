@@ -6,81 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./Css/styleInput.css">
 </head>
 
 <body>
     <?php session_start(); ?>
-    <style>
-        body {
-            background: url(./img/9.jpg);
-            font-family: Arial, Helvetica, sans-serif;
-        }
 
-        h1,
-        .btn,
-        form {
-            display: grid;
-            justify-content: center;
-        }
-
-        form {
-            font-size: large;
-        }
-
-        input {
-            width: 450px;
-            height: 20px;
-            margin: 5px;
-            border-radius: 5px;
-        }
-
-        #submit {
-            width: 100px;
-
-        }
-
-        fieldset {
-            border-radius: 3px;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        h2 {
-            background-color: grey;
-            color: white;
-            text-decoration: underline;
-            padding-left: 10px;
-            font-style: italic;
-        }
-
-        select,
-        a,
-        .btn {
-            text-decoration: none;
-            border: none;
-            color: rgb(0, 102, 255);
-            font-size: 15px;
-            font-weight: bold;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 0;
-            left: 45%;
-        }
-
-        sup {
-            color: red;
-            font-size: 25px;
-        }
-
-        @media screen and (max-width: 670px) {
-            form {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-            }
-        }
-    </style>
     <h1>Ajouter un livre a la base de données</h1>
     <?php
 

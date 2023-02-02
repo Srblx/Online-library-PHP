@@ -79,8 +79,8 @@
         echo '<td>' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
         echo '<td>' . '<b>' . 'Prix' . '</b>' . '</td>';
         echo '<td>' . '<b>' . 'Langue' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . 'Modifier' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . 'Supprimer' . '</b>' . '</td>';
+        echo '<td>' . '<b>' . 'Edit' . '</b>' . '</td>';
+        echo '<td>' . '<b>' . 'Del' . '</b>' . '</td>';
         echo '</tr>';
 
         while ($donnees = mysqli_fetch_array($result)) {
@@ -98,6 +98,8 @@
             echo '<td>' . $donnees[9] . " " . '</td>';
             echo '<td>' . $donnees[10] . " " . '</td>';
             echo '<td>' . $donnees[11] . " " . '</td>';
+            echo '<td><a href="modifierLigne.php?id=' . $donnees[0] . '">✏️</a></td>';
+            echo '<td><a href="addDelete.php?id=' . $donnees[0] . '"">🗑</a></td>';
 
 
             echo '</tr>';
@@ -108,7 +110,7 @@
     //~ Cloture de la connexion a la base de données 
     mysqli_close($conn);
     ?>
-    <footer><a href="addDelete.php">la</a>
+    <footer>
         <p>Alexis SERBELLONI</p>
     </footer>
 </body>
