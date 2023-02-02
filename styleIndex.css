@@ -1,0 +1,130 @@
+.bandeau {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #24292e;
+    color: #fff;
+  }
+  
+  .fa-solid.fa-bookmark,
+  .fa-sharp.fa-solid.fa-book {
+    font-size: 40px;
+  }
+  
+  h1 {
+    text-align: center;
+    /* margin-top: 50px; */
+    font-size: 36px;
+  }
+  
+  .form {
+    width: 500px;
+    width: 500px;
+  margin: 0 auto;
+  text-align: center;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #24292e;
+    padding: 40px;
+    animation: form-entry 0.5s ease-in-out;
+  }
+  
+  table {
+    /* margin: 0 auto; */
+  }
+  
+  td {
+    padding: 20px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="submit"],
+  input[type="mail"] {
+    width: 100%;
+    padding: 10px;
+    /* margin-top: 20px; */
+    border-radius: 5px;
+    border: 3px solid #24292e;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input[type="submit"] {
+    background-color: #24292e;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="mail"]:focus {
+    border-color: #0366d6;
+    box-shadow: 0 0 10px #0366d6;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0366d6;
+    border-color: #0366d6;
+  }
+  
+  a {
+    display: inline-block;
+    /* margin-top: 20px; */
+    padding: 10px 20px;
+    background-color: #24292e;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    background-color: #0366d6;
+  }
+  
+  @keyframes form-entry {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media only screen and (max-width: 580px) {
+    .form {
+      width: 80%;
+      /* margin: 20px auto; */
+      text-align: center;
+    }
+  
+    td {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* margin: 20px 0; */
+    }
+  
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      /* margin: 10px 0; */
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+  
+    h4 {
+      font-size: 20px;
+      /* margin-bottom: 20px; */
+    }
+  
+    a {
+      font-size: 16px;
+    }
+  }

@@ -48,6 +48,8 @@ $sql = "UPDATE livre SET isbn='$isbn', titre='$titre', theme='$theme', nombreDeP
 $result = mysqli_query($connect, $sql);
 
 if ($result) {
+    echo "<script type=text/javascript>";
+    echo "alert('Etes vous sur de vouloir supprimer cette ligne ? ')</script>";
     header('location: afficher.php');
 } else {
     echo "Erreur lors de la mise à jour des informations : " . mysqli_error($connect);

@@ -6,77 +6,53 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="./Css/titreBarre.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body><?php session_start(); ?>
-  <style>
-    body {
-      background: url(./Css/img/9.jpg);
-      font-family: Arial, Helvetica, sans-serif;
-    }
 
-    h1,
-    .btn {
-      display: grid;
-      justify-content: center;
-    }
-
-    h2 {
-      background-color: grey;
-      color: white;
-      text-decoration: underline;
-      padding-left: 10px;
-      font-style: italic;
-    }
-
-    select,
-    a,
-    .btn {
-      text-decoration: none;
-      border: none;
-      color: rgb(0, 102, 255);
-      font-size: 15px;
-      font-weight: bold;
-    }
-  </style>
   <h1>Bibliothèque en ligne</h1>
-  <?php
+  <nav>
+    <div class="infoCoG">
+      <a href="deconnexion.php" id="deco">Déconnexion</a>
+    </div>
+    <div class="infoCoD">
+      <?= "Bonjour " . '<br>'; ?>
+      <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?>
+    </div>
+  </nav>
 
-  echo "Bonjour " . $_SESSION['prenom'];
-  echo $_SESSION['nom'];
-  ?>
   <div class="btn">
     <table>
       <tr>
-        <td><a href="acceuil.html">Accueil</a></td>
+        <td><a href="acceuil.php" id="test">Accueil</a></td>
         <td>
           <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
           <select name="livre" id="livre">
             <option value="">Sélectionnez une option</option>
             <option value="afficher.php">Afficher les livres</option>
-            <option value="afficherAuteur.php">
+            <option value="afficherAuteur.php" class="option">
               Recherche d'un livre par auteurs
             </option>
-            <option value="afficherTitre.php">
+            <option value="afficherTitre.php" class="option">
               Recherche d'un livre par titre
             </option>
-            <option value="afficheTheme.php">
+            <option value="afficheTheme.php" class="option">
               Recherche d'un livre par thèmes
             </option>
-            <option value="affichePage.php">
+            <option value="affichePage.php" class="option">
               Recherche d'un livre par Nb de page
             </option>
-            <option value="afficheEdit.php">
-              Recherche d'un livre par maison d'édition
+            <option value="afficheEdit.php" class="option">
+              Recherche d'un livre par maison éditeur
             </option>
-            <option value="afficheLangue.php">
+            <option value="afficheLangue.php" class="option">
               Recherche d'un livre par langue
             </option>
-            <option value="affichePrix.php">
+            <option value="affichePrix.php" class="option">
               Recherche d'un livre par prix
             </option>
-            <option value="ajouter.php">Ajouter un livre</option>
+            <option value="ajouter.php" class="option">Ajouter un livre</option>
           </select>
           <!-- </form> -->
 

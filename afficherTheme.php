@@ -6,18 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultat de recherche par thème</title>
-    <link rel="stylesheet" href="./Css/styleInput.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <?php session_start(); ?>
 
     <h1>Afficher un livre par thèmes</h1>
-    <?php
-
-    echo "Bonjour " . $_SESSION['prenom'];
-    echo $_SESSION['nom'];
-    ?>
+    <nav>
+        <div class="infoCoG">
+            <a href="deconnexion.php" id="deco">Déconnexion</a>
+        </div>
+        <div class="infoCoD">
+            <?= "Bonjour " . '<br>'; ?>
+            <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?>
+        </div>
+    </nav>
     <div class="btn">
         <table>
             <tr>
@@ -105,6 +109,7 @@
         echo '</table>';
     }
     ?>
+
 </body>
 
 </html>

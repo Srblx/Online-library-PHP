@@ -54,7 +54,7 @@ $result;
 
 if (mysqli_stmt_execute($stmt)) {
     //& fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
-    header('location: index.php');
+    header('location: loginSucces.php');
 } else {
     echo "Insertion  impossible veuiller réessayer ! <br>";
     echo ' <a href="ajouter.php">Retourner au formulaire</a>';
@@ -69,4 +69,3 @@ function validate_input($data)
     return $data;
 }
 mysqli_close($conn);
-header('location : index.php');

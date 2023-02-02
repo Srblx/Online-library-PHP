@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <div class="bandeau">
-        <i class="fa-solid fa-bookmark"></i>
+    <div class="bandeau"><i class="fa-solid fa-bookmark"></i>
+
         <i class="fa-sharp fa-solid fa-book"></i>
     </div>
     <H1>Consulter notre bibliothèque </H1>
@@ -36,14 +36,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="connect"><input type="submit" value="Se connecter" id="send"></label>
+                        <label for="connect"><input type="submit" value="Se connecter"></label>
                     </td>
                     <td>
                         <a href="inscription.php">Inscrivez-vous</a>
                     </td>
                 </tr>
             </table>
-
+            <h3 style="color:red;">Désolé, votre mot de passe ou votre mail est incorrect. <br> Veuillez vérifier votre mot de passe ou inscrivez vous. <a href="inscription.php">Ici</a></h3>
         </form>
     </div>
 

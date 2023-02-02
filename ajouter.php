@@ -6,22 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./Css/styleInput.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <?php session_start(); ?>
 
     <h1>Ajouter un livre a la base de données</h1>
-    <?php
-
-    echo "Bonjour " . $_SESSION['prenom'];
-    echo $_SESSION['nom'];
-    ?>
+    <nav>
+        <div class="infoCoG">
+            <a href="deconnexion.php" id="deco">Déconnexion</a>
+        </div>
+        <div class="infoCoD">
+            <?= "Bonjour " . '<br>'; ?>
+            <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?>
+        </div>
+    </nav>
     <div class="btn">
         <table id="tabAjout">
             <tr>
-                <td><a href="acceuil.php">Accueil</a></td>
+                <td><a href="acceuil.php" id="test">Accueil</a></td>
                 <td>
                     <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
                     <select name="livre" id="livre">

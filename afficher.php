@@ -6,21 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./Css/titreBarre.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <?php session_start(); ?>
     <h1>Afficher un livre de la base de données</h1>
-    <?php
-
-    echo "Bonjour " . $_SESSION['prenom'];
-    echo $_SESSION['nom'];
-    ?>
+    <nav>
+        <div class="infoCoG">
+            <a href="deconnexion.php" id="deco">Déconnexion</a>
+        </div>
+        <div class="infoCoD">
+            <?= "Bonjour " . '<br>'; ?>
+            <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?>
+        </div>
+    </nav>
     <div class="btn">
         <table>
             <tr>
-                <td><a href="acceuil.php">Accueil</a></td>
+                <td><a href="acceuil.php" id="test">Accueil</a></td>
                 <td>
                     <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
                     <select name="livre" id="livre">
@@ -79,8 +84,8 @@
         echo '<td>' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
         echo '<td>' . '<b>' . 'Prix' . '</b>' . '</td>';
         echo '<td>' . '<b>' . 'Langue' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . 'Edit' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . 'Del' . '</b>' . '</td>';
+        echo '<td>' . '<b>' . '' . '</b>' . '</td>';
+        echo '<td>' . '<b>' . '' . '</b>' . '</td>';
         echo '</tr>';
 
         while ($donnees = mysqli_fetch_array($result)) {
@@ -98,8 +103,8 @@
             echo '<td>' . $donnees[9] . " " . '</td>';
             echo '<td>' . $donnees[10] . " " . '</td>';
             echo '<td>' . $donnees[11] . " " . '</td>';
-            echo '<td><a href="modifierLigne.php?id=' . $donnees[0] . '">✏️</a></td>';
-            echo '<td><a href="addDelete.php?id=' . $donnees[0] . '"">🗑</a></td>';
+            echo '<td><a href="modifierLigne.php?id=' . $donnees[0] . '"><i class="fa-solid fa-pen"></i></a></td>';
+            echo '<td><a href="addDelete.php?id=' . $donnees[0] . '""><i class="fa-solid fa-trash"></i></a></td>';
 
 
             echo '</tr>';

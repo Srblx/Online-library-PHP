@@ -6,16 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./Css/styleInput.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body><?php session_start(); ?>
     <h1>Bibliothèque en ligne</h1>
-    <?php
+    <div class="infoCo">
+        <a href="deconnexion.php">Déconnexion</a>
+        <?php
 
-    echo "Bonjour " . $_SESSION['prenom'];
-    echo $_SESSION['nom'];
-    ?>
+        echo "Bonjour " . $_SESSION['prenom'];
+        echo $_SESSION['nom'];
+        ?>
+    </div>
     <div class="btn">
         <table>
             <tr>
