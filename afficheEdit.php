@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recherche par editeur</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -105,6 +106,8 @@
             echo '<td>' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
             echo '<td>' . '<b>' . 'Prix' . '</b>' . '</td>';
             echo '<td>' . '<b>' . 'Langue' . '</b>' . '</td>';
+            echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
+            echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
             echo '</tr>';
 
             while ($donnee = mysqli_fetch_array($result)) {
@@ -122,6 +125,8 @@
                 echo '<td>' . $donnee[9] . " " . '</td>';
                 echo '<td>' . $donnee[10] . " " . '</td>';
                 echo '<td>' . $donnee[11] . " " . '</td>';
+                echo '<td><a href="modifierLigne.php?id=' . $donnee[0] . '"><i class="fa-solid fa-pen"></i></a></td>';
+                echo '<td><a href="addDelete.php?id=' . $donnee[0] . '""><i class="fa-solid fa-trash"></i></a></td>';
                 echo '</tr>';
             }
         }

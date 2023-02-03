@@ -66,6 +66,18 @@ if (!$conn) {
         echo "alert('Veuillez entrer toutes les données requises')</script>";
         exit();
     }
+
+
+    if (empty($_POST['isbn']) || empty($_POST['theme']) || empty($_POST['NbPage']) || empty($_POST['format']) || empty($_POST['editeur']) || empty($_POST['anneeEdition']) || empty($_POST['prix']) || empty($_POST['langue'])) {
+        $_POST['isbn'] = 'uninformed';
+        $_POST['theme'] = 'uninformed';
+        $_POST['nbPage'] = 'uninformed';
+        $_POST['format'] = 'uninformed';
+        $_POST['editeur'] = 'uninformed';
+        $_POST['anneeEdition'] = 'uninformed';
+        $_POST['prix'] = 'uninformed';
+        $_POST['langue'] = 'uninformed';
+    }
     //& Valider les données entrées par l'utilisateur
     $isbn = validate_input($_POST['isbn']);
     $titre = validate_input($_POST['titre']);

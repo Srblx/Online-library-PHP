@@ -73,36 +73,36 @@
         //~ Pour affiche les données de la bdd dans un tableau 
         echo '<table border=1, class="styleTab" >';
         echo '<tr class="key">';
-        echo '<td>' . '<b>' .  'ISBN ' . '</b>' . '</td>';
-        echo '<td>' . '<b>' .  'Titre ' . '</b>' . '</td>';
-        echo '<td>' . '<b>' .  'Thème ' . '</b>' . '</td>';
-        echo '<td>' . '<b>' .  'Nombre Pages' . '</b>' . '</td>';
-        echo '<td>' . '<b>' .  'Format' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . 'Nom auteur' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . 'Prénom auteur' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . 'Editeur' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . 'Prix' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . 'Langue' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . '' . '</b>' . '</td>';
-        echo '<td>' . '<b>' . '' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' .  'ISBN ' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' .  'Titre ' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' .  'Thème ' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' .  'Nombre Pages' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' .  'Format' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' . 'Nom auteur' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' . 'Prénom auteur' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' . 'Editeur' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' . 'Prix' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' . 'Langue' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
+        echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
         echo '</tr>';
 
         while ($donnees = mysqli_fetch_array($result)) {
             //& $donnees recuperé avec la fonction ci dessus (ATTENTION array pas SENSIBLE a la CASSE)
             //~ Les valeurs que j'affiche dans le tableau
             echo '<tr class="value">';
-            echo '<td>' . $donnees[1] . "  " . '</td>';
-            echo '<td>' . $donnees[2] . "  " . '</td>';
-            echo '<td>' . $donnees[3] . " " . '</td>';
-            echo '<td>' . $donnees[4] . " " . '</td>';
-            echo '<td>' . $donnees[5] . " " . '</td>';
-            echo '<td>' . $donnees[6] . " " . '</td>';
-            echo '<td>' . $donnees[7] . " " . '</td>';
-            echo '<td>' . $donnees[8] . " " . '</td>';
-            echo '<td>' . $donnees[9] . " " . '</td>';
-            echo '<td>' . $donnees[10] . " " . '</td>';
-            echo '<td>' . $donnees[11] . " " . '</td>';
+            echo '<td class="td">' . $donnees[1] . "  " . '</td>';
+            echo '<td class="td">' . $donnees[2] . "  " . '</td>';
+            echo '<td class="td">' . $donnees[3] . " " . '</td>';
+            echo '<td class="td">' . $donnees[4] . " " . '</td>';
+            echo '<td class="td">' . $donnees[5] . " " . '</td>';
+            echo '<td class="td">' . $donnees[6] . " " . '</td>';
+            echo '<td class="td">' . $donnees[7] . " " . '</td>';
+            echo '<td class="td">' . $donnees[8] . " " . '</td>';
+            echo '<td class="td">' . $donnees[9] . " " . '</td>';
+            echo '<td class="td">' . $donnees[10] . " " . '</td>';
+            echo '<td class="td">' . $donnees[11] . " " . '</td>';
             echo '<td><a href="modifierLigne.php?id=' . $donnees[0] . '"><i class="fa-solid fa-pen"></i></a></td>';
             echo '<td><a href="addDelete.php?id=' . $donnees[0] . '""><i class="fa-solid fa-trash"></i></a></td>';
 
