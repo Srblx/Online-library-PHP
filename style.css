@@ -180,3 +180,44 @@ table.styleTab {
     margin: 0 auto;
   }
 }
+
+/* Pour les forms  */
+form {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input[type="text"], input[type="submit"] {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-top: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+input[type="text"]:hover, input[type="submit"]:hover {
+  box-shadow: 0 0 10px lightgray;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  background-color: lightgray;
+  color: white;
+  width: 120px;
+}
+
+#legend {
+  font-size: 20px;
+}
+
+footer {
+  clear: both;
+}
+label {
+  /* margin-left: 30px;
+  margin-right: 60px; 
+  ! sur quelle element je doit intervenir?*/
+
+}

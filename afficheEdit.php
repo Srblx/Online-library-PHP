@@ -68,12 +68,11 @@
                     <td>
                         <input type="text" id="edit" name="edit">
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
+                    <td>
                         <input type="submit" value="Rechercher" id="submit">
                     </td>
                 </tr>
+
             </table>
         </fieldset>
     </form>

@@ -66,14 +66,13 @@
                         <label for="nbPage">Nombre de pages : </label>
                     </td>
                     <td>
-                        <input type="nombre" id="nbPage" name="nbPage">
+                        <input type="text" id="nbPage" name="nbPage">
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
+                    <td>
                         <input type="submit" value="Rechercher" id="submit">
                     </td>
                 </tr>
+
             </table>
         </fieldset>
     </form>

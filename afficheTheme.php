@@ -69,12 +69,11 @@
                     <td>
                         <input type="text" id="theme" name="theme">
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
+                    <td>
                         <input type="submit" value="Rechercher" id="submit">
                     </td>
                 </tr>
+
             </table>
         </fieldset>
     </form>

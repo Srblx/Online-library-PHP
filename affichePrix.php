@@ -67,14 +67,13 @@
                         <label for="prix">Budget maximum : </label>
                     </td>
                     <td>
-                        <input type="nombre" id="prix" name="prix">
+                        <input type="text" id="prix" name="prix">
                     </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
+                    <td>
                         <input type="submit" value="Rechercher" id="submit">
                     </td>
                 </tr>
+
             </table>
         </fieldset>
     </form>
