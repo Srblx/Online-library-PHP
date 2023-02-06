@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Recherche Par Titre</title>
         <link rel="stylesheet" href="style.css">
+        <script src="./js/app.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
@@ -67,9 +68,12 @@
                             <label for="titre">Titre du livre : </label>
                         </td>
                         <td>
-                            <input type="text" id="titre" name="titre">
+                            <!-- Champ de saisie avec liste déroulante pour les suggestions -->
+                            <input type="text" id="titre" name="titre" list="suggestions">
+                            <datalist id="suggestions"></datalist>
                         </td>
                         <td>
+                            <!-- Bouton de soumission du formulaire -->
                             <input type="submit" value="Rechercher" id="submit">
                         </td>
                     </tr>
@@ -140,6 +144,37 @@
                 echo '</table>';
             }
         }
+        ?>
+        <?php
+        // Définition du type de contenu renvoyé
+        header("Content-Type: application/json");
+
+
+        // Récupération du titre depuis la requête HTTP
+        $titre = $_POST["titre"];
+
+        // Connexion à la base de données
+        $connect = mysqli_connect('localhost', 'root', '', 'bibliotheque');
+        // Vérification de la réussite de la connexion
+        if (!$connect) {
+            // Affichage d'un message d'erreur en cas d'échec
+            die("Erreur de connexion : " . mysqli_connect_error());
+        }
+
+        // si la connexion s'effectue 
+        //requete SQL pour recupere les bonnées de la BDD
+        $query = "SELECT titre FROM livre WHERE titre LIKE '%$titre%'";
+        $result = mysqli_query($connect, $query);
+
+        // Initialisation un tableau vide pour stocker les titres trouvés
+        $titres = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            // On ajoute le titre trouvé dans le tableau
+            $titres[] = $row["titre"];
+        }
+
+        // Cette ligne encode les titres en JSON et les renvoie pour pouvoir être utilisés par JavaScript.
+        echo json_encode($titres);
         ?>
         <footer>
             <p>Alexis SERBELLONI</p>

@@ -79,8 +79,9 @@
                     }
                     ?></span>
                 <tr>
-                    <td><label for="reset"></label></td>
+                    <td><label for="reset"></label><input type="reset" value="Reset" id="reset"></td>
                     <td><input type="submit" value="Submit"></td>
+                    <td><a href="accueil.php">Retour à l'accueil</a></td>
                 </tr>
                 <!-- </table> -->
     </form>

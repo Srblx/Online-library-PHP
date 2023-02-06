@@ -52,11 +52,18 @@
     transition: all 0.3s ease-in-out;
   }
   
-  input[type="submit"] {
+  input[type="submit"]{
     background-color: #24292e;
     color: #fff;
     cursor: pointer;
   }
+
+  /* #reset {
+    background-color: #24292e;
+    color: #fff;
+    cursor: pointer;
+  }
+*/
   
   input[type="text"]:focus,
   input[type="password"]:focus,
@@ -69,6 +76,8 @@
     background-color: #0366d6;
     border-color: #0366d6;
   }
+
+
   
   a {
     display: inline-block;

@@ -134,7 +134,7 @@
     }
     ?>
     <footer>
-        <p>Alexis SERBELLONI</p>
+
     </footer>
 </body>
 
