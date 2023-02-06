@@ -8,13 +8,16 @@
         <title>Recherche Par Titre</title>
         <link rel="stylesheet" href="style.css">
         <script src="./js/app.js" defer></script>
+        <link rel="stylesheet" href="styledark.css">
+        <script src="js/dark.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
-    <body>
+    <body class="light">
         <?php session_start(); ?>
 
         <h1>Afficher un livre par titre</h1>
+        <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
         <nav>
             <div class="infoCoG">
                 <a href="deconnexion.php" id="deco">Déconnexion</a>
@@ -60,7 +63,7 @@
 
         </div>
         <form action="afficherTitre.php" method="post">
-            <fieldset>
+            <fieldset class="formDark">
                 <legend><b>Recherche d'un livre par titre</b></legend>
                 <table>
                     <tr>

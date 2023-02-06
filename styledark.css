@@ -1,0 +1,69 @@
+.btnDark {
+    width: 40px;
+    height: 40px;
+    border-radius: 30%;
+    background-color: #000000cc;
+    border: 2px solid white;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+
+}
+
+Body.dark {
+    color:#fff!important;
+    background: url(./Css/img/9\ -\ Copie.jpg) no-repeat center center fixed;
+    background-size: cover;
+
+
+}
+
+
+/* Quand body a la class dark alors btnDark  */
+body.dark #btnDark {
+    background: #fff;
+    color: #333;
+
+}
+
+body.dark #deco {
+    color: #fff;
+    transition: 0.5s;
+}
+
+body.dark #deco:hover {
+    color: #ff0000;
+}
+
+body.dark #test{
+    color: #fff;
+}
+body.dark #livre{
+    color: #fff;
+    background: #333333e4;
+    border-radius: 5px;
+}
+
+
+body.dark .formDark {
+    background-color: #ffffff33;
+    border-color: white;
+}
+
+body.dark   input[type="text"],
+input[type="password"],
+input[type="submit"],
+input[type="mail"] {
+    color: black;
+}
+
+body.dark label {
+    color: #868686;
+}
+
+body.dark legend {
+    color: #fff;
+}
