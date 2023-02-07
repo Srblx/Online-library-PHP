@@ -105,7 +105,7 @@
                     ?></span>
                 <tr>
                     <td><label for="reset"></label><input type="reset" value="Reset" id="reset"></td>
-                    <td><input type="submit" value="Submit"></td>
+                    <td><input type="submit" value="Submit" id="send"></td>
                     <td><a href="index.php">Retour à l'accueil</a></td>
                 </tr>
                 <!-- </table> -->

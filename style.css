@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+
+}
+
 body {
     background: url(./Css/img/9.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -23,7 +28,7 @@ body {
   nav {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 5px; 
   }
   
   .infoCoG {
@@ -147,6 +152,10 @@ table.styleTab {
   padding: 8px;
 }
 
+body.dark .styleTab tr:nth-child(even) {
+  background-color: rgb(141, 141, 141);
+}
+
 .styleTab tr:nth-child(even) {
   background-color: #f2f2f2;
 }
@@ -186,6 +195,7 @@ table.styleTab {
 form {
   width: 50%;
   margin: 0 auto;
+  min-width: 30%;
   text-align: center;
 }
 

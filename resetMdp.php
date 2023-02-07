@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentification</title>
+    <title>Document</title>
     <link rel="stylesheet" href="styleIndex.css">
     <link rel="stylesheet" href="styledark.css">
     <script src="js/dark.js" defer></script>
@@ -21,43 +21,31 @@
     <H1>Consulter notre bibliothèque </H1>
     <div class="form">
 
-        <form action="traitementIndex.php" method="post">
+        <form action="traitResetMdp.php" method="post">
             <!--  -->
             <table>
                 <tr>
                     <td>
-                        <h4>Entrez vos identifiants pour vous connectez : </h4>
+                        <h4>Mot de passe oublié : </h4>
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="mail">Adresse mail <sup>*</sup>:</label></td>
-                    <td><input type="mail" name="mail" id="mail" placeholder="*****@mail.fr"></td>
+                    <td><label for="mail">Adresse mail<sup>*</sup>:</label></td>
+                    <td><input type="mail" name="mail" id="mail" placeholder="******@mail.fr"></td>
                 </tr>
                 <tr>
-                    <td><label for="mdp">Mot de passe <sup>*</sup>:</label></td>
-                    <td><input type="password" name="mdp" id="mdp" placeholder="***************"></td>
+                    <td><label for="newMdp">Mot de passe<sup>*</sup>:</label></td>
+                    <td><input type="password" name="newMdp" id="newMdp" placeholder="Nouveau mot de passe"></td>
+                </tr>
+                <tr>
+                    <td><label for="ConfNewMdp">Confirme mot de passe <sup>*</sup>:</label></td>
+                    <td><input type="password" name="ConfNewMdp" id="ConfNewMdp" placeholder="Confirme mot de passe"></td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="connect"><input type="submit" value="Se connecter" id="send"></label>
+                        <label for="connect"><input type="submit" value="Changer le mot de passe" id="send"></label>
                     </td>
-                    <td>
-                        <a href="resetMdp.php">Mot de passe oublié</a>
-                        <br>
-                        <a href="inscription.php">Inscrivez-vous</a>
-                    </td>
-                </tr>
-            </table>
-
         </form>
-    </div>
-    <script>
-        // Vérification de la présence de la variable $_GET["passwordUpdated"]
-        if (window.location.search.indexOf("passwordUpdated=1") !== -1) {
-            // Affichage d'un message de confirmation
-            alert("Le mot de passe a été mis à jour avec succès !");
-        }
-    </script>
 </body>
 
 </html>

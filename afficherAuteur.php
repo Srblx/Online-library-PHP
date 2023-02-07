@@ -62,7 +62,7 @@
 
     </div>
     <form action="afficherAuteur.php" method="post">
-        <fieldset>
+        <fieldset class="fieldset">
             <legend><b>Recherche d'un livre par nom d'auteur</b></legend>
             <table>
                 <tr>

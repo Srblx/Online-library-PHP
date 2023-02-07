@@ -148,37 +148,7 @@
             }
         }
         ?>
-        <?php
-        // Définition du type de contenu renvoyé
-        header("Content-Type: application/json");
 
-
-        // Récupération du titre depuis la requête HTTP
-        $titre = $_POST["titre"];
-
-        // Connexion à la base de données
-        $connect = mysqli_connect('localhost', 'root', '', 'bibliotheque');
-        // Vérification de la réussite de la connexion
-        if (!$connect) {
-            // Affichage d'un message d'erreur en cas d'échec
-            die("Erreur de connexion : " . mysqli_connect_error());
-        }
-
-        // si la connexion s'effectue 
-        //requete SQL pour recupere les bonnées de la BDD
-        $query = "SELECT titre FROM livre WHERE titre LIKE '%$titre%'";
-        $result = mysqli_query($connect, $query);
-
-        // Initialisation un tableau vide pour stocker les titres trouvés
-        $titres = [];
-        while ($row = mysqli_fetch_assoc($result)) {
-            // On ajoute le titre trouvé dans le tableau
-            $titres[] = $row["titre"];
-        }
-
-        // Cette ligne encode les titres en JSON et les renvoie pour pouvoir être utilisés par JavaScript.
-        echo json_encode($titres);
-        ?>
         <footer>
             <p>Alexis SERBELLONI</p>
         </footer>

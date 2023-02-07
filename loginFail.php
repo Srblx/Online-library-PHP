@@ -38,7 +38,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="connect"><input type="submit" value="Se connecter"></label>
+                        <label for="connect"><input type="submit" value="Se connecter" id="send"></label>
                     </td>
                     <td>
                         <a href="inscription.php">Inscrivez-vous</a>

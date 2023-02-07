@@ -36,10 +36,10 @@
 <body class="light"><?php session_start(); ?>
 
   <h1>Bibliothèque en ligne</h1>
+  <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
   <nav>
 
     <!-- Mode dark  -->
-    <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
     </div>
     <div class="infoCoG">
 

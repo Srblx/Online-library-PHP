@@ -30,14 +30,14 @@ $firstName = validate_input($_POST['firstName']);
 $lastName = validate_input($_POST['lastName']);
 $mail = validate_input($_POST['mail']);
 $mdp = validate_input($_POST['mdp']);
-// $mdp2 = validate_input($_POST['mdp2']);
+$mdp2 = validate_input($_POST['mdp2']);
 
 // Comparer les mots de passe
-// if ($mdp !== $mdp2) {
-//     // echo "Les mot de passe ne corresponde pas";
-//     //! Traitement a voir !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//     // die("Les mots de passe ne correspondent pas.");
-// }
+if ($mdp === $mdp2) {
+    // echo "Les mot de passe sont identique";
+} else {
+    die("les mot de passe ne corresponde pas ");
+}
 // Lier des variables à une déclaration préparée en tant que paramètres
 mysqli_stmt_bind_param($stmt, "ssss", $firstName, $lastName, $mail, $mdp);
 

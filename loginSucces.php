@@ -38,11 +38,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="connect"><input type="submit" value="Se connecter"></label>
+                        <label for="connect"><input type="submit" value="Se connecter" id="send"></label>
                     </td>
-                    <td>
-                        <a href="inscription.php">Inscrivez-vous</a>
-                    </td>
+
                 </tr>
             </table>
             <h3 style="color:#00c073;">Vous etes inscrit ! Connectez vous pour acceder a notre bibilothèque </h3>
