@@ -113,9 +113,9 @@
   <footer>
 
     <p>Alexis SERBELLONI</p>
-    <a href="jeu.html">Air de jeu de notre bibliotheque</a>
+
   </footer>
-  <script src="./js/slide.js" defer></script>
+
 </body>
 
 </html>
