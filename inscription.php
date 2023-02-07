@@ -10,40 +10,7 @@
     <link rel="stylesheet" href="styledark.css">
     <script src="js/dark.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <style>
-        fieldset {
-            background-color: white;
-        }
-
-        legend {
-            color: rgba(73, 73, 253, 0.899);
-            ;
-            font-size: larger;
-        }
-
-        body.dark .fieldsetBg {
-            background-color: #333;
-        }
-
-        body.dark .fa-solid {
-            color: #333;
-
-        }
-
-        body.dark .bandeau {
-            background-color: #fff;
-        }
-
-        .btnDark {
-            background-color: #24292E;
-            border: 2px solid #fff;
-        }
-
-        body.dark .btnDark {
-            border: 2px solid #333;
-        }
-    </style>
+    <link rel="stylesheet" href="styleInscrip.css">
 </head>
 
 <body class="light">
@@ -62,59 +29,53 @@
                     <td>
                         <label for="firstName">Nom <sup>*</sup>: </label>
                     </td>
-                    <td><input type="text" name="firstName" id="firstName"></td>
+                    <td><input type="text" name="firstName" id="firstName" required></td>
                 </tr>
                 <tr>
                     <td><label for="lastName">Prénom <sup>*</sup>: </label></td>
-                    <td><input type="text" name="lastName" id="lastName"></td>
+                    <td><input type="text" name="lastName" id="lastName" required></td>
                 </tr>
                 <tr>
                     <td><label for="mail">E-mail <sup>*</sup> : </label></td>
-                    <td><input type="mail" name="mail" id="mail"></td>
+                    <td><input type="mail" name="mail" id="mail" required></td>
                 </tr>
                 <tr>
-                    <!-- <td><label for="mdp">Mot de passe <sup>*</sup> : </label></td>
-                    <td><input type="password" name="mdp" id="mdp"></td>
                 </tr>
-                <tr>
-                    <td><label for="mdp2">Confirmer <sup>*</sup> : </label></td>
-                    <td><input type="password" name="mdp2" id="mdp2"></td>
-                </tr> -->
-                    <form action="<?php //! LES MOT DE PASSE NE CORRESPONDE PAS MAIS JE PEUT SOUMETTRE §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
-                                    echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <!-- autres champs -->
-                        <!-- <table> -->
-                <tr>
-                    <td><label for="mdp">Mot de passe <sup>*</sup> : </label></td>
-                    <td> <input type="password" name="mdp"></td>
-                </tr>
-                <tr>
-                    <td><label for="mdp2">Confirmer <sup>*</sup> : </label></td>
-                    <td><input type="password" name="mdp2"></td>
-                </tr>
-                <span class="error">
-                    <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                        $password = $_POST["password"];
-                        $confirmPassword = $_POST["confirmPassword"];
+                <form action="<?php
+                                echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <tr>
+                        <td><label for="mdp">Mot de passe <sup>*</sup> : </label></td>
+                        <td> <input type="password" name="mdp" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mdp2">Confirmer <sup>*</sup> : </label></td>
+                        <td><input type="password" name="mdp2" required></td>
+                    </tr>
+                    <span class="error">
+                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            $password = $_POST["password"];
+                            $confirmPassword = $_POST["confirmPassword"];
 
-                        if ($password !== $confirmPassword) {
-                            $erreur = "Les mots de passe ne correspondent pas.";
-                            echo $erreur;
+                            if ($password !== $confirmPassword) {
+                                $erreur = "Les mots de passe ne correspondent pas.";
+                                echo $erreur;
+                            }
                         }
-                    }
-                    ?></span>
-                <tr>
-                    <td><label for="reset"></label><input type="reset" value="Reset" id="reset"></td>
-                    <td><input type="submit" value="Submit" id="send"></td>
-                    <td><a href="index.php">Retour à l'accueil</a></td>
-                </tr>
-                <!-- </table> -->
-    </form>
+                        ?></span>
+                    <tr>
+                        <td><label for="reset"></label><input type="reset" value="Reset" id="reset"></td>
+                        <td><input type="submit" value="Submit" id="send"></td>
+                        <td><a href="index.php">Retour à l'accueil</a></td>
+                    </tr>
+                    <!-- </table> -->
+                </form>
 
-    </table>
-    </fieldset>
+            </table>
+        </fieldset>
     </form>
-
+    <footer>
+        <p>Alexis SERBELLONI</p>
+    </footer>
 </body>
 
 </html>

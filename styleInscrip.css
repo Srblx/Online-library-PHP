@@ -1,0 +1,76 @@
+fieldset {
+    background-color: white;
+}
+
+legend {
+    color: rgba(73, 73, 253, 0.899);
+    ;
+    font-size: larger;
+}
+
+body.dark .fieldsetBg {
+    background-color: #333;
+}
+
+body.dark .fa-solid {
+    color: #333;
+
+}
+
+body.dark .bandeau {
+    background-color: #fff;
+}
+
+.btnDark {
+    background-color: #24292E;
+    border: 2px solid #fff;
+}
+
+body.dark .btnDark {
+    border: 2px solid #333;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* center fieldset and form horizontally and vertically */
+fieldset,
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* center legend and table horizontally and vertically */
+legend,
+table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* center text inside td tags */
+td {
+    text-align: center;
+}
+
+/* Add responsive styles */
+@media only screen and (max-width: 768px) {
+
+    /* adjust fieldset and form width */
+    fieldset,
+    form {
+        width: 90%;
+    }
+}

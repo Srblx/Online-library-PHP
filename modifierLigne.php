@@ -199,7 +199,9 @@
         </fieldset>
     </form>
 
-
+    <footer>
+        <p>Alexis SERBELLONI</p>
+    </footer>
 </body>
 
 </html>

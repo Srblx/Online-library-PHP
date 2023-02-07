@@ -136,7 +136,9 @@
         echo '</table>';
     }
     ?>
-
+    <footer>
+        <p>Alexis SERBELLONI</p>
+    </footer>
 </body>
 
 </html>

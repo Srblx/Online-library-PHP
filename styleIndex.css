@@ -97,6 +97,11 @@
   a:hover {
     background-color: #0366d6;
   }
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   @keyframes form-entry {
     from {

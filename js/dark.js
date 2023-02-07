@@ -21,13 +21,4 @@ btnDark.addEventListener('click', () => {
         body.classList.remove('light')
         btnDark.innerHTML = '<i class="fa-solid fa-sun"></i>'
     } 
-
-    
-
-    //
-
-
-
-
-
 })

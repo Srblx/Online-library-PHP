@@ -62,35 +62,48 @@ body {
   footer {
     text-align: center;
     padding: 20px;
-    position: absolute;
-    bottom: 0;
+  
     width: 100%;
   }
   a {
-    transition: all 0.5s ease;
+    transition: all 250ms ease;
     color: black;
     text-decoration: none;
   }
-  #test {
-    font-size: 16px;
+  #test::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 4px;
+      background: #0366d6;
+      transition: width 0.4s;
   }
-  #test:hover {
-    font-size: 24px;
-    text-decoration: underline;
+ 
+  #test:hover::after {
+      width: 100%;
+      transition:  left to right 0.6s;
+      transition: all 1s cubic-bezier(0.5, -3, 0.5, 2);
+      transform: scaleX(1.1);
+      transform-origin: left top ;
   }
+
+  #deco{
+    display: block;
+  }
+
   #deco:hover {
     color: red;
-    font-size: 20px;
+    transform: scale(0.8);
   }
   #livre {
     color: black;
     text-decoration: none;
-    border: none;
+    border: 2px solid transparent;
     background-color: rgba(255, 255, 255, 0);
   }        
 
   #livre:hover{
-    border: 2px solid #0366d6;
+    border-color: #0366d6;
     border-radius: 5px;
   }
   select option:hover {
@@ -117,8 +130,8 @@ input[type="submit"]{
     border-radius: 5px;
     padding: 5px;
     margin-top: 5px;
-     border: none;
-     font-weight: bold;
+    border: none;
+    font-weight: bold;
 }
 
 
@@ -225,12 +238,11 @@ input[type="submit"] {
 
 footer {
   clear: both;
+
 }
 
-/* label {
-   margin-left: 30px;
-  margin-right: 60px; 
-  ! sur quelle element je doit intervenir?
-
-} */
+img{
+  -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%);
+}
 

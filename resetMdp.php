@@ -46,6 +46,9 @@
                         <label for="connect"><input type="submit" value="Changer le mot de passe" id="send"></label>
                     </td>
         </form>
+        <footer>
+            <p>Alexis SERBELLONI</p>
+        </footer>
 </body>
 
 </html>

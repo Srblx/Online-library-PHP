@@ -48,7 +48,9 @@
             <h3 style="color:red;">Désolé, votre mot de passe ou votre mail est incorrect. <br> Veuillez vérifier votre mot de passe ou inscrivez vous. <a href="inscription.php">Ici</a></h3>
         </form>
     </div>
-
+    <footer>
+        <p>Alexis SERBELLONI</p>
+    </footer>
 </body>
 
 </html>

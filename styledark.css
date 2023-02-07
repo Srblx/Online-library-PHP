@@ -61,7 +61,7 @@ input[type="mail"] {
 }
 
 body.dark label {
-    color: #868686;
+    color: #000000;
 }
 
 body.dark legend {
@@ -69,5 +69,10 @@ body.dark legend {
 }
 
 body.dark fieldset {
-    background-color: rgba(255, 255, 255, 0.386);
+    background-color: rgba(255, 255, 255, 0.245);
+}
+
+body.dark img{
+    -webkit-filter: grayscale(0%); 
+    filter: grayscale(0%);
 }

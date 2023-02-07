@@ -58,6 +58,9 @@
             alert("Le mot de passe a été mis à jour avec succès !");
         }
     </script>
+    <footer>
+        <p>Alexis SERBELLONI</p>
+    </footer>
 </body>
 
 </html>

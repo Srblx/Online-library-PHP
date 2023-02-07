@@ -46,7 +46,9 @@
             <h3 style="color:#00c073;">Vous etes inscrit ! Connectez vous pour acceder a notre bibilothèque </h3>
         </form>
     </div>
-
+    <footer>
+        <p>Alexis SERBELLONI</p>
+    </footer>
 </body>
 
 </html>
