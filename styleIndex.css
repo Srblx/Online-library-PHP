@@ -1,3 +1,13 @@
+body {
+  background: url(./Css/img/9.jpg);
+}
+
+.form{
+  background-color: rgba(0, 0, 0, 0.285);
+}
+.fieldsetBg {
+  background-color: rgba(0, 0, 0, 0.275);
+}
 .bandeau {
     display: flex;
     justify-content: center;
@@ -62,6 +72,11 @@
     padding: 10px;
     border-radius: 5px;
     border: solid 3px #24292e;
+  }
+
+  input[tupe="reset"]:hover {
+    background-color: rgba(195, 0, 0, 0.784);
+    border-color: #0366d6;
   }
 
   

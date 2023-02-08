@@ -12,15 +12,25 @@
 
 
 }
-
 Body.dark {
     color:#fff!important;
     background: url(./Css/img/9\ -\ Copie.jpg) no-repeat center center fixed;
     background-size: cover;
+  
+  
+  }
 
+  body.dark .bandeau {
+    background: white;
+  }
 
+  body.dark i {
+    color: #000000;
+  }
+  
+body.dark .label{
+    color: white;
 }
-
 
 /* Quand body a la class dark alors btnDark  */
 body.dark #btnDark {

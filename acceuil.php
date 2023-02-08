@@ -33,8 +33,15 @@
   }
 </style>
 
-<body class="light"><?php session_start(); ?>
-
+<body class="light">
+  <?php session_start();
+  // if (!isset($_SESSION['mail'])) {
+  //   header('Location: index.php');
+  //   exit;
+  // }
+  ?>
+  <?php //$_SESSION['mail'] = true;
+  ?>
   <h1>Bibliothèque en ligne</h1>
   <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
   <nav>

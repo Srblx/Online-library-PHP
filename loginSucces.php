@@ -29,11 +29,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="mail">Adresse mail <sup>*</sup>:</label></td>
+                    <td><label for="mail" class="label">Adresse mail <sup>*</sup>:</label></td>
                     <td><input type="mail" name="mail" id="mail" placeholder="*****@mail.fr"></td>
                 </tr>
                 <tr>
-                    <td><label for="mdp">Mot de passe <sup>*</sup>:</label></td>
+                    <td><label for="mdp" class="label">Mot de passe <sup>*</sup>:</label></td>
                     <td><input type="password" name="mdp" id="mdp" placeholder="***************"></td>
                 </tr>
                 <tr>

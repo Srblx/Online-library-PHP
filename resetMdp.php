@@ -30,21 +30,23 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="mail">Adresse mail<sup>*</sup>:</label></td>
+                    <td><label for="mail" class="label">Adresse mail<sup>*</sup>:</label></td>
                     <td><input type="mail" name="mail" id="mail" placeholder="******@mail.fr"></td>
                 </tr>
                 <tr>
-                    <td><label for="newMdp">Mot de passe<sup>*</sup>:</label></td>
+                    <td><label for="newMdp" class="label">Mot de passe<sup>*</sup>:</label></td>
                     <td><input type="password" name="newMdp" id="newMdp" placeholder="Nouveau mot de passe"></td>
                 </tr>
                 <tr>
-                    <td><label for="ConfNewMdp">Confirme mot de passe <sup>*</sup>:</label></td>
+                    <td><label for="ConfNewMdp" class="label">Confirme mot de passe <sup>*</sup>:</label></td>
                     <td><input type="password" name="ConfNewMdp" id="ConfNewMdp" placeholder="Confirme mot de passe"></td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="connect"><input type="submit" value="Changer le mot de passe" id="send"></label>
+                        <label for="connect"><input type="submit" value="Changer Mot De Passe" id="send"></label>
                     </td>
+                    <td><a href="index.php">Retour à l'accueil</a></td>
+
         </form>
         <footer>
             <p>Alexis SERBELLONI</p>

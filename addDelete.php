@@ -18,6 +18,7 @@ if (!$connect) {
     //$result = mysqli_query($connect, $sql);
     $result = mysqli_query($connect, $sql);
     if ($result) {
+
         header('location: afficher.php');
     } else {
         echo "Erreur lors de la suppression : " . mysqli_error($conn);

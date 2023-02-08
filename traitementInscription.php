@@ -8,7 +8,6 @@ if (!$conect) {
     echo "<script type=text/javascript>";
     echo "alert('Connexion impossible a la base de données')</script>";
 }
-
 // //& Vérifier que toutes les données requises sont entrées correctement
 // if (empty($_POST['firstName']) || empty($_POST['lastName']) || empty($_POST['mail']) || empty($_POST['mdp'])) {
 //     echo "<script type=text/javascript>";
@@ -32,12 +31,27 @@ $mail = validate_input($_POST['mail']);
 $mdp = validate_input($_POST['mdp']);
 $mdp2 = validate_input($_POST['mdp2']);
 
+
 // Comparer les mots de passe
-if ($mdp === $mdp2) {
+if ($mdp == $mdp2) {
     // echo "Les mot de passe sont identique";
 } else {
     die("les mot de passe ne corresponde pas ");
 }
+
+// Hash du mot de passe
+$mdp = password_hash($mdp, PASSWORD_DEFAULT);
+
+// Vérifier si l'adresse e-mail existe déjà dans la base de données
+$query = "SELECT * FROM user WHERE mail='$mail'";
+$resultat = mysqli_query($conect, $query);
+
+if (mysqli_num_rows($resultat) > 0) {
+    die("<h1 >Cette adresse e-mail est déjà utilisée.<h1> " . "<br>" . '<a href="index.php">RETOUR A L\'ACCUEIL</a>');
+}
+// 
+
+
 // Lier des variables à une déclaration préparée en tant que paramètres
 mysqli_stmt_bind_param($stmt, "ssss", $firstName, $lastName, $mail, $mdp);
 
@@ -48,6 +62,7 @@ if (!mysqli_stmt_bind_param($stmt, "ssss", $firstName, $lastName, $mail, $mdp)) 
 
 //~ Exécuter la requête
 $result;
+
 
 
 

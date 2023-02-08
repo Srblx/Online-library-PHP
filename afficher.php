@@ -107,7 +107,7 @@
             echo '<td class="td">' . $donnees[10] . " " . '</td>';
             echo '<td class="td">' . $donnees[11] . " " . '</td>';
             echo '<td><a href="modifierLigne.php?id=' . $donnees[0] . '"><i class="fa-solid fa-pen"></i></a></td>';
-            echo '<td><a href="addDelete.php?id=' . $donnees[0] . '""><i class="fa-solid fa-trash"></i></a></td>';
+            echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnees[0] . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";
 
 
             echo '</tr>';
@@ -118,6 +118,13 @@
     //~ Cloture de la connexion a la base de données 
     mysqli_close($conn);
     ?>
+    <script>
+        function confirmDelete(id) {
+            if (confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) {
+                window.location.href = "supprimer.php?id=" + id + "&action=delete";
+            }
+        }
+    </script>
     <footer>
         <p>Alexis SERBELLONI</p>
     </footer>

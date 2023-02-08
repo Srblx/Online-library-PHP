@@ -27,16 +27,16 @@
             <table>
                 <tr>
                     <td>
-                        <label for="firstName">Nom <sup>*</sup>: </label>
+                        <label for="firstName" class="label">Nom <sup>*</sup>: </label>
                     </td>
                     <td><input type="text" name="firstName" id="firstName" required></td>
                 </tr>
                 <tr>
-                    <td><label for="lastName">Prénom <sup>*</sup>: </label></td>
+                    <td><label for="lastName" class="label">Prénom <sup>*</sup>: </label></td>
                     <td><input type="text" name="lastName" id="lastName" required></td>
                 </tr>
                 <tr>
-                    <td><label for="mail">E-mail <sup>*</sup> : </label></td>
+                    <td><label for="mail" class="label">E-mail <sup>*</sup> : </label></td>
                     <td><input type="mail" name="mail" id="mail" required></td>
                 </tr>
                 <tr>
@@ -44,11 +44,11 @@
                 <form action="<?php
                                 echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <tr>
-                        <td><label for="mdp">Mot de passe <sup>*</sup> : </label></td>
+                        <td><label for="mdp" class="label">Mot de passe <sup>*</sup> : </label></td>
                         <td> <input type="password" name="mdp" required></td>
                     </tr>
                     <tr>
-                        <td><label for="mdp2">Confirmer <sup>*</sup> : </label></td>
+                        <td><label for="mdp2" class="label">Confirmer <sup>*</sup> : </label></td>
                         <td><input type="password" name="mdp2" required></td>
                     </tr>
                     <span class="error">

@@ -5,5 +5,4 @@ session_start();
 session_destroy();
 
 // Redirection vers la page d'authentification
-header("Location: index.php
-");
+header("Location: index.php");
