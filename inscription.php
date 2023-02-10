@@ -14,13 +14,9 @@
 </head>
 
 <body class="light">
-    <div class="bandeau">
-        <i class="fa-solid fa-bookmark"></i>
-        <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
-        <i class="fa-sharp fa-solid fa-book"></i>
-    </div>
-    <h1>Incription a notre bibliothèque</h1>
-
+<?php include "bandeau.php" ?>
+    <h1>Incription notre bibliothèque</h1>
+<!-- form -->
     <form action="traitementInscription.php" method="post">
         <fieldset class="fieldsetBg">
             <legend>Inscription</legend>
@@ -60,22 +56,18 @@
                                 $erreur = "Les mots de passe ne correspondent pas.";
                                 echo $erreur;
                             }
-                        }
-                        ?></span>
+                        }?>
+                    </span>
                     <tr>
                         <td><label for="reset"></label><input type="reset" value="Reset" id="reset"></td>
                         <td><input type="submit" value="Submit" id="send"></td>
                         <td><a href="index.php">Retour à l'accueil</a></td>
                     </tr>
-                    <!-- </table> -->
                 </form>
-
             </table>
         </fieldset>
     </form>
-    <footer>
-        <p>Alexis SERBELLONI</p>
-    </footer>
+    <?php include "footer.php" ?>
 </body>
 
 </html>

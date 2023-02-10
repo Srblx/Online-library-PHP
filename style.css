@@ -4,121 +4,124 @@
 }
 
 body {
-    background: url(./Css/img/9.jpg) no-repeat center center fixed;
+    background: url(./css/img/9.jpg) no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
     /* overflow: hidden; */
-  }
-  body {
     font-family: Arial, sans-serif;
     background-color: beige;
     color: cream;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-top: 50px;
-  }
+}
 
-  h2{
-    background-color: rgba(255, 255, 255, 0.548);
-    border-radius: 5px;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px; 
-  }
-  
-  .infoCoG {
-    text-align: right;
-  }
-  
-  .infoCoD {
-    text-align: left;
-    font-weight: 800 ;
-  }
-  
-  .btn {
-    margin: 50px auto;
-    text-align: center;
-  }
-  
-  table {
-    margin: 0 auto;
-  }
-  
-  #livre {
-    font-size: 16px;
-    padding: 5px;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 20px;
-  
-    width: 100%;
-  }
-  a {
-    transition: all 250ms ease;
-    color: black;
-    text-decoration: none;
-  }
-  #test::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 4px;
-      background: #0366d6;
-      transition: width 0.4s;
-  }
- 
-  #test:hover::after {
-      width: 100%;
-      transition:  left to right 0.6s;
-      transition: all 1s cubic-bezier(0.5, -3, 0.5, 2);
-      transform: scaleX(1.1);
-      transform-origin: left top ;
-  }
+h1 {
+  text-align: center;
+  margin-top: 5px;
+}
 
-  #deco{
+h2{
+  background-color: rgba(255, 255, 255, 0.548);
+  border-radius: 5px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px; 
+}
+
+.infoCoG {
+  text-align: right;
+}
+
+.infoCoD {
+  text-align: left;
+  font-weight: 800 ;
+}
+
+div .btn {
+  text-align: center;
+}
+
+table {
+  margin: 0 auto;
+}
+
+#livre {
+  font-size: 16px;
+  padding: 5px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+
+  width: 100%;
+}
+
+a {
+  transition: all 250ms ease;
+  color: black;
+  text-decoration: none;
+}
+
+#test::after {
+    content: '';
     display: block;
-  }
+    width: 0;
+    height: 4px;
+    background: #0366d6;
+    transition: width 0.4s;
+}
 
-  #deco:hover {
-    color: red;
-    transform: scale(0.8);
-  }
-  #livre {
-    color: black;
-    text-decoration: none;
-    border: 2px solid transparent;
-    background-color: rgba(255, 255, 255, 0);
-  }        
+#test:hover::after {
+    width: 100%;
+    transition:  left to right 0.6s;
+    transition: all 1s cubic-bezier(0.5, -3, 0.5, 2);
+    transform: scaleX(1.1);
+    transform-origin: left top ;
+}
 
-  #livre:hover{
-    border-color: #0366d6;
-    border-radius: 5px;
-  }
-  select option:hover {
-    background-color: lightgray;
-  }
+#deco{
+  display: block;
+}
+
+#deco:hover {
+  color: red;
+  transform: scale(0.8);
+}
+
+#livre {
+  color: black;
+  text-decoration: none;
+  border: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0);
+} 
+
+#livre:hover{
+  border-color: #0366d6;
+  border-radius: 5px;
+}
+
+select option:hover {
+  background-color: lightgray;
+}
 
  ::selection {
     background-color: gray;
 }
+
 fieldset {
     background-color: rgba(0, 0, 0, 0.386);
     border-radius: 5px;
     border: 2px solid black;
 
 }
+
 legend {
     color: #000000;
     font-size: 20px;
@@ -185,12 +188,26 @@ body.dark .styleTab tr:nth-child(even) {
   color: white;
 }
 
+/* *Responsive */
+@media only screen and (max-width: 500px) {
+  #Responsive {
+    width: 100%;
+  }
+  .styleTab td,
+  .styleTab th {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+}
+
 @media only screen and (max-width: 820px) {
   .styleTab td,
   .styleTab th {
     display: block;
     width: 100%;
-    text-align: left;
+    text-align: center;
   }
 
   .styleTab th {
@@ -246,3 +263,22 @@ img{
     filter: grayscale(100%);
 }
 
+/* * Css pour le slide d'image en page d'acceuil */
+#slideshow {
+  width: 640px;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 2.5%;
+}
+
+#slideshow img {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+#slideshow img.active {
+  display: block;
+}

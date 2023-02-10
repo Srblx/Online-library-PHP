@@ -13,53 +13,8 @@
 </head>
 
 <body class="light">
-    <?php session_start(); ?>
-
-    <h1>Ajouter un livre a la base de données</h1>
-    <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
-    <nav>
-        <div class="infoCoG">
-            <a href="deconnexion.php" id="deco">Déconnexion</a>
-        </div>
-        <div class="infoCoD">
-            <?= "Bonjour " . '<br>'; ?>
-            <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?>
-        </div>
-    </nav>
-    <div class="btn">
-        <table id="tabAjout">
-            <tr>
-                <td><a href="acceuil.php" id="test">Accueil</a></td>
-                <td>
-                    <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
-                    <select name="livre" id="livre">
-                        <option value="">Sélectionnez une option</option>
-                        <option value="afficher.php">Afficher les livres</option>
-                        <option value="afficherAuteur.php">Recherche d'un livre par auteurs</option>
-                        <option value="afficherTitre.php">Recherche d'un livre par titre</option>
-                        <option value="afficheTheme.php">Recherche d'un livre par thèmes</option>
-                        <option value="afficheEdit.php">Recherche d'un livre par maison d'édition</option>
-                        <option value="affichePage.php">Recherche d'un livre par Nb de page</option>
-                        <option value="afficheLangue.php">Recherche d'un livre par langue</option>
-                        <option value="affichePrix.php">Recherche d'un livre par prix</option>
-                        <option value="ajouter.php">Ajouter un livre</option>
-                    </select>
-                    </form>
-
-                    <script>
-                        // Fonction qui renvoie vers les deux autre fichier php avec un event onchange
-                        document.getElementById("livre").onchange = function() {
-                            if (this.value) {
-                                window.location.href = this.value;
-                            }
-                        };
-                    </script>
-                </td>
-            </tr>
-
-        </table>
-    </div>
-    <h2>Bienvenue sur le site de consultation de livres</h2>
+  <?php include "acceuil.php" ?>
+  <!-- form -->
     <form action="baseDeDonnee.php" method="post">
         <fieldset>
             <legend id="legend"><b>Ajouter un livre</b></legend>
@@ -161,9 +116,6 @@
             </table>
         </fieldset>
     </form>
-    <footer>
-        <p>Alexis SERBELLONI</p>
-    </footer>
+    <?php include "footer.php" ?>
 </body>
-
 </html>

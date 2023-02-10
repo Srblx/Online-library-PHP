@@ -13,14 +13,9 @@
 </head>
 
 <body class="light">
-    <div class="bandeau">
-        <i class="fa-solid fa-bookmark"></i>
-        <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
-        <i class="fa-sharp fa-solid fa-book"></i>
-    </div>
-    <H1>Consulter notre bibliothèque </H1>
+<?php include "bandeau.php" ?>
     <div class="form">
-
+<!-- form -->
         <form action="traitementIndex.php" method="post">
             <!--  -->
             <table>
@@ -58,9 +53,7 @@
             alert("Le mot de passe a été mis à jour avec succès !");
         }
     </script>
-    <footer>
-        <p>Alexis SERBELLONI</p>
-    </footer>
+    <?php include "footer.php" ?>
 </body>
 
 </html>

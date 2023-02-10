@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if (isset($_POST['mail']) && isset($_POST['mdp'])) {
@@ -17,6 +18,20 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
     $req = "SELECT * FROM user WHERE mail = '$mail' AND mdp = '$mdp' ";
     $result = mysqli_query($connect, $req);
 
+    
+    function user_is_authenticated($mail, $mdp) {
+        if (isset($_SESSION['mail']) && isset($_SESSION['mdp'])
+            && $_SESSION['mail'] === $mail && $_SESSION['mdp'] === $mdp) {
+          return true;
+        }
+        return false;
+    }
+    
+    if (user_is_authenticated($mail, $mdp)) {
+      header('Location: index.php');
+      exit;
+    }
+
     // Vérifier si la requête a réussi
     if ($result) {
         // Récupérer les données de la requête
@@ -31,6 +46,7 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
     } else {
         die("Erreur lors de l'exécution de la requête: " . mysqli_error($connect));
     }
+
 
     // Compteur de ligne ayant rapport a la requete 
     $nbLine = mysqli_num_rows($result);

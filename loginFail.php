@@ -13,15 +13,11 @@
 </head>
 
 <body class="light">
-    <div class="bandeau"><i class="fa-solid fa-bookmark"></i>
-        <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
-        <i class="fa-sharp fa-solid fa-book"></i>
-    </div>
-    <H1>Consulter notre bibliothèque </H1>
+<?php include "bandeau.php" ?>
     <div class="form">
 
+        <!-- form -->
         <form action="traitementIndex.php" method="post">
-            <!--  -->
             <table>
                 <tr>
                     <td>
@@ -50,9 +46,7 @@
             <h3 style="color:red;">Désolé, votre mot de passe ou votre mail est incorrect. <br> Veuillez vérifier votre mot de passe ou inscrivez vous. <a href="inscription.php">Ici</a></h3>
         </form>
     </div>
-    <footer>
-        <p>Alexis SERBELLONI</p>
-    </footer>
+    <?php include "footer.php" ?>
 </body>
 
 </html>

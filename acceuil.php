@@ -9,39 +9,48 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styledark.css">
   <script src="js/dark.js" defer></script>
+  <script src="js/slide.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
 </head>
-<style>
-  #slideshow {
-    width: 640px;
-    height: 400px;
-    margin: 0 auto;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 2.5%;
-  }
-
-  #slideshow img {
-    width: 100%;
-    height: 100%;
-    display: none;
-  }
-
-  #slideshow img.active {
-    display: block;
-  }
-</style>
 
 <body class="light">
-  <?php session_start();
-  // if (!isset($_SESSION['mail'])) {
-  //   header('Location: index.php');
-  //   exit;
-  // }
-  ?>
-  <?php //$_SESSION['mail'] = true;
-  ?>
+  <?php session_start();  ?>
+  <!-- Empecher l'invasion par URL -->
+  <?php
+  //! Non fonctionel je sais pas pourquoi a voir plus tard !!!!!!!!!!!!!!!!!!!!!!
+  // if (isset($_POST['mail']) && isset($_POST['mdp'])) {
+
+  //   //& Connection a la bdd
+  //   $server = 'localhost';
+  //   $user = 'root';
+  //   $password = '';
+  //   $dbName = 'bibliotheque';
+  //   $mail = $_POST['mail'];
+  //   $mdp = $_POST['mdp'];
+
+
+  //   $connect = mysqli_connect($server, $user, $password, $dbName);
+
+  //   // Requete 
+  //   $req = "SELECT * FROM user WHERE mail = '$mail' AND mdp = '$mdp' ";
+  //   $result = mysqli_query($connect, $req);
+
+
+  //   function user_is_authenticated($mail, $mdp) {
+  //       if (isset($_SESSION['mail']) && isset($_SESSION['mdp'])
+  //           && $_SESSION['mail'] === $mail && $_SESSION['mdp'] === $mdp) {
+  //         return true;
+  //       }
+  //       return false;
+  //   }
+
+  //   if (user_is_authenticated($mail, $mdp)) {
+  //     header('Location: index.php');
+  //     exit;
+  //   }
+  // } ?>
+  
   <h1>Bibliothèque en ligne</h1>
   <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
   <nav>
@@ -57,11 +66,11 @@
       <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?>
     </div>
   </nav>
-
+<!-- </form> -->
   <div class="btn">
     <table>
       <tr>
-        <td><a href="acceuil.php" id="test" onclick="alert('Vous êtes sur la page d\'accueil !');">Accueil</a></td>
+        <td><a href="slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a></td>
         <td>
           <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
           <select name="livre" id="livre">
@@ -90,8 +99,6 @@
             </option>
             <option value="ajouter.php" class="option">Ajouter un livre</option>
           </select>
-          <!-- </form> -->
-
           <script>
             // Fonction qui renvoie vers les deux autre fichier php avec un event onchange
             document.getElementById("livre").onchange = function() {
@@ -105,24 +112,6 @@
     </table>
   </div>
   <h2 id="title">Bienvenue sur le site de consultation de livres</h2>
-  <!-- Conteneur principal de tout le diaporama -->
-  <div id="slideshow">
-    <a href="afficher.php">
-      <img src="./Css/img/1.jpg" alt="Image 1">
-      <img src="./Css/img/2.jpg" alt="Image 2">
-      <img src="./Css/img/3.jpg" alt="Image 3">
-      <img src="./Css/img/4.jpg" alt="Image 4">
-      <img src="./Css/img/5.jpg" alt="Image 5">
-      <img src="./Css/img/6.jpg" alt="Image 6">
-      <img src="./Css/img/7.jpg" alt="Image 7">
-    </a>
-  </div>
-  <footer>
-
-    <p>Alexis SERBELLONI</p>
-
-  </footer>
-
+  
 </body>
-
 </html>

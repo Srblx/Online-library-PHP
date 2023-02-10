@@ -12,91 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="light"><?php session_start(); ?>
+<body class="light">
     <h1>Bibliothèque en ligne</h1>
-    <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
-    <div class="infoCo">
-        <a href="deconnexion.php">Déconnexion</a>
-        <?php
-
-        echo "Bonjour " . $_SESSION['prenom'];
-        echo $_SESSION['nom'];
-        ?>
-    </div>
-    <div class="btn">
-        <table>
-            <tr>
-                <td><a href="acceuil.html">Accueil</a></td>
-                <td>
-                    <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
-                    <select name="livre" id="livre">
-                        <option value="">Sélectionnez une option</option>
-                        <option value="afficher.php">Afficher les livres</option>
-                        <option value="afficherAuteur.php">
-                            Recherche d'un livre par auteurs
-                        </option>
-                        <option value="afficherTitre.php">
-                            Recherche d'un livre par titre
-                        </option>
-                        <option value="afficheTheme.php">
-                            Recherche d'un livre par thèmes
-                        </option>
-                        <option value="affichePage.php">
-                            Recherche d'un livre par Nb de page
-                        </option>
-                        <option value="afficheEdit.php">
-                            Recherche d'un livre par maison d'édition
-                        </option>
-                        <option value="afficheLangue.php">
-                            Recherche d'un livre par langue
-                        </option>
-                        <option value="affichePrix.php">
-                            Recherche d'un livre par prix
-                        </option>
-                        <option value="ajouter.php">Ajouter un livre</option>
-                    </select>
-                    <!-- </form> -->
-
-                    <script>
-                        // Fonction qui renvoie vers les deux autre fichier php avec un event onchange
-                        document.getElementById("livre").onchange = function() {
-                            if (this.value) {
-                                window.location.href = this.value;
-                            }
-                        };
-                    </script>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <h2>Bienvenue sur le site de consultation de livres</h2>
-    <?php
-    // UPDATE recipes SET title = :title, recipe = :recipe WHERE recipe_id = :id
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "bibliotheque";
-    // Récupérer l'ID de la ligne à partir du formulaire ou du paramètre d'URL
-    $id = $_GET['id'];
-
-    // Créer une connexion
-    $connect = mysqli_connect($servername, $username, $password, $dbname);
-
-    // Vérifier la connexion
-    if (!$connect) {
-        die("Connexion échouée : " . mysqli_connect_error());
-    }
-
-    // $new_value = $_POST['titre'];
-    // Récupérer les données de la base de données pour cette entrée
-    $sql = "SELECT * FROM livre WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-    // Fermer la connexion
-    mysqli_close($connect);
-
-    ?>
+<?php include "acceuil.php" ?>
+ <!-- form -->
     <form action="traitmodifierLigne.php?id=<?= $id; ?>" method="post">
         <fieldset>
             <legend id="legend"><b>Modifier les informations d'un livre</b></legend>
@@ -198,10 +117,7 @@
             </table>
         </fieldset>
     </form>
-
-    <footer>
-        <p>Alexis SERBELLONI</p>
-    </footer>
+<?php include "footer.php" ?>
 </body>
 
 </html>
