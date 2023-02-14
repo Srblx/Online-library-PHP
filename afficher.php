@@ -13,6 +13,7 @@
 </head>
 
 <body class="light">   
+
     <?php include "acceuil.php";
 
     //  Affichege du tableau de resultat de recherche 

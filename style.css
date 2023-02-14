@@ -282,3 +282,13 @@ img{
 #slideshow img.active {
   display: block;
 }
+
+#progress {
+  background-color: #d34747;
+  height: 10px;
+  width: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999; /* Peut être important si vous avez un menu en position fixe */
+}

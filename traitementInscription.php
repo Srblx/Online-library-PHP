@@ -39,7 +39,6 @@ if ($mdp == $mdp2) {
     die("les mot de passe ne corresponde pas ");
 }
 
-// ! code Non fonctionel pour le hashage du mdp !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // hachage d'un nouveau mot de passe pour un nouvel utilisateur
 $hashed_password = password_hash($mdp, PASSWORD_DEFAULT) ;
 
@@ -78,12 +77,6 @@ if (!mysqli_stmt_bind_param($stmt, "ssss", $firstName, $lastName, $mail, $hashed
 }
 
 //~ Exécuter la requête
-$result;
-
-
-
-
-
 if (mysqli_stmt_execute($stmt)) {
     //& fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
     header('location: loginSucces.php');

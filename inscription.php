@@ -33,7 +33,7 @@
                 </tr>
                 <tr>
                     <td><label for="mail" class="label">E-mail <sup>*</sup> : </label></td>
-                    <td><input type="mail" name="mail" id="mail" required></td>
+                    <td><input type="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="mail" id="mail" required></td>
                 </tr>
                 <tr>
                 </tr>
