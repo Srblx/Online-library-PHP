@@ -39,25 +39,25 @@ if ($mdp == $mdp2) {
     die("les mot de passe ne corresponde pas ");
 }
 
-//! code Non fonctionel pour le hashage du mdp !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// // hachage d'un nouveau mot de passe pour un nouvel utilisateur
-// $hashed_password = password_hash($mdp, PASSWORD_DEFAULT) ;
+// ! code Non fonctionel pour le hashage du mdp !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// hachage d'un nouveau mot de passe pour un nouvel utilisateur
+$hashed_password = password_hash($mdp, PASSWORD_DEFAULT) ;
 
-// // plus tard, lorsque l'utilisateur voudra se connecter
-// $entered_password = validate_input($_POST['mdp']) ;
+// plus tard, lorsque l'utilisateur voudra se connecter
+$entered_password = validate_input($_POST['mdp']) ;
 
-// // vérifie si le mot de passe saisi correspond au hachage stocké
-// if (password_verify($entered_password, $hashed_password)) {
-//     echo 'Password is correct!' ;
-// } else {
-//     echo 'Le mot de passe est incorrect!' ;
-// }
+// vérifie si le mot de passe saisi correspond au hachage stocké
+if (password_verify($entered_password, $hashed_password)) {
+    echo 'Password is correct!' ;
+} else {
+    echo 'Le mot de passe est incorrect!' ;
+}
 
-// // vérifie si le hachage stocké a besoin d'être rehaussé
-// if (password_needs_rehash($hashed_password, PASSWORD_DEFAULT)) {
-//     $new_hashed_password = password_hash($mdp, PASSWORD_DEFAULT) ;
-//     // mise à jour du hash dans la base de données
-// }
+// vérifie si le hachage stocké a besoin d'être rehaussé
+if (password_needs_rehash($hashed_password, PASSWORD_DEFAULT)) {
+    $new_hashed_password = password_hash($mdp, PASSWORD_DEFAULT) ;
+    // mise à jour du hash dans la base de données
+}
 
 // Vérifier si l'adresse e-mail existe déjà dans la base de données
 $query = "SELECT * FROM user WHERE mail='$mail'";
@@ -70,10 +70,10 @@ if (mysqli_num_rows($resultat) > 0) {
 
 
 // Lier des variables à une déclaration préparée en tant que paramètres
-mysqli_stmt_bind_param($stmt, "ssss", $firstName, $lastName, $mail, $mdp);
+mysqli_stmt_bind_param($stmt, "ssss", $firstName, $lastName, $mail, $hashed_password);
 
 // Vérifier si la liaison des variables a réussi
-if (!mysqli_stmt_bind_param($stmt, "ssss", $firstName, $lastName, $mail, $mdp)) {
+if (!mysqli_stmt_bind_param($stmt, "ssss", $firstName, $lastName, $mail, $hashed_password)) {
     die("Erreur lors de la liaison des variables: " . mysqli_stmt_error($stmt));
 }
 
@@ -86,7 +86,7 @@ $result;
 
 if (mysqli_stmt_execute($stmt)) {
     //& fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
-    // header('location: loginSucces.php');
+    header('location: loginSucces.php');
 } else {
     echo "Insertion  impossible veuiller réessayer ! <br>";
     echo ' <a href="ajouter.php">Retourner au formulaire</a>';
