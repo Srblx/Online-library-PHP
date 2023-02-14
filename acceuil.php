@@ -16,40 +16,9 @@
 
 <body class="light">
   <?php session_start();  ?>
-  <!-- Empecher l'invasion par URL -->
+ 
   <?php
-  //! Non fonctionel je sais pas pourquoi a voir plus tard !!!!!!!!!!!!!!!!!!!!!!
-  // if (isset($_POST['mail']) && isset($_POST['mdp'])) {
-
-  //   //& Connection a la bdd
-  //   $server = 'localhost';
-  //   $user = 'root';
-  //   $password = '';
-  //   $dbName = 'bibliotheque';
-  //   $mail = $_POST['mail'];
-  //   $mdp = $_POST['mdp'];
-
-
-  //   $connect = mysqli_connect($server, $user, $password, $dbName);
-
-  //   // Requete 
-  //   $req = "SELECT * FROM user WHERE mail = '$mail' AND mdp = '$mdp' ";
-  //   $result = mysqli_query($connect, $req);
-
-
-  //   function user_is_authenticated($mail, $mdp) {
-  //       if (isset($_SESSION['mail']) && isset($_SESSION['mdp'])
-  //           && $_SESSION['mail'] === $mail && $_SESSION['mdp'] === $mdp) {
-  //         return true;
-  //       }
-  //       return false;
-  //   }
-
-  //   if (user_is_authenticated($mail, $mdp)) {
-  //     header('Location: index.php');
-  //     exit;
-  //   }
-  // } ?>
+?>
   
   <h1>Bibliothèque en ligne</h1>
   <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>

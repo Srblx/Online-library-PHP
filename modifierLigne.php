@@ -14,7 +14,15 @@
 
 <body class="light">
     <h1>Bibliothèque en ligne</h1>
-<?php include "acceuil.php" ?>
+<?php include "acceuil.php"; 
+        $connex = mysqli_connect('localhost', 'root', '', 'bibliotheque');
+        $id = $_GET['id'];
+        $query = "SELECT * FROM livre WHERE id = '$id'";
+        $result = mysqli_query($connex, $query);
+        $row = mysqli_fetch_array($result);
+        mysqli_close($connex);
+
+        ?>
  <!-- form -->
     <form action="traitmodifierLigne.php?id=<?= $id; ?>" method="post">
         <fieldset>

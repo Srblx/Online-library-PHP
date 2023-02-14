@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -24,25 +24,6 @@ $anneeEdition = $_POST['anneeEdition'];
 $prix = $_POST['prix'];
 $langue = $_POST['langue'];
 
-
-// // Mettre à jour les données dans la base de données
-// $sql = "UPDATE livre SET isbn='$isbn', titre='$titre', theme='$theme', nombreDePage='$nbPage', format='$format', nomAuteur='$nomAuteur', prenomAuteur='$prenomAuteur', editeur='$editeur', anneeEdition='$anneeEdition', prix='$prix', langue='$langue' WHERE id=$id";
-// $stmt = mysqli_prepare($connect, $sql);
-// mysqli_stmt_bind_param($stmt, 'ssssssssiss', $isbn, $titre, $theme, $nbPage, $format, $nomAuteur, $prenomAuteur, $editeur, $anneeEdition, $prix, $langue);
-// $result = mysqli_stmt_execute($stmt);
-
-// if ($result) {
-//     echo "Les informations du livre ont été mises à jour avec succès.";
-// } else {
-//     echo "Erreur lors de la mise à jour des informations : " . mysqli_error($connect);
-// }
-// if (mysqli_stmt_execute($stmt)) {
-//     //& fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
-//     header('location: afficher.php');
-// } else {
-//     echo "Insertion  impossible veuiller réessayer ! <br>";
-//     echo ' <a href="ajouter.php">Retourner au formulaire</a>';
-// }
 // Mettre à jour les données dans la base de données
 $sql = "UPDATE livre SET isbn='$isbn', titre='$titre', theme='$theme', nombreDePage='$nbPage', format='$format', nomAuteur='$nomAuteur', prenomAuteur='$prenomAuteur', editeur='$editeur', anneeEdition='$anneeEdition', prix='$prix', langue='$langue' WHERE id=$id";
 $result = mysqli_query($connect, $sql);

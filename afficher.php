@@ -79,7 +79,7 @@
     <script>
         function confirmDelete(id) {
             if (confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) {
-                window.location.href = "supprimer.php?id=" + id + "&action=delete";
+                window.location.href = "addDelete.php?id=" + id ;
             }
         }
     </script>

@@ -45,7 +45,6 @@ CREATE TABLE `livre` (
 --
 -- Déchargement des données de la table `livre`
 --
-
 INSERT INTO `livre` (`id`, `isbn`, `titre`, `theme`, `nombreDePage`, `format`, `nomAuteur`, `prenomAuteur`, `editeur`, `anneeEdition`, `prix`, `langue`) VALUES
 (3, '9782080687104', 'Comment dominer le stress et les soucis\r\n', 'Psycologie', '204 pages', 'Classique', 'Carnegie\r\n', 'Dale', 'None', '31/03/2005', '8', 'anglais'),
 (5, '2253081477', 'La semaine de 4heures', 'Developpement personnel', '320 pages', 'Classique', 'Ferries', 'Timothy', 'PEARSON', '30 avril 2010', '19', 'Français\r\n'),
