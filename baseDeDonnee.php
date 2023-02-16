@@ -1,85 +1,53 @@
 <?php
 //~ Connexion a ma base de données bibliothèque
 //&Fonction de connexion mysqli_connect(4 parametres pour effectuer la connexion )
-$conn = mysqli_connect('localhost', 'root', '', 'bibliotheque');
-
-//! Methode NON securise face a l'injection de SQL dans le form
-// if (!$conn) {
-//~ Si la connexion echoue
-//     echo "<script type=text/javascript>";
-//     echo "alert('Connexion impossible a la base de données')</script>";
-// } else {
-//~ Si la connexion fonctionne
-//     echo "<script type=text/javascript>";
-//     echo "alert('Connexon a la base de données reussi')</script>";
-
-//~ Variable qui contienne les valeurs a inserer dans la base de données
-//     $isbn = $_POST['isbn'];
-//     $titre = $_POST['titre'];
-//     $theme = $_POST['theme'];
-//     $nbPage = $_POST['nbPage'];
-//     $format = $_POST['format'];
-//     $nomAuteur = $_POST['nomAuteur'];
-//     $prenomAuteur = $_POST['prenomAuteur'];
-//     $editeur = $_POST['editeur'];
-//     $anneeEdition = $_POST['anneeEdition'];
-//     $prix = $_POST['prix'];
-//     $langue = $_POST['langue'];
-//~Préparer la requête
-
-
-//~ Insertion de la requete sql replie par les valiable etablie plus haut
-//     $requete = "INSERT INTO livre (isbn,titre,theme,nombreDePage,format,nomAuteur,PrenomAuteur,editeur,anneeEdition,prix,langue) 
-//         VALUES('$isbn','$titre','$theme','$nbPage','$format','$nomAuteur','$prenomAuteur','$editeur','$anneeEdition','$prix','$langue')";
-//~ Fonction permetant de 
-//     $result = mysqli_query($conn, $requete);
-//     if ($result) {
-//         echo "Votre livre a été ajouter a notre bibliothèque pour consulter notre liste de livre : <br>";
-//         echo ' <a href="afficher.php">C\'est par ici</a>';
-//~ fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
-//         echo header('location: acceuil.html');
-//     } else {
-//         echo "Insertion  impposible veuiller réessayer ! <br>";
-//         echo ' <a href="ajouter.php">Retourner au formulaire</a>';
-//     }
-// }
+// $conn = mysqli_connect('localhost', 'root', '', 'bibliotheque');
+try {
+    $conn = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+    $conn->query("SET NAMES 'utf8'");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');   
+}
 
 //! Methode securise face a l'injection de SQL dans le form
-if (!$conn) {
-    //~ Si la connexion echoue
-    echo "<script type=text/javascript>";
-    echo "alert('Connexion impossible a la base de données')</script>";
-} else {
-    //~ Si la connexion fonctionne
-    echo "<script type=text/javascript>";
-    echo "alert('Connexon a la base de données reussi')</script>";
-
     //& Préparer la requête
-    $stmt = mysqli_prepare($conn, "INSERT INTO livre (isbn,titre,theme,nombreDePage,format,nomAuteur,PrenomAuteur,editeur,anneeEdition,prix,langue) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO livre (isbn,titre,theme,nombreDePage,format,nomAuteur,PrenomAuteur,editeur,anneeEdition,prix,langue) 
+VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
-    //& Lier les variables aux marqueurs
-    mysqli_stmt_bind_param($stmt, "sssissssids", $isbn, $titre, $theme, $nbPage, $format, $nomAuteur, $prenomAuteur, $editeur, $anneeEdition, $prix, $langue);
+ // Lier les variables aux marqueurs
+$stmt->bindParam(1, $isbn);
+$stmt->bindParam(2, $titre);
+$stmt->bindParam(3, $theme);
+$stmt->bindParam(4, $nbPage);
+$stmt->bindParam(5, $format);
+$stmt->bindParam(6, $nomAuteur);
+$stmt->bindParam(7, $prenomAuteur);
+$stmt->bindParam(8, $editeur);
+$stmt->bindParam(9, $anneeEdition);
+$stmt->bindParam(10, $prix);
+$stmt->bindParam(11, $langue);
 
-    //& Vérifier que toutes les données requises sont entrées correctement
-    if (empty($_POST['titre']) || empty($_POST['nomAuteur']) || empty($_POST['prenomAuteur'])) {
-        echo "<script type=text/javascript>";
-        echo "alert('Veuillez entrer toutes les données requises')</script>";
-        exit();
-    }
+// Vérifier que toutes les données requises sont entrées correctement
+if (empty($_POST['titre']) || empty($_POST['nomAuteur']) || empty($_POST['prenomAuteur'])) {
+    echo "<script type=text/javascript>";
+    echo "alert('Veuillez entrer toutes les données requises')</script>";
+    exit();
+}
 
 
-    if (empty($_POST['isbn']) || empty($_POST['theme']) || empty($_POST['NbPage']) || empty($_POST['format']) || empty($_POST['editeur']) || empty($_POST['anneeEdition']) || empty($_POST['prix']) || empty($_POST['langue'])) {
-        $_POST['isbn'] = 'uninformed';
-        $_POST['theme'] = 'uninformed';
-        $_POST['nbPage'] = 'uninformed';
-        $_POST['format'] = 'uninformed';
-        $_POST['editeur'] = 'uninformed';
-        $_POST['anneeEdition'] = 'uninformed';
-        $_POST['prix'] = 'uninformed';
-        $_POST['langue'] = 'uninformed';
-    }
-    //& Valider les données entrées par l'utilisateur
-    $isbn = validate_input($_POST['isbn']);
+if (empty($_POST['isbn']) || empty($_POST['theme']) || empty($_POST['nbPage']) || empty($_POST['format']) || empty($_POST['editeur']) || empty($_POST['anneeEdition']) || empty($_POST['prix']) || empty($_POST['langue'])) {
+    $_POST['isbn'] = 'uninformed';
+    $_POST['theme'] = 'uninformed';
+    $_POST['nbPage'] = 'uninformed';
+    $_POST['format'] = 'uninformed';
+    $_POST['editeur'] = 'uninformed';
+    $_POST['anneeEdition'] = 'uninformed';
+    $_POST['prix'] = 'uninformed';
+    $_POST['langue'] = 'uninformed';
+}
+// Valider les données entrées par l'utilisateur
+$isbn = validate_input($_POST['isbn']);
     $titre = validate_input($_POST['titre']);
     $theme = validate_input($_POST['theme']);
     $nbPage = validate_input($_POST['nbPage']);
@@ -97,14 +65,14 @@ if (!$conn) {
 
 
 
-    if (mysqli_stmt_execute($stmt)) {
+    if ($stmt->execute()) {
         //& fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
         header('location: acceuil.php');
     } else {
         echo "Insertion  impossible veuiller réessayer ! <br>";
         echo ' <a href="ajouter.php">Retourner au formulaire</a>';
     }
-}
+
 
 function validate_input($data)
 {
@@ -113,4 +81,4 @@ function validate_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-mysqli_close($conn);
+// mysqli_close($conn);

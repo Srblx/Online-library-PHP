@@ -36,26 +36,23 @@
     </form>
     <?php
     // Me connecter à ma BDD
-    $connect = mysqli_connect('localhost', 'root', '', 'bibliotheque');
-    if (!$connect) {
-        echo "<script type=text/javascript>";
-        echo "alert('Connexion impossible à la base de données')";
-    } else {
-        //& isset() Détermine si une variable est déclarée et est différente de null
-        if (isset($_POST['prix'])) {
-            // Si la connexion fonctionne
-            $searchPage = $_POST['prix'];
-            //&Protege les caractere speciaux d'un chaine 
-            $searchPage = mysqli_real_escape_string($connect, $searchPage);
-
-            //& < a la place de = Affiche tout les livres avec moins de page que le choix utilisateur 
-            $request = "SELECT * FROM `livre` WHERE `prix` < '$searchPage'";
-            //& execute la requete sur la base de données
-            $result = mysqli_query($connect, $request);
-
+    try {
+        $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+        $connect->query("SET NAMES 'utf8'");
+        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+    }
+    
+    if (isset($_POST['prix'])) {
+        $searchPrix = $_POST['prix'];
+        $searchPrix = $connect->quote($searchPrix);
+    
+        $request = "SELECT * FROM `livre` WHERE `prix` < $searchPrix";
+        $result = $connect->query($request);
 
             //& Retourne le nombre de lignes dans le jeu de résultats
-            if (mysqli_num_rows($result) > 0) {
+            if ($result->rowCount() > 0) {
                 echo '<table border=1, class="styleTab">';
                 echo '<tr class="key">';
                 echo '<td>' . '<b>' . 'ISBN ' . '</b>' . '</td>';
@@ -74,28 +71,28 @@
                 echo '</tr>';
 
                 //& Récupère la ligne suivante d'un ensemble de résultats sous forme de tableau associatif, numérique ou les deux
-                while ($donnee = mysqli_fetch_array($result)) {
+                while ($donnee = $result->fetch(PDO::FETCH_OBJ)) {
                     // Les valeurs que j'affiche dans le tableau
                     echo '<tr class="value">';
-                    echo '<td>' . $donnee[1] . "  " . '</td>';
-                    echo '<td>' . $donnee[2] . "  " . '</td>';
-                    echo '<td>' . $donnee[3] . " " . '</td>';
-                    echo '<td>' . $donnee[4] . " " . '</td>';
-                    echo '<td>' . $donnee[5] . " " . '</td>';
-                    echo '<td>' . $donnee[6] . " " . '</td>';
-                    echo '<td>' . $donnee[7] . " " . '</td>';
-                    echo '<td>' . $donnee[8] . " " . '</td>';
-                    echo '<td>' . $donnee[9] . " " . '</td>';
-                    echo '<td>' . $donnee[10] . " " . '</td>';
-                    echo '<td>' . $donnee[11] . " " . '</td>';
-                    echo '<td><a href="modifierLigne.php?id=' . $donnee[0] . '"><i class="fa-solid fa-pen"></i></a></td>';
-                    echo '<td><a href="addDelete.php?id=' . $donnee[0] . '""><i class="fa-solid fa-trash"></i></a></td>';
+                    echo '<td>' . $donnee->isbn . "  " . '</td>';
+                    echo '<td>' . $donnee->titre . "  " . '</td>';
+                    echo '<td>' . $donnee->theme . " " . '</td>';
+                    echo '<td>' . $donnee->nombreDePage . " " . '</td>';
+                    echo '<td>' . $donnee->format . " " . '</td>';
+                    echo '<td>' . $donnee->nomAuteur . " " . '</td>';
+                    echo '<td>' . $donnee->prenomAuteur . " " . '</td>';
+                    echo '<td>' . $donnee->editeur . " " . '</td>';
+                    echo '<td>' . $donnee->anneeEdition . " " . '</td>';
+                    echo '<td>' . $donnee->prix . " " . '</td>';
+                    echo '<td>' . $donnee->langue . " " . '</td>';
+                    echo '<td><a href="modifierLigne.php?id=' . $donnee->id . '"><i class="fa-solid fa-pen"></i></a></td>';
+                    echo '<td><a href="addDelete.php?id=' . $donnee->id . '""><i class="fa-solid fa-trash"></i></a></td>';
                     echo '</tr>';
                 }
             }
             echo '</table>';
         }
-    }
+    
     ?>
     <?php include "footer.php" ?>
 </body>

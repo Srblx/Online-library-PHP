@@ -14,21 +14,25 @@
 
 <body class="light">   
 
-    <?php include "acceuil.php";
-
-    //  Affichege du tableau de resultat de recherche 
+    <?php include "acceuil.php";?>
+<?php
+   
     //~ Connexion a ma base de données my-db
     //&Fonction de connexion mysqli_connect(4 parametres pour effectuer la connexion )
-    $conn = mysqli_connect('localhost', 'root', '', 'bibliotheque');
-    if (!$conn) {
-        //~ Si la connexion echoue
-        echo "<script type=text/javascript>";
-        echo "alert('Connexion impossible a la base de données')</script>";
-    } else {
-        //~ Requete pour la connexion a la table 'connexion'
-        $requete = " SELECT * FROM livre";
-        //~ fonction pour executer la requete 'mysqli_query' ensemble es enregistrement qui se trouve dans connexion
-        $result = mysqli_query($conn, $requete);
+try {
+    $conn = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
+    $conn->query("SET NAMES 'utf8'");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('<p> Echec de la connexion. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . ']<p>');
+}
+
+    //& Requête pour récupérer les données de la table 'livre'
+    $requete = "SELECT * FROM livre";
+    //& Préparation de la requête
+    $result = $conn->prepare($requete);
+    //& Exécution de la requête
+    $result->execute();
 
 
         //~ Pour affiche les données de la bdd dans un tableau 
@@ -49,32 +53,32 @@
         echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
         echo '</tr>';
 
-        while ($donnees = mysqli_fetch_array($result)) {
+        while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
             //& $donnees recuperé avec la fonction ci dessus (ATTENTION array pas SENSIBLE a la CASSE)
             //~ Les valeurs que j'affiche dans le tableau
             echo '<tr class="value">';
-            echo '<td class="td">' . $donnees[1] . "  " . '</td>';
-            echo '<td class="td">' . $donnees[2] . "  " . '</td>';
-            echo '<td class="td">' . $donnees[3] . " " . '</td>';
-            echo '<td class="td">' . $donnees[4] . " " . '</td>';
-            echo '<td class="td">' . $donnees[5] . " " . '</td>';
-            echo '<td class="td">' . $donnees[6] . " " . '</td>';
-            echo '<td class="td">' . $donnees[7] . " " . '</td>';
-            echo '<td class="td">' . $donnees[8] . " " . '</td>';
-            echo '<td class="td">' . $donnees[9] . " " . '</td>';
-            echo '<td class="td">' . $donnees[10] . " " . '</td>';
-            echo '<td class="td">' . $donnees[11] . " " . '</td>';
-            echo '<td><a href="modifierLigne.php?id=' . $donnees[0] . '"><i class="fa-solid fa-pen"></i></a></td>';
-            echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnees[0] . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";
+            echo '<td class="td">' . $donnees->isbn . "  " . '</td>';
+            echo '<td class="td">' . $donnees->titre . "  " . '</td>';
+            echo '<td class="td">' . $donnees->theme . " " . '</td>';
+            echo '<td class="td">' . $donnees->nombreDePage . " " . '</td>';
+            echo '<td class="td">' . $donnees->format . " " . '</td>';
+            echo '<td class="td">' . $donnees->nomAuteur . " " . '</td>';
+            echo '<td class="td">' . $donnees->prenomAuteur . " " . '</td>';
+            echo '<td class="td">' . $donnees->editeur . " " . '</td>';
+            echo '<td class="td">' . $donnees->anneeEdition . " " . '</td>';
+            echo '<td class="td">' . $donnees->prix . " " . '</td>';
+            echo '<td class="td">' . $donnees->langue . " " . '</td>';
+            echo '<td><a href="modifierLigne.php?id=' . $donnees->id . '"><i class="fa-solid fa-pen"></i></a></td>';
+            echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnees->id . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";
 
 
             echo '</tr>';
         }
         echo '</table>';
-    }
+    
 
     //~ Cloture de la connexion a la base de données 
-    mysqli_close($conn);
+    // mysqli_close($conn);
     ?>
     <script>
         function confirmDelete(id) {

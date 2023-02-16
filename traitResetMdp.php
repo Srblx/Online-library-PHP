@@ -1,7 +1,13 @@
 <?php
 
 // Connexion à la base de données
-$db = mysqli_connect("localhost", "root", "", "bibliotheque");
+try {
+    $db = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+    $db->query("SET NAMES 'utf8'");
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+}
 
 // Récupération des données envoyées via le formulaire
 $email = $_POST["mail"];
@@ -16,10 +22,21 @@ if ($newPassword !== $confirmPassword) {
 
 // Préparation de la requête SQL pour récupérer l'utilisateur correspondant à l'adresse e-mail
 $stmt = $db->prepare("SELECT * FROM user WHERE mail = ?");
-$stmt->bind_param("s", $email);
-$stmt->execute();
-$result = $stmt->get_result();
+$stmt->execute([$email]);
+$user = $stmt->fetch();
 
+// Vérification que l'utilisateur existe
+if ($user) {
+    // Préparation de la requête SQL pour mettre à jour le mot de passe de l'utilisateur
+    $stmt = $db->prepare("UPDATE user SET mdp = ? WHERE id = ?");
+    $stmt->execute([$newPassword, $user["id"]]);
+    // Redirection vers la page index.php
+    header("Location: index.php?passwordUpdated=1");
+    exit;
+} else {
+    // Redirection vers la page d'erreur de réinitialisation du mot de passe
+    die('L\'utilisateur n\'existe pas !');
+}
 // Vérification que l'utilisateur existe
 if ($result->num_rows > 0) {
     // Récupération de l'utilisateur correspondant à l'adresse e-mail

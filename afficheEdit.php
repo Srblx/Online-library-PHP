@@ -37,18 +37,20 @@
     <!-- Affichege du tableau de resultat de recherche -->
     <?php
     // Me connecter a ma BDD
-    $connect = mysqli_connect('localhost', 'root', '', 'bibliotheque');
-    if (!$connect) {
-        // Si la connexion echoue
-        echo "<script type=text/javascript>";
-        echo "alert('Connexion impossible a la base de données')</script>";
-    } else {
+    try {
+        $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+        $connect->query("SET NAMES 'utf8'");
+        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+    }
+ 
         if (isset($_POST['edit'])) {
             // Si la connexion fonctionne
             $search = $_POST['edit'];
 
             $request = " SELECT * FROM `livre` WHERE `editeur` = '$search'";
-            $result = mysqli_query($connect, $request);
+            $result = $connect->query($request);
 
 
             echo '<table border=1, class="styleTab" >';
@@ -68,28 +70,28 @@
             echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
             echo '</tr>';
 
-            while ($donnee = mysqli_fetch_array($result)) {
+            while ($donnee = $result->fetch(PDO::FETCH_OBJ)) {
 
                 //~ Les valeurs que j'affiche dans le tableau
                 echo '<tr class="value">';
-                echo '<td>' . $donnee[1] . "  " . '</td>';
-                echo '<td>' . $donnee[2] . "  " . '</td>';
-                echo '<td>' . $donnee[3] . " " . '</td>';
-                echo '<td>' . $donnee[4] . " " . '</td>';
-                echo '<td>' . $donnee[5] . " " . '</td>';
-                echo '<td>' . $donnee[6] . " " . '</td>';
-                echo '<td>' . $donnee[7] . " " . '</td>';
-                echo '<td>' . $donnee[8] . " " . '</td>';
-                echo '<td>' . $donnee[9] . " " . '</td>';
-                echo '<td>' . $donnee[10] . " " . '</td>';
-                echo '<td>' . $donnee[11] . " " . '</td>';
-                echo '<td><a href="modifierLigne.php?id=' . $donnee[0] . '"><i class="fa-solid fa-pen"></i></a></td>';
-                echo '<td><a href="addDelete.php?id=' . $donnee[0] . '""><i class="fa-solid fa-trash"></i></a></td>';
+                echo '<td>' . $donnee->isbn . "  " . '</td>';
+                echo '<td>' . $donnee->titre . "  " . '</td>';
+                echo '<td>' . $donnee->theme . " " . '</td>';
+                echo '<td>' . $donnee->nombreDePage . " " . '</td>';
+                echo '<td>' . $donnee->format . " " . '</td>';
+                echo '<td>' . $donnee->nomAuteur . " " . '</td>';
+                echo '<td>' . $donnee->prenomAuteur . " " . '</td>';
+                echo '<td>' . $donnee->editeur . " " . '</td>';
+                echo '<td>' . $donnee->anneeEdition . " " . '</td>';
+                echo '<td>' . $donnee->prix . " " . '</td>';
+                echo '<td>' . $donnee->langue . " " . '</td>';
+                echo '<td><a href="modifierLigne.php?id=' . $donnee->id . '"><i class="fa-solid fa-pen"></i></a></td>';
+                echo '<td><a href="addDelete.php?id=' . $donnee->id . '""><i class="fa-solid fa-trash"></i></a></td>';
                 echo '</tr>';
             }
         }
         echo '</table>';
-    }?>
+    ?>
     <?php 
   include "footer.php"; 
   ?>

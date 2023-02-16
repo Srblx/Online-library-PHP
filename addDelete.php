@@ -1,10 +1,13 @@
 <?php
 
-$connect = mysqli_connect('localhost', 'root', '', 'bibliotheque');
+try {
+    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+    $connect->query("SET NAMES 'utf8'");
+    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+}
 
-// $req = "UPDATE `livre` SET isbn , titre, theme, nombreDePage, format, nomAuteur, prenomAuteur, editeur , anneeEdition, prix, langue WHERE
-// id 12";
-// $result = mysqli_query($connect, $req);
 $id = $_GET['id'];
 if (!$connect) {
     //~ Si la connexion echoue
@@ -16,13 +19,13 @@ if (!$connect) {
 
     $sql = "DELETE FROM livre WHERE  id = $id";
     //$result = mysqli_query($connect, $sql);
-    $result = mysqli_query($connect, $sql);
+    $result = $connect->query($sql);
     if ($result) {
 
         header('location: afficher.php');
     } else {
-        echo "Erreur lors de la suppression : " . mysqli_error($conn);
+        echo "Erreur lors de la mise à jour des informations : " . $stmt->errorInfo()[2];
     }
 }
 //~ Cloture de la connexion a la base de données 
-mysqli_close($connect);
+// mysqli_close($connect);

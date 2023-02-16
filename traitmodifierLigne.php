@@ -1,15 +1,15 @@
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bibliotheque";
+
 // Créer une connexion
-$connect = mysqli_connect($servername, $username, $password, $dbname);
-// Vérifier la connexion
-if (!$connect) {
-    die("Connexion échouée : " . mysqli_connect_error());
+try {
+    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+    $connect->query("SET NAMES 'utf8'");
+    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
 }
+
 // Récupérer les données du formulaire
 $id = $_GET['id'];
 $isbn = $_POST['isbn'];
@@ -26,15 +26,15 @@ $langue = $_POST['langue'];
 
 // Mettre à jour les données dans la base de données
 $sql = "UPDATE livre SET isbn='$isbn', titre='$titre', theme='$theme', nombreDePage='$nbPage', format='$format', nomAuteur='$nomAuteur', prenomAuteur='$prenomAuteur', editeur='$editeur', anneeEdition='$anneeEdition', prix='$prix', langue='$langue' WHERE id=$id";
-$result = mysqli_query($connect, $sql);
+$result = $connect->query($sql);
 
 if ($result) {
     echo "<script type=text/javascript>";
     echo "alert('Etes vous sur de vouloir supprimer cette ligne ? ')</script>";
     header('location: afficher.php');
 } else {
-    echo "Erreur lors de la mise à jour des informations : " . mysqli_error($connect);
+    echo "Erreur lors de la mise à jour des informations : " . $stmt->errorInfo()[2];
 }
 
 // Fermer la connexion
-mysqli_close($connect);
+// mysqli_close($connect);

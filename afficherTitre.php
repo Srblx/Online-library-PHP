@@ -40,42 +40,45 @@
         <!-- Affichege du tableau de resultat de recherche -->
         <?php
         // Me connecter à ma BDD
-        $connect = mysqli_connect('localhost', 'root', '', 'bibliotheque');
-        if (!$connect) {
-            echo "<script type=text/javascript>";
-            echo "alert('Connexion impossible à la base de données')";
-        } else {
-            if (isset($_POST['titre'])) {
-                // Si la connexion fonctionne
-                $searchTitre = $_POST['titre'];
-                //&Protege les caractere speciaux d'un chaine 
-                $searchTitre = mysqli_real_escape_string($connect, $searchTitre);
+try {
+    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+    $connect->query("SET NAMES 'utf8'");
+    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().']</p>');
+}
 
-                $request = "SELECT * FROM `livre` WHERE `titre` = '$searchTitre'";
-                //& execute la requete sur la base de données
-                $result = mysqli_query($connect, $request);
+    if (isset($_POST['titre'])) {
+        // Si la connexion fonctionne
+        $searchTitre = $_POST['titre'];
+        //&Protège les caractères spéciaux d'une chaîne
+        $searchTitre = $connect->quote($searchTitre);
 
-                //& Retourne le nombre de lignes dans le jeu de résultats
-                if (mysqli_num_rows($result) > 0) {
-                    echo '<table border=1, class="styleTab">';
-                    echo '<tr class="key">';
-                    echo '<td>' . '<b>' . 'ISBN ' . '</b>' . '</td>';
-                    echo '<td>' . '<b>' . 'Titre ' . '</b>' . '</td>';
-                    echo '<td>' . '<b>' . 'Thème ' . '</b>' . '</td>';
-                    echo '<td>' . '<b>' . 'Nombre Pages' . '</b>' . '</td>';
-                    echo '<td>' . '<b>' . 'Format' . '</b>' . '</td>';
-                    echo '<td>' . '<b>' . 'Nom auteur' . '</b>' . '</td>';
-                    echo '<td>' . '<b>' . 'Prénom auteur' . '</b>' . '</td>';
-                    echo '<td>' . '<b>' . 'Editeur' . '</b>' . '</td>';
-                    echo '<td>' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
-                    echo '<td>' . '<b>' . 'Prix' . '</b>' . '</td>';
-                    echo '<td>' . '<b>' . 'Langue' . '</b>' . '</td>';
-                    echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
-                    echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
-                    echo '</tr>';
+        $request = "SELECT * FROM `livre` WHERE `titre` = $searchTitre";
+        //& Exécute la requête sur la base de données
+        $result = $connect->query($request);
 
-                    //& Récupère la ligne suivante d'un ensemble de résultats sous forme de tableau associatif, numérique ou les deux
-                    while ($donnee = mysqli_fetch_array($result)) {
+        //& Retourne le nombre de lignes dans le jeu de résultats
+        if ($result->rowCount() > 0) {
+            echo '<table border="1" class="styleTab">';
+            echo '<tr class="key">';
+            echo '<td>' . '<b>' . 'ISBN ' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Titre ' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Thème ' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Nombre Pages' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Format' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Nom auteur' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Prénom auteur' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Editeur' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Prix' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Langue' . '</b>' . '</td>';
+            echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
+            echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
+            echo '</tr>';
+
+            //& Récupère la ligne suivante d'un ensemble de résultats sous forme de tableau associatif, numérique ou les deux
+            while ($donnee = $result->fetch()) {
                         // Les valeurs que j'affiche dans le tableau
                         echo '<tr class="value">';
                         echo '<td>' . $donnee[1] . "  " . '</td>';
@@ -96,7 +99,7 @@
                 }
                 echo '</table>';
             }
-        }?>
+        ?>
 <?php include "footer.php" ?>
 </body>
 </html>
