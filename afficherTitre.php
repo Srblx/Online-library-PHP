@@ -78,22 +78,22 @@ try {
             echo '</tr>';
 
             //& Récupère la ligne suivante d'un ensemble de résultats sous forme de tableau associatif, numérique ou les deux
-            while ($donnee = $result->fetch()) {
+            while ($donnee = $result->fetch(PDO::FETCH_OBJ)) {
                         // Les valeurs que j'affiche dans le tableau
                         echo '<tr class="value">';
-                        echo '<td>' . $donnee[1] . "  " . '</td>';
-                        echo '<td>' . $donnee[2] . "  " . '</td>';
-                        echo '<td>' . $donnee[3] . " " . '</td>';
-                        echo '<td>' . $donnee[4] . " " . '</td>';
-                        echo '<td>' . $donnee[5] . " " . '</td>';
-                        echo '<td>' . $donnee[6] . " " . '</td>';
-                        echo '<td>' . $donnee[7] . " " . '</td>';
-                        echo '<td>' . $donnee[8] . " " . '</td>';
-                        echo '<td>' . $donnee[9] . " " . '</td>';
-                        echo '<td>' . $donnee[10] . " " . '</td>';
-                        echo '<td>' . $donnee[11] . " " . '</td>';
-                        echo '<td><a href="modifierLigne.php?id=' . $donnee[0] . '"><i class="fa-solid fa-pen"></i></a></td>';
-                        echo '<td><a href="addDelete.php?id=' . $donnee[0] . '""><i class="fa-solid fa-trash"></i></a></td>';
+                        echo '<td>' . $donnee->isbn . "  " . '</td>';
+                        echo '<td>' . $donnee->titre . "  " . '</td>';
+                        echo '<td>' . $donnee->theme . " " . '</td>';
+                        echo '<td>' . $donnee->nombreDePage . " " . '</td>';
+                        echo '<td>' . $donnee->format . " " . '</td>';
+                        echo '<td>' . $donnee->nomAuteur . " " . '</td>';
+                        echo '<td>' . $donnee->prenomAuteur . " " . '</td>';
+                        echo '<td>' . $donnee->editeur . " " . '</td>';
+                        echo '<td>' . $donnee->anneeEdition . " " . '</td>';
+                        echo '<td>' . $donnee->prix . " " . '</td>';
+                        echo '<td>' . $donnee->langue . " " . '</td>';
+                        echo '<td><a href="modifierLigne.php?id=' . $donnee->id . '"><i class="fa-solid fa-pen"></i></a></td>';
+                        echo '<td><a href="addDelete.php?id=' . $donnee->id . '""><i class="fa-solid fa-trash"></i></a></td>';
                         echo '</tr>';
                     }
                 }

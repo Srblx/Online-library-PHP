@@ -37,7 +37,6 @@
 
     <?php
     // Me connecter à ma BDD
-   // Me connecter à ma BDD
 try {
     $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
     $connect->query("SET NAMES 'utf8'");
@@ -46,10 +45,6 @@ try {
     die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
 }
 
-if (!$connect) {
-    echo "<script type=text/javascript>";
-    echo "alert('Connexion impossible à la base de données')";
-} else {
     //& isset() Détermine si une variable est déclarée et est différente de null
     if (isset($_POST['nbPage'])) {
         // Si la connexion fonctionne
@@ -103,7 +98,7 @@ if (!$connect) {
             }
             echo '</table>';
         }
-    }
+    
     ?>
     <?php 
   include "footer.php"; 

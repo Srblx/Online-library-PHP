@@ -22,7 +22,7 @@ $stmt->bindParam(3, $theme);
 $stmt->bindParam(4, $nbPage);
 $stmt->bindParam(5, $format);
 $stmt->bindParam(6, $nomAuteur);
-$stmt->bindParam(7, $prenomAuteur);
+$stmt->bindParam(7, $prenomAuteur);  
 $stmt->bindParam(8, $editeur);
 $stmt->bindParam(9, $anneeEdition);
 $stmt->bindParam(10, $prix);

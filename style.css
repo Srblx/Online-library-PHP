@@ -283,3 +283,14 @@ img{
   display: block;
 }
 
+select {
+  height: 35px;
+  border-radius: 5px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+select:hover {
+  cursor: pointer;
+  border-color: #0366d6;
+  border: 4px slid black;
+}
