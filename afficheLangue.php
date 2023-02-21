@@ -18,20 +18,9 @@
     <form action="afficheLangue.php" method="post">
         <fieldset>
             <legend><b>Recherche d'un livre par langue</b></legend>
-            <table>
-                <tr>
-                    <td>
                         <label for="langue">Langue du livre : </label>
-                    </td>
-                    <td>
                         <input type="text" id="langue" name="langue">
-                    </td>
-                    <td>
                         <input type="submit" value="Rechercher" id="submit">
-                    </td>
-                </tr>
-
-            </table>
         </fieldset>
     </form>
         <!-- Affichege du tableau de resultat de recherche -->

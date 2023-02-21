@@ -18,20 +18,9 @@
     <form action="affichePrix.php" method="post">
         <fieldset>
             <legend><b>Recherche d'un livre par prix</b></legend>
-            <table>
-                <tr>
-                    <td>
                         <label for="prix">Budget maximum : </label>
-                    </td>
-                    <td>
                         <input type="text" id="prix" name="prix">
-                    </td>
-                    <td>
                         <input type="submit" value="Rechercher" id="submit">
-                    </td>
-                </tr>
-
-            </table>
         </fieldset>
     </form>
     <?php

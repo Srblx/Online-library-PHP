@@ -13,10 +13,10 @@
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
 </head>
 
-<body class="light">
+<body class="dark">
     <?php include('fournisseur.php');
-    require_once 'C:/Users/Serbe/OneDrive/Bureau/SimplonFormatioN/03_DevWeb/06_Formateurs/Samy/07_ExerciceMySQLBDD_Bibliotheque/composer/afficherPays.php';
-    Twig_Autoloader::register();
+    // require_once 'vendor/autoload.php';
+    // Twig_Autoloader::register();
     ?>
     <form action="traitementPays.php" method="post">
     <fieldset class="fieldset">

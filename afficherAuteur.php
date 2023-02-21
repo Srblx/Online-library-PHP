@@ -18,20 +18,9 @@
     <form action="afficherAuteur.php" method="post">
         <fieldset class="fieldset">
             <legend><b>Recherche d'un livre par nom d'auteur</b></legend>
-            <table>
-                <tr>
-                    <td>
                         <label for="auteur">Nom de l'auteur : </label>
-                    </td>
-                    <td>
                         <input type="text" id="searchAutor" name="searchAutor">
-                    </td>
-                    <td>
                         <input type="submit" value="Rechercher" id="submit">
-                    </td>
-                </tr>
-
-            </table>
         </fieldset>
     </form>
     <!-- Affichege du tableau de resultat de recherche -->

@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 36px;
+}
+
+h2 {
+  margin-top: 30px;
+  font-size: 28px;
+  text-align: center;
+}
+
+/* Styles du bouton de changement de thème */
+.btnDark {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Styles de la barre de navigation */
+nav {
+  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.infoCoG {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.infoCoD {
+  margin-left: 20px;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px;
+}
+
+a:hover {
+  background-color: #ccc;
+}
+
+/* Styles de la section principale */
+.btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+}
+
+select {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.option {
+  font-style: italic;
+}
+
+#title {
+  margin-top: 50px;
+}

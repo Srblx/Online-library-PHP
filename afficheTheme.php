@@ -18,20 +18,9 @@
     <form action="afficherTheme.php" method="post">
         <fieldset>
             <legend><b>Recherche d'un livre par thème</b></legend>
-            <table>
-                <tr>
-                    <td>
                         <label for="theme">Thèmes recherché : </label>
-                    </td>
-                    <td>
                         <input type="text" id="theme" name="theme">
-                    </td>
-                    <td>
                         <input type="submit" value="Rechercher" id="submit">
-                    </td>
-                </tr>
-
-            </table>
         </fieldset>
     </form>
     <?php include "footer.php" ?>

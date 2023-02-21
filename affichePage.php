@@ -18,20 +18,9 @@
     <form id="Responsive" action="affichePage.php" method="post">
         <fieldset>
             <legend><b>Recherche d'un livre par nombre de page</b></legend>
-            <table>
-                <tr>
-                    <td>
                         <label for="nbPage">Nombre de pages : </label>
-                    </td>
-                    <td>
                         <input type="text" id="nbPage" name="nbPage">
-                    </td>
-                    <td>
                         <input type="submit" value="Rechercher" id="submit">
-                    </td>
-                </tr>
-
-            </table>
         </fieldset>
     </form>
 

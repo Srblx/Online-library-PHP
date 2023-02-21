@@ -19,22 +19,12 @@
         <form action="afficherTitre.php" method="post">
             <fieldset class="formDark">
                 <legend><b>Recherche d'un livre par titre</b></legend>
-                <table>
-                    <tr>
-                        <td>
                             <label for="titre">Titre du livre : </label>
-                        </td>
-                        <td>
                             <!-- Champ de saisie avec liste déroulante pour les suggestions -->
                             <input type="text" id="titre" name="titre" list="suggestions">
                             <datalist id="suggestions"></datalist>
-                        </td>
-                        <td>
                             <!-- Bouton de soumission du formulaire -->
                             <input type="submit" value="Rechercher" id="submit">
-                        </td>
-                    </tr>
-                </table>
             </fieldset>
         </form>
         <!-- Affichege du tableau de resultat de recherche -->

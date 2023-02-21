@@ -18,20 +18,9 @@
     <form action="afficheEdit.php" method="post">
         <fieldset>
             <legend><b>Recherche d'un livre par maison d'edition</b></legend>
-            <table>
-                <tr>
-                    <td>
                         <label for="edit">Nom maison d'edition : </label>
-                    </td>
-                    <td>
                         <input type="text" id="edit" name="edit">
-                    </td>
-                    <td>
                         <input type="submit" value="Rechercher" id="submit">
-                    </td>
-                </tr>
-
-            </table>
         </fieldset>
     </form>
     <!-- Affichege du tableau de resultat de recherche -->

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
 </head>
 
-<body class="light">
+<body class="dark">
   <?php session_start();  ?>
   
   <h1>Bibliothèque en ligne</h1>
@@ -33,10 +33,8 @@
   </nav>
 <!-- </form> -->
   <div class="btn">
-    <table>
-      <tr>
-        <td><a href="slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a></td>
-        <td>
+   <a href="../slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a>
+       
           <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
           <select name="livre" id="livre">
             <option value="">Sélectionnez une option</option>
@@ -61,9 +59,7 @@
               }
             };
           </script>
-        </td>
-      </tr>
-    </table>
+       
   </div>
   <h2 id="title">Bienvenue sur l'acceuil fournisseur</h2>
 </body>

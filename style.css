@@ -4,7 +4,7 @@
 }
 
 body {
-    background: url(./css/img/9.jpg) no-repeat center center fixed;
+    background: url(./Css/img/9.jpg) no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
     /* overflow: hidden; */
@@ -188,6 +188,8 @@ body.dark .styleTab tr:nth-child(even) {
   color: white;
 }
 
+
+
 /* *Responsive */
 @media only screen and (max-width: 500px) {
   #Responsive {
@@ -227,6 +229,9 @@ form {
   margin: 0 auto;
   min-width: 30%;
   text-align: center;
+  display: flex;
+  justify-content: center;
+
 }
 
 input[type="text"], input[type="submit"] {
@@ -292,5 +297,50 @@ select {
 select:hover {
   cursor: pointer;
   border-color: #0366d6;
-  border: 4px slid black;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centrer le formulaire horizontalement */
+
+#formAdd {
+  margin: 0 auto;
+}
+
+fieldset {
+display: flex;
+flex-direction: column;
+gap: 10px;
+width: 80%;
+text-align: center;
+align-items: center;
+}
+
+input[type="text"] {
+  width: 100%;
+max-width: 300px;
+}
+
+label,
+input[type="submit"] {
+display: block;
+  margin: 0 auto;
+text-align: left;
+}
+
+#submit {
+background-color: #008CBA;
+color: #fff;
+border: none;
+  padding: 10px;
+border-radius: 5px;
+text-align: center;
+}
+
+sup {
+color: red;
 }
