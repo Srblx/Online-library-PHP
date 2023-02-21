@@ -21,6 +21,15 @@
         <fieldset class="fieldsetBg">
             <legend>Inscription</legend>
             <table>
+            <tr>
+              <td><label for="role" class="label">Rôle <sup>*</sup> : </label></td>
+                <td>
+                    <select name="role" id="role">
+                    <option value="user">Utilisateur</option>
+                    <option value="admin">Administrateur</option>
+                    </select>
+                </td>
+            </tr>
                 <tr>
                     <td>
                         <label for="firstName" class="label">Nom <sup>*</sup>: </label>

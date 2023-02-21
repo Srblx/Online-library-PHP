@@ -24,7 +24,7 @@
     </div>
     <div class="infoCoG">
 
-      <a href="deconnexion.php" id="deco" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?');">Déconnexion</a>
+      <a href="deco.php" id="deco" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?');">Déconnexion</a>
     </div>
     <div class="infoCoD">
       <?= "Bonjour " . '<br>'; ?>

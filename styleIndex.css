@@ -162,3 +162,12 @@ footer {
   }
 }
 
+select {
+  width: 100%;
+  padding: 10px;
+  /* margin-top: 20px; */
+  border-radius: 5px;
+  border: 3px solid #24292e;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+}

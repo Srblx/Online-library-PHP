@@ -18,7 +18,7 @@
     // require_once 'vendor/autoload.php';
     // Twig_Autoloader::register();
     ?>
-    <form action="traitementPays.php" method="post">
+    <!-- <form action="traitementPays.php" method="post">
     <fieldset class="fieldset">
         <legend><b>Recherche d'un fournisseur par pays</b></legend>
         <table>
@@ -30,7 +30,7 @@
                     <select id="pays" name="pays">
                         <option value="">Sélectionnez un fournisseur</option>
                         {% for fournisseur in fournisseurs %}
-                            <option value="{{ fournisseur.pays }}">{{ <fournisseur class="pays"></fournisseur> }}</option>
+                        <option value="{{ fournisseur.pays }}">{{ fournisseur.pays }}</option>
                         {% endfor %}
                     </select>
                 </td>
@@ -73,7 +73,7 @@
     </table>
 {% endif %}
 
-{% include "../footer.php" %}
+{% include "../footer.php" %} -->
     <?php include "../footer.php" ?>
 </body>
 </html>

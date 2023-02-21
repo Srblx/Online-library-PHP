@@ -86,6 +86,7 @@ a {
     transform-origin: left top ;
 }
 
+
 #deco{
   display: block;
 }
@@ -336,7 +337,7 @@ text-align: left;
 background-color: #008CBA;
 color: #fff;
 border: none;
-  padding: 10px;
+padding: 10px;
 border-radius: 5px;
 text-align: center;
 }

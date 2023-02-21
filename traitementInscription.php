@@ -26,6 +26,7 @@ if (!$stmt) {
 }
 
 // Lier les variables aux marqueurs
+$role = validate_input($_POST['role']);
 $firstName = validate_input($_POST['firstName']);
 $lastName = validate_input($_POST['lastName']);
 $mail = validate_input($_POST['mail']);

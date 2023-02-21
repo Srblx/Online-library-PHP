@@ -37,6 +37,8 @@
     <table>
       <tr>
         <td><a href="slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a></td>
+        <td><i class="fa-brands fa-readme"></i></td>
+        <td><a href="fournisseur/fournisseur.php" id="test" onclick="alert('Cette page conçu UNIQUEMENT pour les fournisseurs!')";>Fournisseur</a></td>
         <td>
           <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
           <select name="livre" id="livre">
@@ -65,7 +67,6 @@
             </option>
             <option value="ajouter.php" class="option">Ajouter un livre</option>
           </select>
-          <a href="fournisseur/fournisseur.php" id="test" onclick="alert('Cette page conçu UNIQUEMENT pour les fournisseurs!')";>Fournisseur</a>
           <script>
             // Fonction qui renvoie vers les deux autre fichier php avec un event onchange
             document.getElementById("livre").onchange = function() {
