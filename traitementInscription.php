@@ -1,4 +1,5 @@
 <?php
+session_start();
    //& Connection a la bdd
    try {
     $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
@@ -18,7 +19,7 @@ if (empty($_POST['firstName']) || empty($_POST['lastName']) || empty($_POST['mai
 }
 
 // Préparer la requête
-$stmt = $connect->prepare("INSERT INTO user (nom, prenom, mail, mdp) VALUES (?, ?, ?, ?)");
+$stmt = $connect->prepare("INSERT INTO user (nom, prenom, mail, mdp, est_administrateur) VALUES (?, ?, ?, ?, ?)");
 
 // Vérifier si la préparation de la requête a réussi
 if (!$stmt) {
@@ -33,6 +34,17 @@ $mail = validate_input($_POST['mail']);
 $mdp = validate_input($_POST['mdp']);
 $mdp2 = validate_input($_POST['mdp2']);
 
+// Déterminer la valeur de $est_administrateur en fonction de la valeur de $role
+switch ($role) {
+    case 'user':
+        $est_administrateur = 0;
+        break;
+    case 'admin':
+        $est_administrateur = 1;
+        break;
+    default:
+        die("Valeur de rôle invalide");
+}
 
 // Comparer les mots de passe
 if ($mdp == $mdp2) {
@@ -75,6 +87,7 @@ $stmt->bindParam(1, $firstName);
 $stmt->bindParam(2, $lastName);
 $stmt->bindParam(3, $mail);
 $stmt->bindParam(4, $hashed_password);
+$stmt->bindParam(5, $est_administrateur);
 
 //~ Exécuter la requête
 if ($stmt->execute()) {

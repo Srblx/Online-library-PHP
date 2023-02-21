@@ -1,0 +1,12 @@
+{
+    "name": "serbe/07_exercice-my-sqlbdd_bibliotheque",
+    "description": "Site Bilbio Brief PDO",
+    "require": {
+        "twig/twig": "^3.5"
+    },
+    "authors": [
+        {
+            "name": "Alexis"
+        }
+    ]
+}

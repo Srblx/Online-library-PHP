@@ -71,7 +71,6 @@ try {
             echo '<td><a href="modifierLigne.php?id=' . $donnees->id . '"><i class="fa-solid fa-pen"></i></a></td>';
             echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnees->id . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";
 
-
             echo '</tr>';
         }
         echo '</table>';

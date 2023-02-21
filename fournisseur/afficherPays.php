@@ -15,10 +15,10 @@
 
 <body class="dark">
     <?php include('fournisseur.php');
-    // require_once 'vendor/autoload.php';
-    // Twig_Autoloader::register();
+    require_once '../vendor/autoload.php';
+    //Twig_Autoloader::register();
     ?>
-    <!-- <form action="traitementPays.php" method="post">
+    <form action="traitementPays.php" method="post">
     <fieldset class="fieldset">
         <legend><b>Recherche d'un fournisseur par pays</b></legend>
         <table>
@@ -73,7 +73,7 @@
     </table>
 {% endif %}
 
-{% include "../footer.php" %} -->
+{% include "../footer.php" %}
     <?php include "../footer.php" ?>
 </body>
 </html>
