@@ -1,12 +1,12 @@
 <?php
 session_start();
-   //& Connection a la bdd
-   try {
-    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+//& Connection a la bdd
+try {
+    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
     $connect->query("SET NAMES 'utf8'");
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
 }
 
 
@@ -54,21 +54,21 @@ if ($mdp == $mdp2) {
 }
 
 // hachage d'un nouveau mot de passe pour un nouvel utilisateur
-$hashed_password = password_hash($mdp, PASSWORD_DEFAULT) ;
+$hashed_password = password_hash($mdp, PASSWORD_DEFAULT);
 
 // plus tard, lorsque l'utilisateur voudra se connecter
-$entered_password = validate_input($_POST['mdp']) ;
+$entered_password = validate_input($_POST['mdp']);
 
 // vérifie si le mot de passe saisi correspond au hachage stocké
 if (password_verify($entered_password, $hashed_password)) {
-    echo 'Password is correct!' ;
+    echo 'Password is correct!';
 } else {
-    echo 'Le mot de passe est incorrect!' ;
+    echo 'Le mot de passe est incorrect!';
 }
 
 // vérifie si le hachage stocké a besoin d'être rehaussé
 if (password_needs_rehash($hashed_password, PASSWORD_DEFAULT)) {
-    $new_hashed_password = password_hash($mdp, PASSWORD_DEFAULT) ;
+    $new_hashed_password = password_hash($mdp, PASSWORD_DEFAULT);
     // mise à jour du hash dans la base de données
 }
 

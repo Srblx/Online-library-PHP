@@ -156,6 +156,7 @@ label {
 table {
   margin-top: 10px;
 }
+
 table.styleTab {
   width: 100%;
   margin: 0 auto;
@@ -193,8 +194,6 @@ body.dark .styleTab tr:nth-child(even) {
 i {
   padding: 5px;
 }
-
-
 
 /* *Responsive */
 @media only screen and (max-width: 500px) {
@@ -237,7 +236,6 @@ form {
   text-align: center;
   display: flex;
   justify-content: center;
-
 }
 
 input[type="text"], input[type="submit"] {

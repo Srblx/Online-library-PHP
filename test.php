@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Recherche de livre</title>
-    <style>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recherche de livre</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src="./js/app.js" defer></script> -->
+  <link rel="stylesheet" href="styledark.css">
+  <script src="js/dark.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
       table {
         border-collapse: collapse;
         width: 100%;
@@ -19,12 +25,12 @@
     }
     </style>
 </head>
-<body>
+<body class="light">
   <?php include ('acceuil.php');?>
-  <form>
+  <form class="form" action="test.php" method="GET">
     <label for="search">Rechercher un livre :</label>
     <input type="text" id="search" name="search" />
-    <button type="submit">Rechercher</button>
+    <input type="submit" value="Rechercher"/>
   </form>
   <div id="result"></div>
 
@@ -67,8 +73,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-

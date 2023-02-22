@@ -52,7 +52,7 @@
       <?php if ($_SESSION['role'] === 1) { ?>
         <option value="ajouter.php" class="option">Ajouter un livre</option>
       <?php } ?>
-      <option value="test.php">Recherche api </option>
+      <option value="test.php">Recherche par ISBN</option>
     </select>
   </div>
   <h2 id="title">Bienvenue sur le site de consultation de livres</h2>
