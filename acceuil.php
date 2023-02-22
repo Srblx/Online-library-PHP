@@ -16,8 +16,12 @@
 </head>
 
 <body class="light">
-  <?php session_start();  ?>
-  
+  <?php session_start();
+  if (!isset($_SESSION['role']) || $_SESSION['role'] != "1") {
+    header("Location: index.php");
+    exit;
+  } ?>
+
   <h1>Bibliothèque en ligne</h1>
   <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
   <nav>
@@ -32,25 +36,27 @@
     </div>
   </nav>
   <div class="btn">
-       <a href="slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a>
-       <i class="fa-brands fa-readme"></i>
-              <a href="fournisseur/fournisseur.php" id="test" onclick="alert('Cette page conçu UNIQUEMENT pour les fournisseurs!')";>Fournisseur</a>
-          <select name="livre" id="livre">
-              <option value="">Sélectionnez une option</option>
-              <option value="afficher.php">Afficher les livres</option>
-              <option value="afficherAuteur.php" class="option">Recherche d'un livre par auteurs</option>
-              <option value="afficherTitre.php" class="option">Recherche d'un livre par titre</option>
-              <option value="afficheTheme.php" class="option">Recherche d'un livre par thèmes</option>
-              <option value="affichePage.php" class="option">Recherche d'un livre par Nb de page</option>
-              <option value="afficheEdit.php" class="option">Recherche d'un livre par maison éditeur</option>
-              <option value="afficheLangue.php" class="option">Recherche d'un livre par langue</option>
-              <option value="affichePrix.php" class="option">Recherche d'un livre par prix</option>
-              <?php if ($_SESSION['role'] === 1) { ?>
-                  <option value="ajouter.php" class="option">Ajouter un livre</option>
-              <?php } ?>
-          </select>
+    <a href="slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a>
+    <i class="fa-brands fa-readme" style="color: #0366d6;"></i>
+    <a href="fournisseur/fournisseur.php" id="test">Fournisseur</a>
+    <select name="livre" id="livre">
+      <option value="">Sélectionnez une option</option>
+      <option value="afficher.php">Afficher les livres</option>
+      <option value="afficherAuteur.php" class="option">Recherche d'un livre par auteurs</option>
+      <option value="afficherTitre.php" class="option">Recherche d'un livre par titre</option>
+      <option value="afficheTheme.php" class="option">Recherche d'un livre par thèmes</option>
+      <option value="affichePage.php" class="option">Recherche d'un livre par Nb de page</option>
+      <option value="afficheEdit.php" class="option">Recherche d'un livre par maison éditeur</option>
+      <option value="afficheLangue.php" class="option">Recherche d'un livre par langue</option>
+      <option value="affichePrix.php" class="option">Recherche d'un livre par prix</option>
+      <?php if ($_SESSION['role'] === 1) { ?>
+        <option value="ajouter.php" class="option">Ajouter un livre</option>
+      <?php } ?>
+      <option value="test.php">Recherche api </option>
+    </select>
   </div>
   <h2 id="title">Bienvenue sur le site de consultation de livres</h2>
-  
+
 </body>
+
 </html>

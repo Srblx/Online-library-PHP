@@ -4,16 +4,16 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
 
     //& Connection a la bdd
     try {
-        $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+        $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
         $connect->query("SET NAMES 'utf8'");
         $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
-        die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+        die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
     }
 
     $mail = $_POST['mail'];
     $mdp = $_POST['mdp'];
-    
+
     // Requete 
     $req = "SELECT * FROM user WHERE mail = :mail";
     $stmt = $connect->prepare($req);
@@ -31,7 +31,7 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
             $_SESSION['nom'] = $name;
             $_SESSION['prenom'] = $lastname;
             $_SESSION['role'] = $admin;
-            header('location: acceuil.php');
+            header('location: slideAcceuil.php');
         } else {
             header('location: loginFail.php');
         }

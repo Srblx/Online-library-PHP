@@ -13,9 +13,9 @@
 </head>
 
 <body class="light">
-<?php include "bandeau.php" ?>
+    <?php include "bandeau.php" ?>
     <div class="form">
-<!-- form -->
+        <!-- form -->
         <form action="traitementIndex.php" method="post">
             <h4>Entrez vos identifiants pour vous connectez : </h4>
             <label for="mail" class="label">Adresse mail <sup>*</sup>:</label>

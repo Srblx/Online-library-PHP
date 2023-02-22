@@ -161,6 +161,7 @@ table.styleTab {
   margin: 0 auto;
   border-collapse: collapse;
   text-align: center;
+  margin-top: 10px;
 }
 
 .styleTab td,
@@ -187,6 +188,10 @@ body.dark .styleTab tr:nth-child(even) {
   text-align: center;
   background-color: #4CAF50;
   color: white;
+}
+
+i {
+  padding: 5px;
 }
 
 
