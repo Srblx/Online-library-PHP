@@ -15,14 +15,32 @@
 <body class="light"> 
     <?php include "acceuil.php"?>   
 <!-- form -->
-    <form action="afficheLangue.php" method="post">
-        <fieldset>
-            <legend><b>Recherche d'un livre par langue</b></legend>
-                        <label for="langue">Langue du livre : </label>
-                        <input type="text" id="langue" name="langue">
-                        <input type="submit" value="Rechercher" id="submit">
-        </fieldset>
-    </form>
+ <form action="afficheLangue.php" method="post">
+  <fieldset>
+    <legend><b>Recherche d'un livre par langue</b></legend>
+    <label for="langue">Langue du livre : </label>
+    <select name="langue" id="langue">
+      <option value="">Sélectionnez une langue</option>
+      <?php
+      try {
+        $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+        $connect->query("SET NAMES 'utf8'");
+        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $request = "SELECT DISTINCT langue FROM `livre`";
+        $result = $connect->query($request);
+
+        while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+          echo '<option value="' . $donnees->langue . '">' . $donnees->langue . '</option>';
+        }
+      } catch (PDOException $e) {
+        die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+      }
+      ?>
+    </select>
+    <input type="submit" value="Rechercher" id="submit">
+  </fieldset>
+</form>
         <!-- Affichege du tableau de resultat de recherche -->
     <?php
     // Me connecter a ma BDD

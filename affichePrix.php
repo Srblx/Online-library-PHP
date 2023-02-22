@@ -18,9 +18,9 @@
     <form action="affichePrix.php" method="post">
         <fieldset>
             <legend><b>Recherche d'un livre par prix</b></legend>
-                        <label for="prix">Budget maximum : </label>
-                        <input type="text" id="prix" name="prix">
-                        <input type="submit" value="Rechercher" id="submit">
+            <label for="prix">Budget maximum : </label>
+            <input type="text" id="prix" name="prix">
+            <input type="submit" value="Rechercher" id="submit">
         </fieldset>
     </form>
     <?php

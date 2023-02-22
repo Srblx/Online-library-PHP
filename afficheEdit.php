@@ -7,6 +7,7 @@
     <title>Recherche par editeur</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styledark.css">
+    <script src="js/appAffichage.js" defer></script>
     <script src="js/dark.js" defer></script>
     <script src="js/app.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,15 +16,32 @@
 <body class="light">
   <?php include "acceuil.php"?>
 <!-- form -->
-    <form action="afficheEdit.php" method="post">
-        <fieldset>
-            <legend><b>Recherche d'un livre par maison d'edition</b></legend>
-                        <label for="edit">Nom maison d'edition : </label>
-                        <input type="text" id="edit" name="edit">
-                        <input type="submit" value="Rechercher" id="submit">
-        </fieldset>
-    </form>
-    <!-- Affichege du tableau de resultat de recherche -->
+<form action="afficheEdit.php" method="post">
+  <fieldset>
+    <legend><b>Recherche d'un livre par maison d'edition</b></legend>
+    <label for="edit">Nom maison d'edition : </label>
+    <select id="edit" name="edit">
+      <option value="">Sélectionnez une maison d'édition</option>
+      <?php
+      try {
+        $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+        $connect->query("SET NAMES 'utf8'");
+        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $request = "SELECT DISTINCT editeur FROM `livre`";
+        $result = $connect->query($request);
+
+        while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+          echo '<option value="' . $donnees->editeur . '">' . $donnees->editeur . '</option>';
+        }
+      } catch (PDOException $e) {
+        die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+      }
+      ?>
+    </select>
+    <input type="submit" value="Rechercher" id="submit">
+  </fieldset>
+</form>
     <?php
     // Me connecter a ma BDD
     try {

@@ -18,12 +18,11 @@
     <form id="Responsive" action="affichePage.php" method="post">
         <fieldset>
             <legend><b>Recherche d'un livre par nombre de page</b></legend>
-                        <label for="nbPage">Nombre de pages : </label>
-                        <input type="text" id="nbPage" name="nbPage">
-                        <input type="submit" value="Rechercher" id="submit">
+            <label for="nbPage">Nombre de pages : </label>
+            <input type="text" id="nbPage" name="nbPage">
+            <input type="submit" value="Rechercher" id="submit">
         </fieldset>
     </form>
-
     <?php
     // Me connecter à ma BDD
 try {

@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Recherche Par Titre</title>
         <link rel="stylesheet" href="style.css">
-        <script src="./js/app.js" defer></script>
+        <!-- <script src="./js/app.js" defer></script> -->
         <link rel="stylesheet" href="styledark.css">
         <script src="js/dark.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -19,15 +19,29 @@
         <form action="afficherTitre.php" method="post">
             <fieldset class="formDark">
                 <legend><b>Recherche d'un livre par titre</b></legend>
-                            <label for="titre">Titre du livre : </label>
-                            <!-- Champ de saisie avec liste déroulante pour les suggestions -->
-                            <input type="text" id="titre" name="titre" list="suggestions">
-                            <datalist id="suggestions"></datalist>
-                            <!-- Bouton de soumission du formulaire -->
-                            <input type="submit" value="Rechercher" id="submit">
+                <label for="titre">Titre du livre : </label>
+                <select name="titre" id="titre">
+                <option value="">Sélectionnez un Titre</option>
+                <?php
+                  try {
+                    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+                    $connect->query("SET NAMES 'utf8'");
+                    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                
+                    $request = "SELECT DISTINCT titre FROM `livre`";
+                    $result = $connect->query($request);
+                
+                    while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+                      echo '<option value="' . $donnees->titre . '">' . $donnees->titre . '</option>';
+                    }
+                  } catch (PDOException $e) {
+                    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+                  }
+                  ?>
+            </select>
+            <input type="submit" value="Rechercher" id="submit">
             </fieldset>
         </form>
-        <!-- Affichege du tableau de resultat de recherche -->
         <?php
         // Me connecter à ma BDD
 try {
@@ -69,26 +83,26 @@ try {
 
             //& Récupère la ligne suivante d'un ensemble de résultats sous forme de tableau associatif, numérique ou les deux
             while ($donnee = $result->fetch(PDO::FETCH_OBJ)) {
-                        // Les valeurs que j'affiche dans le tableau
-                        echo '<tr class="value">';
-                        echo '<td>' . $donnee->isbn . "  " . '</td>';
-                        echo '<td>' . $donnee->titre . "  " . '</td>';
-                        echo '<td>' . $donnee->theme . " " . '</td>';
-                        echo '<td>' . $donnee->nombreDePage . " " . '</td>';
-                        echo '<td>' . $donnee->format . " " . '</td>';
-                        echo '<td>' . $donnee->nomAuteur . " " . '</td>';
-                        echo '<td>' . $donnee->prenomAuteur . " " . '</td>';
-                        echo '<td>' . $donnee->editeur . " " . '</td>';
-                        echo '<td>' . $donnee->anneeEdition . " " . '</td>';
-                        echo '<td>' . $donnee->prix . " " . '</td>';
-                        echo '<td>' . $donnee->langue . " " . '</td>';
-                        echo '<td><a href="modifierLigne.php?id=' . $donnee->id . '"><i class="fa-solid fa-pen"></i></a></td>';
-                        echo '<td><a href="addDelete.php?id=' . $donnee->id . '""><i class="fa-solid fa-trash"></i></a></td>';
-                        echo '</tr>';
-                    }
+                    // Les valeurs que j'affiche dans le tableau
+                    echo '<tr class="value">';
+                    echo '<td>' . $donnee->isbn . "  " . '</td>';
+                    echo '<td>' . $donnee->titre . "  " . '</td>';
+                    echo '<td>' . $donnee->theme . " " . '</td>';
+                    echo '<td>' . $donnee->nombreDePage . " " . '</td>';
+                    echo '<td>' . $donnee->format . " " . '</td>';
+                    echo '<td>' . $donnee->nomAuteur . " " . '</td>';
+                    echo '<td>' . $donnee->prenomAuteur . " " . '</td>';
+                    echo '<td>' . $donnee->editeur . " " . '</td>';
+                    echo '<td>' . $donnee->anneeEdition . " " . '</td>';
+                    echo '<td>' . $donnee->prix . " " . '</td>';
+                    echo '<td>' . $donnee->langue . " " . '</td>';
+                    echo '<td><a href="modifierLigne.php?id=' . $donnee->id . '"><i class="fa-solid fa-pen"></i></a></td>';
+                    echo '<td><a href="addDelete.php?id=' . $donnee->id . '""><i class="fa-solid fa-trash"></i></a></td>';
+                    echo '</tr>';
                 }
-                echo '</table>';
             }
+            echo '</table>';
+        }
         ?>
 <?php include "footer.php" ?>
 </body>

@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
 </head>
 <body class="light">
-    <?php include "acceuil.php"; ?>
+    <?php include "acceuil.php";?>
   <!-- Conteneur principal du diaporama -->
   <div id="slideshow">
     <a href="afficher.php">
@@ -27,9 +27,7 @@
       <img src="./Css/img/7.jpg" alt="Image 7">
     </a>
   </div>
-  <?php 
-  include "footer.php"; 
-  ?>
+  <?php include "footer.php";?>
 </body>
 
 </html>

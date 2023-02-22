@@ -27,8 +27,10 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
             // Stockage des données nom prenom pour les récupérer sur d'autres pages
             $name = $donnees[1];
             $lastname = $donnees[2];
+            $admin = $donnees[5];
             $_SESSION['nom'] = $name;
             $_SESSION['prenom'] = $lastname;
+            $_SESSION['role'] = $admin;
             header('location: acceuil.php');
         } else {
             header('location: loginFail.php');

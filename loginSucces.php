@@ -17,28 +17,12 @@
     <div class="form">
 
         <form action="traitementIndex.php" method="post">
-            <!--  -->
-            <table>
-                <tr>
-                    <td>
-                        <h4>Entrez vos identifiants pour vous connectez : </h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="mail" class="label">Adresse mail <sup>*</sup>:</label></td>
-                    <td><input type="mail" name="mail" id="mail" placeholder="*****@mail.fr"></td>
-                </tr>
-                <tr>
-                    <td><label for="mdp" class="label">Mot de passe <sup>*</sup>:</label></td>
-                    <td><input type="password" name="mdp" id="mdp" placeholder="***************"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="connect"><input type="submit" value="Se connecter" id="send"></label>
-                    </td>
-
-                </tr>
-            </table>
+            <h4>Entrez vos identifiants pour vous connectez : </h4>
+            <label for="mail" class="label">Adresse mail <sup>*</sup>:</label>
+            <input type="email" name="mail" id="mail" placeholder="*****@mail.fr">
+            <label for="mdp" class="label">Mot de passe <sup>*</sup>:</label></td>
+            <input type="password" name="mdp" id="mdp" placeholder="***************">
+            <label for="connect"><input type="submit" value="Se connecter" id="send"></label>
             <h3 style="color:#00c073;">Vous etes inscrit ! Connectez vous pour acceder a notre bibilothèque </h3>
         </form>
     </div>

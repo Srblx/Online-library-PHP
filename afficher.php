@@ -35,45 +35,56 @@ try {
     $result->execute();
 
 
-        //~ Pour affiche les données de la bdd dans un tableau 
-        echo '<table border=1, class="styleTab" >';
-        echo '<tr class="key">';
-        echo '<td class="td">' . '<b>' .  'ISBN ' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' .  'Titre ' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' .  'Thème ' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' .  'Nombre Pages' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' .  'Format' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' . 'Nom auteur' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' . 'Prénom auteur' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' . 'Editeur' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' . 'Prix' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' . 'Langue' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
-        echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
-        echo '</tr>';
+  
+//~ Pour afficher les données de la bdd dans un tableau 
+echo '<table border=1, class="styleTab" >';
+echo '<tr class="key">';
+echo '<td class="td">' . '<b>' .  'ISBN ' . '</b>' . '</td>';
+echo '<td class="td">' . '<b>' .  'Titre ' . '</b>' . '</td>';
+echo '<td class="td">' . '<b>' .  'Thème ' . '</b>' . '</td>';
+echo '<td class="td">' . '<b>' .  'Nombre Pages' . '</b>' . '</td>';
+echo '<td class="td">' . '<b>' .  'Format' . '</b>' . '</td>';
+echo '<td class="td">' . '<b>' . 'Nom auteur' . '</b>' . '</td>';
+echo '<td class="td">' . '<b>' . 'Prénom auteur' . '</b>' . '</td>';
+echo '<td class="td">' . '<b>' . 'Editeur' . '</b>' . '</td>';
+echo '<td class="td">' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
+echo '<td class="td">' . '<b>' . 'Prix' . '</b>' . '</td>';
+echo '<td class="td">' . '<b>' . 'Langue' . '</b>' . '</td>';
 
-        while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
-            //& $donnees recuperé avec la fonction ci dessus (ATTENTION array pas SENSIBLE a la CASSE)
-            //~ Les valeurs que j'affiche dans le tableau
-            echo '<tr class="value">';
-            echo '<td class="td">' . $donnees->isbn . "  " . '</td>';
-            echo '<td class="td">' . $donnees->titre . "  " . '</td>';
-            echo '<td class="td">' . $donnees->theme . " " . '</td>';
-            echo '<td class="td">' . $donnees->nombreDePage . " " . '</td>';
-            echo '<td class="td">' . $donnees->format . " " . '</td>';
-            echo '<td class="td">' . $donnees->nomAuteur . " " . '</td>';
-            echo '<td class="td">' . $donnees->prenomAuteur . " " . '</td>';
-            echo '<td class="td">' . $donnees->editeur . " " . '</td>';
-            echo '<td class="td">' . $donnees->anneeEdition . " " . '</td>';
-            echo '<td class="td">' . $donnees->prix . " " . '</td>';
-            echo '<td class="td">' . $donnees->langue . " " . '</td>';
-            echo '<td><a href="modifierLigne.php?id=' . $donnees->id . '"><i class="fa-solid fa-pen"></i></a></td>';
-            echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnees->id . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";
+if ($_SESSION['role'] === 1 ) {
+    //~ Si l'utilisateur est un administrateur, afficher les deux dernières colonnes
+    echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
+    echo '<td class="td">' . '<b>' . '' . '</b>' . '</td>';
+}
 
-            echo '</tr>';
-        }
-        echo '</table>';
+echo '</tr>';
+
+while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+    //& $donnees recuperé avec la fonction ci dessus (ATTENTION array pas SENSIBLE a la CASSE)
+    //~ Les valeurs que j'affiche dans le tableau
+    echo '<tr class="value">';
+    echo '<td class="td">' . $donnees->isbn . "  " . '</td>';
+    echo '<td class="td">' . $donnees->titre . "  " . '</td>';
+    echo '<td class="td">' . $donnees->theme . " " . '</td>';
+    echo '<td class="td">' . $donnees->nombreDePage . " " . '</td>';
+    echo '<td class="td">' . $donnees->format . " " . '</td>';
+    echo '<td class="td">' . $donnees->nomAuteur . " " . '</td>';
+    echo '<td class="td">' . $donnees->prenomAuteur . " " . '</td>';
+    echo '<td class="td">' . $donnees->editeur . " " . '</td>';
+    echo '<td class="td">' . $donnees->anneeEdition . " " . '</td>';
+    echo '<td class="td">' . $donnees->prix . " " . '</td>';
+    echo '<td class="td">' . $donnees->langue . " " . '</td>';
+    
+    if ($_SESSION['role'] === 1 ) {
+        //~ Si l'utilisateur est un administrateur, afficher les deux dernières colonnes
+        echo '<td><a href="modifierLigne.php?id=' . $donnees->id . '"><i class="fa-solid fa-pen"></i></a></td>';
+        echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnees->id . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";    
+    }
+
+    echo '</tr>';
+    
+    }
+    echo '</table>';
     
 
     //~ Cloture de la connexion a la base de données 

@@ -18,30 +18,15 @@
 
         <!-- form -->
         <form action="traitResetMdp.php" method="post">
-            <table>
-                <tr>
-                    <td>
-                        <h4>Mot de passe oublié : </h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="mail" class="label">Adresse mail<sup>*</sup>:</label></td>
-                    <td><input type="mail" name="mail" id="mail" placeholder="******@mail.fr"></td>
-                </tr>
-                <tr>
-                    <td><label for="newMdp" class="label">Mot de passe<sup>*</sup>:</label></td>
-                    <td><input type="password" name="newMdp" id="newMdp" placeholder="Nouveau mot de passe"></td>
-                </tr>
-                <tr>
-                    <td><label for="ConfNewMdp" class="label">Confirme mot de passe <sup>*</sup>:</label></td>
-                    <td><input type="password" name="ConfNewMdp" id="ConfNewMdp" placeholder="Confirme mot de passe"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="connect"><input type="submit" value="Changer Mot De Passe" id="send"></label>
-                    </td>
-                    <td><a href="index.php">Retour à l'accueil</a></td>
-
+            <h4>Mot de passe oublié : </h4>
+            <label for="mail" class="label">Adresse mail<sup>*</sup>:</label>
+            <input type="email" name="mail" id="mail" placeholder="******@mail.fr">
+            <label for="newMdp" class="label">Mot de passe<sup>*</sup>:</label></td>
+            <input type="password" name="newMdp" id="newMdp" placeholder="Nouveau mot de passe">
+            <label for="ConfNewMdp" class="label">Confirme mot de passe <sup>*</sup>:</label></td>
+            <input type="password" name="ConfNewMdp" id="ConfNewMdp" placeholder="Confirme mot de passe">
+            <label for="connect"><input type="submit" value="Changer Mot De Passe" id="send"></label>
+            <a href="index.php" id="retour">Retour à l'accueil</a>
         </form>
         <?php include "footer.php" ?>
 </body>

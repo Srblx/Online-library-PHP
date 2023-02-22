@@ -18,9 +18,27 @@
     <form action="afficherAuteur.php" method="post">
         <fieldset class="fieldset">
             <legend><b>Recherche d'un livre par nom d'auteur</b></legend>
-                        <label for="auteur">Nom de l'auteur : </label>
-                        <input type="text" id="searchAutor" name="searchAutor">
-                        <input type="submit" value="Rechercher" id="submit">
+            <label for="nomAuteur">Nom de l'auteur : </label>
+            <select name="nomAuteur" id="nomAuteur">
+                <option value="">Sélectionnez un Auteur</option>
+                <?php
+                  try {
+                    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+                    $connect->query("SET NAMES 'utf8'");
+                    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                
+                    $request = "SELECT DISTINCT nomAuteur FROM `livre`";
+                    $result = $connect->query($request);
+                
+                    while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+                      echo '<option value="' . $donnees->nomAuteur . '">' . $donnees->nomAuteur . '</option>';
+                    }
+                  } catch (PDOException $e) {
+                    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+                  }
+                  ?>
+            </select>
+            <input type="submit" value="Rechercher" id="submit">
         </fieldset>
     </form>
     <!-- Affichege du tableau de resultat de recherche -->
@@ -34,9 +52,9 @@
         die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
     }
   
-        if (isset($_POST['searchAutor'])) {
+        if (isset($_POST['nomAuteur'])) {
             // Si la connexion fonctionne
-            $search = $_POST['searchAutor'];
+            $search = $_POST['nomAuteur'];
 
             $request = " SELECT * FROM `livre` WHERE `nomAuteur` = '$search'";
             $result = $connect->query($request);

@@ -17,33 +17,15 @@
     <div class="form">
 <!-- form -->
         <form action="traitementIndex.php" method="post">
-            <!--  -->
-            <table>
-                <tr>
-                    <td>
-                        <h4>Entrez vos identifiants pour vous connectez : </h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="mail" class="label">Adresse mail <sup>*</sup>:</label></td>
-                    <td><input type="mail" name="mail" id="mail" placeholder="*****@mail.fr"></td>
-                </tr>
-                <tr>
-                    <td><label for="mdp" class="label">Mot de passe <sup>*</sup>:</label></td>
-                    <td><input type="password" name="mdp" id="mdp" placeholder="***************"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="connect"><input type="submit" value="Se connecter" id="send"></label>
-                    </td>
-                    <td>
-                        <a href="resetMdp.php">Mot de passe oublié</a>
-                        <br>
-                        <a href="inscription.php">Inscrivez-vous</a>
-                    </td>
-                </tr>
-            </table>
-
+            <h4>Entrez vos identifiants pour vous connectez : </h4>
+            <label for="mail" class="label">Adresse mail <sup>*</sup>:</label>
+            <input type="email" name="mail" id="mail" placeholder="*****@mail.fr" required>
+            <label for="mdp" class="label">Mot de passe <sup>*</sup>:</label>
+            <input type="password" name="mdp" id="mdp" placeholder="***************" required>
+            <label for="connect"><input type="submit" value="Se connecter" id="send" name="connect"></label>
+            <a href="resetMdp.php" id="mdpOublie">Mot de passe oublié</a>
+            <br>
+            <a href="inscription.php" id="inscrip">Inscrivez-vous</a>
         </form>
     </div>
     <script>

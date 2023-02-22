@@ -1,6 +1,143 @@
-fieldset {
-    background-color: white;
-}
+/* Couleur de fond de la page */
+body {
+    background: url(./Css/img/9.jpg);
+  }
+  
+  /* Style du formulaire d'inscription */
+  fieldset {
+    background-color: rgba(0, 0, 0, 0.285);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #24292e;
+    padding: 40px;
+    animation: form-entry 0.5s ease-in-out;
+  }
+  
+  legend {
+    font-size: 26px;
+    font-weight: bold;
+    color: #24292e;
+  }
+  
+  /* Style des champs de saisie */
+  .label {
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #24292e;
+    text-align: left;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="submit"],
+  input[type="mail"],
+  input[type='reset'],
+  select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px solid #24292e;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="mail"]:focus,
+  select:focus {
+    border-color: #0366d6;
+    box-shadow: 0 0 10px #0366d6;
+  }
+  
+  /* Style du bouton d'inscription */
+  #send {
+    background-color: #24292e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  #send:hover {
+    background-color: #0366d6;
+    border-color: #0366d6;
+  }
+  
+  /* Style des liens "Mot de passe oublié" et "Retour à l'accueil" */
+  a {
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #0366d6;
+  }
+
+  #reset {
+    background-color: #24292e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  #reset:hover {
+    color: red;
+    background-color: #24292E;
+  }
+  
+  /* Animation du formulaire */
+  @keyframes form-entry {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media only screen and (max-width: 580px) {
+    fieldset {
+      width: 80%;
+      max-width: none;
+    }
+  
+    .label {
+      text-align: center;
+    }
+  
+    legend {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"],
+    input[type="mail"],
+    select {
+      font-size: 16px;
+    }
+  
+    a {
+      font-size: 16px;
+    }
+  }
 
 legend {
     color: rgba(73, 73, 253, 0.899);
@@ -39,7 +176,7 @@ body.dark .btnDark {
 }
 
 /* center fieldset and form horizontally and vertically */
-fieldset,
+
 form {
     display: flex;
     flex-direction: column;

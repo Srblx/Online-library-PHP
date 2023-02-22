@@ -48,7 +48,9 @@
             <option value="afficherPays.php" class="option">
               Recherche d'un fournisseur par pays
             </option>
-            <option value="ajouterFournisseur.php" class="option">Ajouter un fournisseur</option>
+            <?php if ($_SESSION['role'] === 1) { ?>
+              <option value="ajouterFournisseur.php" class="option">Ajouter un fournisseur</option>
+              <?php } ?>
           </select>
           
           <script>
