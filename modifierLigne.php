@@ -13,15 +13,27 @@
 </head>
 
 <body class="light">
-<?php include "acceuil.php"; 
-        $connex = mysqli_connect('localhost', 'root', '', 'bibliotheque');
+<?php 
+    include "acceuil.php"; 
+    $dsn = "mysql:host=localhost;dbname=bibliotheque;charset=utf8";
+    $username = "root";
+    $password = "";
+    $options = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ];
+    try {
+        $pdo = new PDO($dsn, $username, $password, $options);
         $id = $_GET['id'];
-        $query = "SELECT * FROM livre WHERE id = '$id'";
-        $result = mysqli_query($connex, $query);
-        $row = mysqli_fetch_array($result);
-        mysqli_close($connex);
-
-        ?>
+        $query = "SELECT * FROM livre WHERE id = ?";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$id]);
+        $row = $stmt->fetch();
+        $pdo = null;
+    } catch (PDOException $e) {
+        die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+    }
+?>
  <!-- form -->
     <form action="traitmodifierLigne.php?id=<?= $id; ?>" method="post">
         <fieldset>

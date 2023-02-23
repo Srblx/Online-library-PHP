@@ -15,8 +15,6 @@
 <body class="light">
 <?php include "bandeau.php" ?>
     <div class="form">
-
-        <!-- form -->
         <form action="traitResetMdp.php" method="post">
             <h4>Mot de passe oublié : </h4>
             <label for="mail" class="label">Adresse mail<sup>*</sup>:</label>

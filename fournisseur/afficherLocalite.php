@@ -18,41 +18,43 @@
     <form action="afficherLocalite.php" method="post">
         <fieldset class="fieldset">
             <legend><b>Recherche d'un fournisseur par sa localité</b></legend>
-                        <label for="localite">Nom du fournisseur : </label>
-                        <select id="localite" name="localite">
-                            <option value="">Sélectionnez un fournisseur</option>
-                            <?php
-                            try {
-                                $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-                                $connect->query("SET NAMES 'utf8'");
-                                $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                                $request = "SELECT DISTINCT localite FROM `fornisseur`";
-                                $result = $connect->query($request);
-
-                                while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
-                                    echo '<option value="' . $donnees->localite . '">' . $donnees->localite . '</option>';
-                                }
-
-                            } catch (PDOException $e) {
-                                die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-                            }
-                            ?>
-                        </select>
-                        <input type="submit" value="Rechercher" id="submit">
+                <label for="localite">Nom du fournisseur : </label>
+                <select id="localite" name="localite">
+                    <option value="">Sélectionnez un fournisseur</option>
+                    <?php
+                    try {
+                        $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
+                        $connect->query("SET NAMES 'utf8'");
+                        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        $request = "SELECT DISTINCT localite FROM `fornisseur`";
+                        $result = $connect->query($request);
+                        while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+                            echo '<option value="' . $donnees->localite . '">' . $donnees->localite . '</option>';
+                        }
+                    } catch (PDOException $e) {
+                        die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
+                    }
+                    ?>
+                </select>
+            <input type="submit" value="Rechercher" id="submit">
         </fieldset>
     </form>
     <?php 
 
    if (isset($_POST['localite'])) {
-       // Si la connexion fonctionne
-       $search = $_POST['localite'];
-
-       $request = " SELECT * FROM `fornisseur` WHERE `localite` LIKE :localite ";
-       $result = $connect->prepare($request);
-       $raisonSoc = "%".$_POST['localite']."%";
-       $result->bindParam(':localite', $raisonSoc, PDO::PARAM_STR);
-       $result->execute();
+    //* Si la connexion fonctionne
+      // Récupérer la valeur de recherche à partir de la méthode POST
+      $search = $_POST['localite'];
+      // Préparer la requête SQL pour sélectionner tous les enregistrements de la table "fornisseur" qui correspondent à la recherche
+      $request = "SELECT * FROM `fornisseur` WHERE `localite` LIKE :localite";
+      // Préparer la requête SQL avec PDO
+      $result = $connect->prepare($request);
+      // Ajouter des caractères génériques à la valeur de recherche pour rechercher des enregistrements avec des valeurs partielles qui correspondent
+      $localite = "%".$_POST['localite']."%";
+      // Lier la valeur de recherche à la requête SQL préparée
+      $result->bindParam(':localite', $localite, PDO::PARAM_STR);
+      // Exécuter la requête SQL préparée pour sélectionner les enregistrements qui correspondent à la recherche
+      $result->execute();
 
        //~ Pour affiche les données de la bdd dans un tableau
        echo '<table border=1, class="styleTab" >';

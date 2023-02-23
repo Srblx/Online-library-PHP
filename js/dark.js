@@ -24,14 +24,14 @@ btnDark.addEventListener('click', () => {
 })
 
 
-//* POur les mot de passe 
-document.querySelector('form').addEventListener('submit', function(event) {
-    var mdp = document.getElementById('mdp').value;
-    var mdp2 = document.getElementById('mdp2').value;
-    if (mdp !== mdp2) {
-        event.preventDefault();
-        alert('Les mots de passe ne correspondent pas.');
-    }
-});
+// //* POur les mot de passe 
+// document.querySelector('form').addEventListener('submit', function(event) {
+//     var mdp = document.getElementById('mdp').value;
+//     var mdp2 = document.getElementById('mdp2').value;
+//     if (mdp !== mdp2) {
+//         event.preventDefault();
+//         alert('Les mots de passe ne correspondent pas.');
+//     }
+// });
 
 

@@ -37,6 +37,27 @@ document.getElementById("formAdd").addEventListener("submit", function(event) {
 });
 
 
+function changeInputs() {
+    let role = document.getElementById("role").value;
+    let firstNameLabel = document.querySelector("label[for='firstName']");
+    let firstNameInput = document.getElementById("firstName");
+    let lastNameLabel = document.querySelector("label[for='lastName']");
+    let lastNameInput = document.getElementById("lastName");
+
+    if (role == "admin") {
+        firstNameLabel.innerHTML = "Nom de la société <sup>*</sup>:";
+        firstNameInput.name = "companyName";
+        lastNameLabel.innerHTML = "Raison sociale <sup>*</sup>:";
+        lastNameInput.name = "businessName";
+    } else if (role == "user") {
+        firstNameLabel.innerHTML = "Nom <sup>*</sup>:";
+        firstNameInput.name = "firstName";
+        lastNameLabel.innerHTML = "Prénom <sup>*</sup>:";
+        lastNameInput.name = "lastName";
+    }
+}
+
+
 
 
 
