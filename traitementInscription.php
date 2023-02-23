@@ -11,7 +11,7 @@ try {
 
 
 //& Vérifier que toutes les données requises sont entrées correctement
-if (empty($_POST['firstName']) || empty($_POST['lastName']) || empty($_POST['mail']) || empty($_POST['mdp'])) {
+if (empty($_POST['mail']) || empty($_POST['mdp'])) {
     echo "<script type=text/javascript>";
     echo "alert('Veuillez entrer toutes les données requises')</script>";;
     header('location : inscription.php');
