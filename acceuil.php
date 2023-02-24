@@ -16,14 +16,32 @@
 </head>
 
 <body class="light">
-  <?php session_start();
-  if (!isset($_SESSION['role']) || $_SESSION['role'] != "1") {
-    header("Location: index.php");
-    exit;
-  } ?>
+<?php
+session_start();
+
+// Vérifier si le temps de début de session est enregistré dans la variable $_SESSION
+if (!isset($_SESSION['start_time'])) {
+  $_SESSION['start_time'] = date('Y-m-d H:i:s');
+}
+
+if (!isset($_SESSION['role'])) {
+  header("Location: index.php");
+  exit();
+}
+?>
+ <script>
+    // Récupération de l'heure de départ en JavaScript
+    let startTimestamp = Date.parse('<?php echo $_SESSION['start_time'] ?>');
+
+    // Vérification que startTimestamp est un nombre valide
+    if (isNaN(startTimestamp)) {
+      console.error('Invalid start time:', '<?php echo $_SESSION['start_time'] ?>');
+      startTimestamp = Date.now(); // Utiliser l'heure actuelle si startTime est invalide
+    }
+  </script>
 
   <h1>Bibliothèque en ligne</h1>
-  <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
+  <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i> </div>
   <nav>
     </div>
     <div class="infoCoG">
@@ -32,9 +50,10 @@
     </div>
     <div class="infoCoD">
       <?= "Bonjour " . '<br>'; ?>
-      <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom'] . ' ' . $_SESSION['role']; ?>
+      <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom'] . ' ' . $_SESSION['role'] . ' ' . $_SESSION['start_time']; ?>
     </div>
   </nav>
+  <span id="timer"></span>
   <div class="btn">
     <a href="slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a>
     <i class="fa-brands fa-readme" style="color: #0366d6;"></i>
@@ -56,6 +75,40 @@
     </select>
   </div>
   <h2 id="title">Bienvenue sur le site de consultation de livres</h2>
+  <script>// Récupération de l'heure de départ
+// Récupération de l'heure de départ
+let startTime = Date.parse('<?php echo $_SESSION['start_time'] ?>');
+// let startTimestamp = Date.parse(startTime);
+
+// Vérification que startTime est une date valide
+if (isNaN(startTimestamp)) {
+  console.error('Invalid start time:', startTime);
+  startTimestamp = Date.now(); // Utiliser l'heure actuelle si startTime est invalide
+}
+
+// Fonction pour mettre à jour le compteur de temps
+function updateTimer() {
+   // Récupération du timestamp actuel en millisecondes
+  let now = Date.now();
+  // Calcul du temps écoulé depuis le début de la session en millisecondes
+  let elapsedTime = now - startTimestamp
+  // Calcul des heures écoulées
+  let hours = Math.floor(elapsedTime / 3600000); 
+   // Calcul des minutes écoulées
+  let minutes = Math.floor((elapsedTime % 3600000) / 60000);
+   // Calcul des secondes écoulées
+  let seconds = Math.floor((elapsedTime % 60000) / 1000);
+   // Récupération de l'élément HTML pour afficher le timer
+  let timer = document.getElementById("timer");
+  // Formatage de l'affichage du timer
+  timer.innerHTML = hours + "h " + minutes + "m " + seconds + "s";
+   // Mise à jour du timer toutes les secondes
+  setTimeout(updateTimer, 1000);
+}
+
+ // Lancement de la mise à jour du timer
+updateTimer();
+</script>
 
 </body>
 

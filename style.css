@@ -377,6 +377,14 @@ background: rgb(125, 125, 125);
   height: auto;
   }
   
-  .zoom:hover {
+.zoom:hover {
   transform: scale(1.2);
-  }
+}
+
+#timer {
+  color: rgb(9, 255, 0);
+}
+#timer:hover {
+  transform: scale(1.5);
+  color: #0366d6;
+}

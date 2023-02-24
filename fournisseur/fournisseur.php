@@ -16,7 +16,7 @@
 
 <body class="ligth">
   <?php session_start();
-  if (!isset($_SESSION['role']) || $_SESSION['role'] != "1") {
+  if (!isset($_SESSION['role'])) {
     header("Location: ../index.php");
     exit;
   } ?>

@@ -28,19 +28,27 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
             $name = $donnees[1];
             $lastname = $donnees[2];
             $admin = $donnees[5];
+            $chrono = time();
             $_SESSION['nom'] = $name;
             $_SESSION['prenom'] = $lastname;
             $_SESSION['role'] = $admin;
+            $_SESSION['start_time'] = $chrono;
+            if (isset($_SESSION['start_time'])) {
+                $duration = time() - $_SESSION['start_time'];
+                echo "Vous êtes connecté depuis " . $duration . " secondes.";
+            } else {
+                echo "Vous n'êtes pas connecté.";
+            }
             header('location: slideAcceuil.php');
         } else {
-            // header('location: loginFail.php'); 
-            print_r($stmt->errorInfo());
+            header('location: loginFail.php');
         }
     } else {
         // die("Erreur lors de l'exécution de la requête: " . $stmt->errorInfo()[2]);
-        echo "Erreur lors de l'exécution de la requête: ";
-print_r($stmt->errorInfo());
+//         echo "Erreur lors de l'exécution de la requête: ";
+header('location: slideAcceuil.php');
+// print_r($stmt->errorInfo());
     }
 } else {
-    // header('location: loginFail.php');
+    header('location: loginFail.php');
 }
