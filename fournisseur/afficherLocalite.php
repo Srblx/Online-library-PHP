@@ -13,13 +13,13 @@
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
 </head>
 
-<body class="dark">
+<body class="light">
     <?php include('fournisseur.php')?>
     <form action="afficherLocalite.php" method="post">
         <fieldset class="fieldset">
             <legend><b>Recherche d'un fournisseur par sa localité</b></legend>
                 <label for="localite">Nom du fournisseur : </label>
-                <select id="localite" name="localite">
+                <select id="localite" name="localite" onchange="validerSelection()">
                     <option value="">Sélectionnez un fournisseur</option>
                     <?php
                     try {
@@ -36,7 +36,6 @@
                     }
                     ?>
                 </select>
-            <input type="submit" value="Rechercher" id="submit">
         </fieldset>
     </form>
     <?php 

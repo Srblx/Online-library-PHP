@@ -19,7 +19,7 @@
   <fieldset>
     <legend><b>Recherche d'un livre par langue</b></legend>
     <label for="langue">Langue du livre : </label>
-    <select name="langue" id="langue">
+    <select name="langue" id="langue" onchange="validerSelection()">
       <option value="">Sélectionnez une langue</option>
       <?php
       try {
@@ -38,7 +38,6 @@
       }
       ?>
     </select>
-    <input type="submit" value="Rechercher" id="submit">
   </fieldset>
 </form>
         <!-- Affichege du tableau de resultat de recherche -->

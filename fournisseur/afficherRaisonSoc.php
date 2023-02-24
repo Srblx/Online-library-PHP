@@ -19,7 +19,7 @@
         <fieldset class="fieldset">
             <legend><b>Recherche d'un fournisseur par sa raison social</b></legend>
                 <label for="raison_social">Nom du fournisseur : </label>
-                <select id="raison_social" name="raison_social">
+                <select id="raison_social" name="raison_social" onchange="validerSelection()">
                     <option value="">Sélectionnez un fournisseur</option>
                     <?php
                     try {
@@ -36,7 +36,6 @@
                     }
                     ?>
                 </select>
-            <input type="submit" value="Rechercher" id="submit">
         </fieldset>
     </form>
     <?php 

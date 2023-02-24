@@ -19,7 +19,7 @@
         <fieldset>
             <legend><b>Recherche d'un livre par thème</b></legend>
             <label for="theme">Thèmes recherché : </label>
-            <select id="theme" name="theme">
+            <select id="theme" name="theme" onchange="validerSelection()">
                 <option value="">Thèmes</option>
                  <?php
                     try {
@@ -37,9 +37,11 @@
                     }
                     ?>
                 </select>
-                        <input type="submit" value="Rechercher" id="submit">
         </fieldset>
     </form>
+<script>    
+function validerSelection() {
+ document.querySelector('form').submit();}</script>
     <?php
     // Me connecter a ma BDD
     try {

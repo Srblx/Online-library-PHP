@@ -52,6 +52,22 @@ function getCookie(name) {
   }
   return null
 }
+
+// Pour gerer le submit sur un click option 
+function validerSelection() {
+    document.querySelector('form').submit();
+  }
+
+
+
+
+
+
+
+
+
+
+  
 // //* POur les mot de passe 
 // document.querySelector('form').addEventListener('submit', function(event) {
 //     var mdp = document.getElementById('mdp').value;

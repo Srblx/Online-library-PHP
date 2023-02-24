@@ -20,7 +20,7 @@
   <fieldset>
     <legend><b>Recherche d'un livre par maison d'edition</b></legend>
     <label for="edit">Nom maison d'edition : </label>
-    <select id="edit" name="edit">
+    <select id="edit" name="edit" onchange="validerSelection()">
       <option value="">Sélectionnez une maison d'édition</option>
       <?php
       try {
@@ -39,7 +39,6 @@
       }
       ?>
     </select>
-    <input type="submit" value="Rechercher" id="submit">
   </fieldset>
 </form>
     <?php

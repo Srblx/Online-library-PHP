@@ -14,13 +14,13 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
 </head>
 
-<body class="dark">
+<body class="light">
     <?php include('fournisseur.php') ?>
     <form action="afficherPays.php" method="post">
         <fieldset class="fieldset">
             <legend><b>Recherche d'un fournisseur par sa raison social</b></legend>
             <label for="pays">Nom du fournisseur : </label>
-            <select id="pays" name="pays">
+            <select id="pays" name="pays"  onchange="validerSelection()">
                 <option value="">Sélectionnez un fournisseur</option>
                 <?php
                 try {
@@ -39,7 +39,6 @@
                 }
                 ?>
             </select>
-            <input type="submit" value="Rechercher" id="submit">
         </fieldset>
     </form>
     <?php

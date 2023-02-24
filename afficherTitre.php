@@ -20,7 +20,7 @@
             <fieldset class="formDark">
                 <legend><b>Recherche d'un livre par titre</b></legend>
                 <label for="titre">Titre du livre : </label>
-                <select name="titre" id="titre">
+                <select name="titre" id="titre" onchange="validerSelection()">
                 <option value="">Sélectionnez un Titre</option>
                 <?php
                   try {
@@ -39,7 +39,6 @@
                   }
                   ?>
             </select>
-            <input type="submit" value="Rechercher" id="submit">
             </fieldset>
         </form>
         <?php

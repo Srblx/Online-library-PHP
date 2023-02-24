@@ -19,7 +19,7 @@
         <fieldset class="fieldset">
             <legend><b>Recherche d'un livre par nom d'auteur</b></legend>
             <label for="nomAuteur">Nom de l'auteur : </label>
-            <select name="nomAuteur" id="nomAuteur">
+            <select name="nomAuteur" id="nomAuteur" onchange="validerSelection()">
                 <option value="">Sélectionnez un Auteur</option>
                 <?php
                   try {
@@ -38,7 +38,6 @@
                   }
                   ?>
             </select>
-            <input type="submit" value="Rechercher" id="submit">
         </fieldset>
     </form>
     <!-- Affichege du tableau de resultat de recherche -->
