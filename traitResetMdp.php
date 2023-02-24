@@ -1,5 +1,5 @@
-<?php
 
+<?php
 // Connexion à la base de données
 try {
     $db = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
@@ -20,6 +20,9 @@ if ($newPassword !== $confirmPassword) {
     die('Les mot de passe ne corresponde pas !');
 }
 
+// Hashage du mot de passe avant de le stocker en base de données
+$hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
 // Préparation de la requête SQL pour récupérer l'utilisateur correspondant à l'adresse e-mail
 $stmt = $db->prepare("SELECT * FROM user WHERE mail = ?");
 $stmt->execute([$email]);
@@ -29,7 +32,7 @@ $user = $stmt->fetch();
 if ($user) {
     // Préparation de la requête SQL pour mettre à jour le mot de passe de l'utilisateur
     $stmt = $db->prepare("UPDATE user SET mdp = ? WHERE id = ?");
-    $stmt->execute([$newPassword, $user["id"]]);
+    $stmt->execute([$hashedPassword, $user["id"]]);
     // Redirection vers la page index.php
     header("Location: index.php?passwordUpdated=1");
     exit;
@@ -37,16 +40,4 @@ if ($user) {
     // Redirection vers la page d'erreur de réinitialisation du mot de passe
     die('L\'utilisateur n\'existe pas !');
 }
-// Vérification que l'utilisateur existe
-if ($result->num_rows > 0) {
-    // Récupération de l'utilisateur correspondant à l'adresse e-mail
-    $user = $result->fetch_assoc();
-
-    // Préparation de la requête SQL pour mettre à jour le mot de passe de l'utilisateur
-    $stmt = $db->prepare("UPDATE user SET mdp = ? WHERE id = ?");
-    $stmt->bind_param("si", $newPassword, $user["id"]);
-    $stmt->execute();
-    // Redirection vers la page index.php
-    header("Location: index.php?passwordUpdated=1");
-    exit;
-}
+?>

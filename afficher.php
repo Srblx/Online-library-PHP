@@ -13,8 +13,7 @@
 </head>
 
 <body class="light">   
-
-    <?php include "acceuil.php";?>
+<?php include "acceuil.php";?>
 <?php
    
     //~ Connexion a ma base de données my-db
@@ -98,6 +97,7 @@ while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
         }
     </script>
     <?php include "footer.php" ?>
+    
 </body>
 
 </html>

@@ -13,7 +13,7 @@
 </head>
 
 <body class="light">
-<?php include "bandeau.php" ?>
+    <?php include "bandeau.php" ?>
     <div class="form">
         <form action="traitResetMdp.php" method="post">
             <h4>Mot de passe oublié : </h4>
@@ -27,6 +27,6 @@
             <a href="index.php" id="retour">Retour à l'accueil</a>
         </form>
         <?php include "footer.php" ?>
+    </div>
 </body>
-
 </html>

@@ -275,7 +275,7 @@ img{
 /* * Css pour le slide d'image en page d'acceuil */
 #slideshow {
   width: 640px;
-  height: 400px;
+  height: 375px;
   margin: 0 auto;
   border-radius: 10px;
   overflow: hidden;
@@ -348,3 +348,35 @@ text-align: center;
 sup {
 color: red;
 }
+
+/* Style the scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fffefe;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #0366d6;
+border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: rgb(125, 125, 125);
+}
+
+/* Zoom image slide */
+.zoom {
+  transition: transform .2s;
+  max-width: 100%;
+  height: auto;
+  }
+  
+  .zoom:hover {
+  transform: scale(1.2);
+  }
