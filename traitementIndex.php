@@ -45,9 +45,8 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
         }
     } else {
         // die("Erreur lors de l'exécution de la requête: " . $stmt->errorInfo()[2]);
-//         echo "Erreur lors de l'exécution de la requête: ";
-header('location: slideAcceuil.php');
-// print_r($stmt->errorInfo());
+        echo "Erreur lors de l'exécution de la requête: ";
+print_r($stmt->errorInfo());
     }
 } else {
     header('location: loginFail.php');

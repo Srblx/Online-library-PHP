@@ -39,9 +39,6 @@
                 </select>
         </fieldset>
     </form>
-<script>    
-function validerSelection() {
- document.querySelector('form').submit();}</script>
     <?php
     // Me connecter a ma BDD
     try {

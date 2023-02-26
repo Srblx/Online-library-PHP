@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
 </head>
 
-<body class="light">
+<body class="light" id="accueil">
 <?php
 session_start();
 
@@ -50,10 +50,9 @@ if (!isset($_SESSION['role'])) {
     </div>
     <div class="infoCoD">
       <?= "Bonjour " . '<br>'; ?>
-      <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom'] . ' ' . $_SESSION['role'] . ' ' . $_SESSION['start_time']; ?>
+      <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom'] . ' ' . $_SESSION['role']; ?>
     </div>
   </nav>
-  <span id="timer"></span>
   <div class="btn">
     <a href="slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a>
     <i class="fa-brands fa-readme" style="color: #0366d6;"></i>
@@ -73,6 +72,7 @@ if (!isset($_SESSION['role'])) {
       <?php } ?>
       <option value="rechercheApi.php">Recherche par ISBN</option>
     </select>
+    <span id="timer"></span>
   </div>
   <h2 id="title">Bienvenue sur le site de consultation de livres</h2>
   <script>// Récupération de l'heure de départ
@@ -101,7 +101,7 @@ function updateTimer() {
    // Récupération de l'élément HTML pour afficher le timer
   let timer = document.getElementById("timer");
   // Formatage de l'affichage du timer
-  timer.innerHTML = hours + "h " + minutes + "m " + seconds + "s";
+  timer.innerHTML = hours + "H " + minutes + "M " + seconds + "s";
    // Mise à jour du timer toutes les secondes
   setTimeout(updateTimer, 1000);
 }

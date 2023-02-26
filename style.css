@@ -275,7 +275,7 @@ img{
 /* * Css pour le slide d'image en page d'acceuil */
 #slideshow {
   width: 640px;
-  height: 375px;
+  height: 370px;
   margin: 0 auto;
   border-radius: 10px;
   overflow: hidden;
@@ -382,9 +382,14 @@ background: rgb(125, 125, 125);
 }
 
 #timer {
-  color: rgb(9, 255, 0);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: large;
+  color: rgba(0, 0, 0, 0.782);
 }
 #timer:hover {
-  transform: scale(1.5);
   color: #0366d6;
+}
+
+body.dark #timer {
+  color: white;
 }
