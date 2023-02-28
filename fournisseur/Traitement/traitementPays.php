@@ -6,55 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../js/dark.js" defer></script>
-    <script src="../js/slide.js" defer></script>
+    <link rel="stylesheet" href="../../Css/style.css">
+    <link rel="stylesheet" href="../../Css/styledark.css">
+    <script src="../../js/dark.js" defer></script>
+    <script src="../../js/slide.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
-    <link rel="stylesheet" href="../Css/style.css">
-    <link rel="stylesheet" href="../Css/styledark.css">
+
 </head>
 
-<body class="light">
-    <?php include('fournisseur.php') ?>
-    <form action="afficherLocalite.php" method="post">
-        <fieldset class="fieldset">
-            <legend><b>Recherche d'un fournisseur par sa localité</b></legend>
-            <label for="localite">Nom du fournisseur : </label>
-            <select id="localite" name="localite" onchange="validerSelection()">
-                <option value="">Sélectionnez un fournisseur</option>
-                <?php
-                try {
-                    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-                    $connect->query("SET NAMES 'utf8'");
-                    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $request = "SELECT DISTINCT localite FROM `fornisseur`";
-                    $result = $connect->query($request);
-                    while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
-                        echo '<option value="' . $donnees->localite . '">' . $donnees->localite . '</option>';
-                    }
-                } catch (PDOException $e) {
-                    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-                }
-                ?>
-            </select>
-        </fieldset>
-    </form>
-    <?php
+<body>
 
-    if (isset($_POST['localite'])) {
-        //* Si la connexion fonctionne
-        // Récupérer la valeur de recherche à partir de la méthode POST
-        $search = $_POST['localite'];
-        // Préparer la requête SQL pour sélectionner tous les enregistrements de la table "fornisseur" qui correspondent à la recherche
-        $request = "SELECT * FROM `fornisseur` WHERE `localite` LIKE :localite";
-        // Préparer la requête SQL avec PDO
-        $result = $connect->prepare($request);
-        // Ajouter des caractères génériques à la valeur de recherche pour rechercher des enregistrements avec des valeurs partielles qui correspondent
-        $localite = "%" . $_POST['localite'] . "%";
-        // Lier la valeur de recherche à la requête SQL préparée
-        $result->bindParam(':localite', $localite, PDO::PARAM_STR);
-        // Exécuter la requête SQL préparée pour sélectionner les enregistrements qui correspondent à la recherche
-        $result->execute();
+    <?php
+    require '../fournisseur.php';
+    // Connexion à la base de données
+    try {
+        $pdo = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
+        $pdo->query("SET NAMES 'utf8'");
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+
+
+        die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
+    }
+
+    // Récupération des données de la base de données
+    if (isset($_POST['pays'])) {
+        $query = 'SELECT * FROM fornisseur WHERE pays = :pays';
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(':pays', $_POST['pays']);
+        $statement->execute();
+        // $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
         //~ Pour affiche les données de la bdd dans un tableau
         echo '<table border=1, class="styleTab" >';
@@ -72,7 +54,7 @@
         echo '</tr>';
 
 
-        while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+        while ($donnees = $statement->fetch(PDO::FETCH_OBJ)) {
             //& $donnees recuperé avec la fonction ci dessus (ATTENTION array pas SENSIBLE a la CASSE)
             //~ Les valeurs que j'affiche dans le tableau
             echo '<tr class="value">';
@@ -89,10 +71,12 @@
             echo '</tr>';
         }
         echo '</table>';
+    } else {
+        $resultats = null;
     }
+    // header('location: ../afficherPays.php');
     ?>
-    <?php include "../footer.php" ?>
-
+    <a href="../afficherPays.php" class="backdisplay">Retour sur la page de recherche.</a>
 </body>
 
 </html>

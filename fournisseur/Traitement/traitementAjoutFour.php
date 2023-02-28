@@ -1,10 +1,10 @@
-<?php 
+<?php
 try {
-    $conn = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+    $conn = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
     $conn->query("SET NAMES 'utf8'");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');   
+    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
 }
 
 // Vérifier que toutes les données requises sont entrées correctement
@@ -38,14 +38,14 @@ $stmt->bindParam(':rue_fournisseur', $adress);
 $stmt->bindParam(':code_postal', $codePostal);
 $stmt->bindParam(':localite', $localite);
 $stmt->bindParam(':pays', $pays);
-$stmt->bindParam(':tel_fournisseur', $telephone);  
+$stmt->bindParam(':tel_fournisseur', $telephone);
 $stmt->bindParam(':url_fournisseur', $site);
 $stmt->bindParam(':mail_fournisseur', $mail);
 $stmt->bindParam(':fax_fournisseur', $fax);
 
 if ($stmt->execute()) {
     // fonction header(location:) permet de renvoyer vers la page voulue après soumission du formulaire
-    header('location: fournisseur.php');
+    header('location: ../afficherFournisseur.php');
 } else {
     echo "Insertion impossible. Veuillez réessayer ! <br>";
     echo ' <a href="ajouterFournisseur.php">Retourner au formulaire</a>';
@@ -56,6 +56,5 @@ function validate_input($data)
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
-    return $data; 
+    return $data;
 }
-?>

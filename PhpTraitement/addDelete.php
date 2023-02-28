@@ -1,11 +1,11 @@
 <?php
 
 try {
-    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
     $connect->query("SET NAMES 'utf8'");
     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
 }
 
 $id = $_GET['id'];
@@ -22,7 +22,7 @@ if (!$connect) {
     $result = $connect->query($sql);
     if ($result) {
 
-        header('location: afficher.php');
+        header('location: ../views/afficher.php');
     } else {
         echo "Erreur lors de la mise à jour des informations : " . $stmt->errorInfo()[2];
     }

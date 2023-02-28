@@ -4,7 +4,7 @@
 }
 
 body {
-    background: url(./Css/img/9.jpg) no-repeat center center fixed;
+    background: url(./img/9.jpg) no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
     /* overflow: hidden; */
@@ -392,4 +392,20 @@ background: rgb(125, 125, 125);
 
 body.dark #timer {
   color: white;
+}
+
+.backdisplay {
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+  font-weight: bolder;
+  padding: 3px;
+  background-color: #000000;
+  border-radius: 50%;
+  color: rgb(253, 140, 140) ;
+}
+
+body.dark .backdisplay {
+  background-color: white;
+  color: rgb(130, 57, 57) ;
 }

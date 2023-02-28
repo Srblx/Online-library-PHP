@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../styledark.css">
+  <link rel="stylesheet" href="../Css/style.css">
+  <link rel="stylesheet" href="../Css/styledark.css">
   <script src="../js/dark.js" defer></script>
   <script src="../js/slide.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,12 +20,12 @@
     header("Location: ../index.php");
     exit;
   } ?>
-  
- <!-- <script>
+
+  <!-- <script>
   // Alerte d'inscription 
   alert('Les fournisseurs non-inscrits doivent s\'inscrire en selectionnant "Ajouter un fournisseur" dans le menu.');
   </script> -->
-  
+
   <h1>Bibliothèque en ligne</h1>
   <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
   <nav>
@@ -43,9 +43,9 @@
   </nav>
   <!-- </form> -->
   <div class="btn">
-    <a href="../slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a>
+    <a href="../views/slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a>
     <i class="fa-brands fa-readme" style="color: #0366d6;"></i>
-    <a href="fournisseur/fournisseur.php" id="test">Fournisseur</a>
+    <a href="fournisseur.php" id="test">Fournisseur</a>
     <!-- & Pour faire un link vers ajouter un livre ou consultation  -->
     <select name="livre" id="livre">
       <option value="">Sélectionnez une option</option>

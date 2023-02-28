@@ -92,7 +92,7 @@ $stmt->bindParam(5, $est_administrateur);
 //~ Exécuter la requête
 if ($stmt->execute()) {
     //& fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
-    header('location: loginSucces.php');
+    header('location: ../loginSucces.php');
 } else {
     echo "Insertion impossible veuillez réessayer ! <br>";
     echo '<a href="ajouter.php">Retourner au formulaire</a>';
@@ -106,4 +106,3 @@ function validate_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-

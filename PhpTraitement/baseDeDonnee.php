@@ -3,26 +3,26 @@
 //&Fonction de connexion mysqli_connect(4 parametres pour effectuer la connexion )
 // $conn = mysqli_connect('localhost', 'root', '', 'bibliotheque');
 try {
-    $conn = new PDO('mysql:host=localhost;dbname=bibliotheque','root', '');
+    $conn = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
     $conn->query("SET NAMES 'utf8'");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');   
+    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
 }
 
 //! Methode securise face a l'injection de SQL dans le form
-    //& Préparer la requête
-    $stmt = $conn->prepare("INSERT INTO livre (isbn,titre,theme,nombreDePage,format,nomAuteur,PrenomAuteur,editeur,anneeEdition,prix,langue) 
+//& Préparer la requête
+$stmt = $conn->prepare("INSERT INTO livre (isbn,titre,theme,nombreDePage,format,nomAuteur,PrenomAuteur,editeur,anneeEdition,prix,langue) 
 VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
- // Lier les variables aux marqueurs
+// Lier les variables aux marqueurs
 $stmt->bindParam(1, $isbn);
 $stmt->bindParam(2, $titre);
 $stmt->bindParam(3, $theme);
 $stmt->bindParam(4, $nbPage);
 $stmt->bindParam(5, $format);
 $stmt->bindParam(6, $nomAuteur);
-$stmt->bindParam(7, $prenomAuteur);  
+$stmt->bindParam(7, $prenomAuteur);
 $stmt->bindParam(8, $editeur);
 $stmt->bindParam(9, $anneeEdition);
 $stmt->bindParam(10, $prix);
@@ -48,30 +48,30 @@ if (empty($_POST['isbn']) || empty($_POST['theme']) || empty($_POST['nbPage']) |
 }
 // Valider les données entrées par l'utilisateur
 $isbn = validate_input($_POST['isbn']);
-    $titre = validate_input($_POST['titre']);
-    $theme = validate_input($_POST['theme']);
-    $nbPage = validate_input($_POST['nbPage']);
-    $format = validate_input($_POST['format']);
-    $nomAuteur = validate_input($_POST['nomAuteur']);
-    $prenomAuteur = validate_input($_POST['prenomAuteur']);
-    $editeur = validate_input($_POST['editeur']);
-    $anneeEdition = validate_input($_POST['anneeEdition']);
-    $prix = validate_input($_POST['prix']);
-    $langue = validate_input($_POST['langue']);
+$titre = validate_input($_POST['titre']);
+$theme = validate_input($_POST['theme']);
+$nbPage = validate_input($_POST['nbPage']);
+$format = validate_input($_POST['format']);
+$nomAuteur = validate_input($_POST['nomAuteur']);
+$prenomAuteur = validate_input($_POST['prenomAuteur']);
+$editeur = validate_input($_POST['editeur']);
+$anneeEdition = validate_input($_POST['anneeEdition']);
+$prix = validate_input($_POST['prix']);
+$langue = validate_input($_POST['langue']);
 
-    //~ Exécuter la requête
-    $result;
-
-
+//~ Exécuter la requête
+$result;
 
 
-    if ($stmt->execute()) {
-        //& fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
-        header('location: acceuil.php');
-    } else {
-        echo "Insertion  impossible veuiller réessayer ! <br>";
-        echo ' <a href="ajouter.php">Retourner au formulaire</a>';
-    }
+
+
+if ($stmt->execute()) {
+    //& fonction header(location:) permet de renvoyer vers la page voulue apres submit du form
+    header('location: ../views/afficher.php');
+} else {
+    echo "Insertion  impossible veuiller réessayer ! <br>";
+    echo ' <a href="ajouter.php">Retourner au formulaire</a>';
+}
 
 
 function validate_input($data)

@@ -1,6 +1,6 @@
 /* Couleur de fond de la page */
 body {
-  background: url(./Css/img/9.jpg);
+  background: url(img/9.jpg);
 }
 
 .bandeau {
@@ -46,7 +46,7 @@ label {
 
 input[type="text"],
 input[type="password"],
-input[type="submit"],
+#send,
 input[type="email"]{
   width: 100%;
   padding: 10px;
@@ -80,10 +80,8 @@ input[type="email"]:focus {
   border-color: #0366d6;
 }
 
-
-
 /* Style des liens "Mot de passe oublié" et "Inscrivez-vous" */
-a {
+.link {
   display: inline-block;
   /* margin-top: 20px; */
   padding: 10px 20px;
@@ -137,7 +135,7 @@ a {
 
   input[type="text"],
   input[type="password"],
-  input[type="submit"],
+  #send,
   input[type="mail"]{
     font-size: 16px;
   }
@@ -164,4 +162,8 @@ footer {
   border: 2px solid #24292e;
   padding: 40px;
   animation: form-entry 0.5s ease-in-out;
+}
+
+i {
+  margin: 5px;
 }

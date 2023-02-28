@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styledark.css">
-    <script src="js/dark.js" defer></script>
+    <script src="../js/dark.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="../Css/styledark.css">
 </head>
 
 <body class="light">
-<?php 
-    include "acceuil.php"; 
+    <?php
+    include "acceuil.php";
     $dsn = "mysql:host=localhost;dbname=bibliotheque;charset=utf8";
     $username = "root";
     $password = "";
@@ -31,11 +31,11 @@
         $row = $stmt->fetch();
         $pdo = null;
     } catch (PDOException $e) {
-        die('<p> Echec de connection. Erreur['.$e->getCode().'] : ['.$e->getMessage().'<p>');
+        die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
     }
-?>
- <!-- form -->
-    <form action="traitmodifierLigne.php?id=<?= $id; ?>" method="post">
+    ?>
+    <!-- form -->
+    <form action="../PhpTraitement/traitmodifierLigne.php?id=<?= $id; ?>" method="post">
         <fieldset>
             <legend id="legend"><b>Modifier les informations d'un livre</b></legend>
             <label for="isbn">ISBN :</label>
@@ -63,7 +63,7 @@
             <input type="submit" value="Modifier" id="submit">
         </fieldset>
     </form>
-<?php include "footer.php" ?>
+    <?php include "../footer.php" ?>
 </body>
 
 </html>
