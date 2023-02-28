@@ -1,3 +1,4 @@
+<?php require '../config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,35 +23,17 @@
       <select name="nomAuteur" id="nomAuteur" onchange="validerSelection()">
         <option value="">Sélectionnez un Auteur</option>
         <?php
-        try {
-          $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-          $connect->query("SET NAMES 'utf8'");
-          $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $request = "SELECT DISTINCT nomAuteur FROM `livre`";
+        $result = $connect->query($request);
 
-          $request = "SELECT DISTINCT nomAuteur FROM `livre`";
-          $result = $connect->query($request);
-
-          while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
-            echo '<option value="' . $donnees->nomAuteur . '">' . $donnees->nomAuteur . '</option>';
-          }
-        } catch (PDOException $e) {
-          die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-        }
-        ?>
+        while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+          echo '<option value="' . $donnees->nomAuteur . '">' . $donnees->nomAuteur . '</option>';
+        } ?>
       </select>
     </fieldset>
   </form>
   <!-- Affichege du tableau de resultat de recherche -->
   <?php
-  // Me connecter a ma BDD
-  try {
-    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-    $connect->query("SET NAMES 'utf8'");
-    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  } catch (PDOException $e) {
-    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-  }
-
   if (isset($_POST['nomAuteur'])) {
     // Si la connexion fonctionne
     $search = $_POST['nomAuteur'];

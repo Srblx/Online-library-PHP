@@ -17,14 +17,8 @@
 <body class="light">
     <?php include('fournisseur.php') ?>
     <?php
-    //~ Connexion a ma base de données my-db
-    try {
-        $conn = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-        $conn->query("SET NAMES 'utf8'");
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die('<p> Echec de la connexion. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . ']<p>');
-    }
+    //~ Connexion a ma base de données 
+    require '../config.php';
 
     //& Requête pour récupérer les données de la table 'livre'
     $requete = "SELECT * FROM fornisseur";

@@ -1,3 +1,4 @@
+<?php require '../config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,33 +23,18 @@
             <select id="theme" name="theme" onchange="validerSelection()">
                 <option value="">Thèmes</option>
                 <?php
-                try {
-                    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-                    $connect->query("SET NAMES 'utf8'");
-                    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $request = "SELECT DISTINCT theme FROM `livre`";
+                $result = $connect->query($request);
 
-                    $request = "SELECT DISTINCT theme FROM `livre`";
-                    $result = $connect->query($request);
-
-                    while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
-                        echo '<option value="' . $donnees->theme . '">' . $donnees->theme . '</option>';
-                    }
-                } catch (PDOException $e) {
-                    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-                }
-                ?>
+                while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+                    echo '<option value="' . $donnees->theme . '">' . $donnees->theme . '</option>';
+                } ?>
             </select>
         </fieldset>
     </form>
     <?php
     // Me connecter a ma BDD
-    try {
-        $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-        $connect->query("SET NAMES 'utf8'");
-        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-    }
+
     if (isset($_POST['theme'])) {
         // Si la connexion fonctionne
         $searchTheme = $_POST['theme'];

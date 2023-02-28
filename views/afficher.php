@@ -13,23 +13,14 @@
 </head>
 
 <body class="light">
-    <?php include "acceuil.php"; ?>
-    <?php
+    <?php include "acceuil.php";
+    require '../config.php';
 
-    //~ Connexion a ma base de données my-db
-    //&Fonction de connexion mysqli_connect(4 parametres pour effectuer la connexion )
-    try {
-        $conn = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-        $conn->query("SET NAMES 'utf8'");
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die('<p> Echec de la connexion. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . ']<p>');
-    }
 
     //& Requête pour récupérer les données de la table 'livre'
     $requete = "SELECT * FROM livre";
     //& Préparation de la requête
-    $result = $conn->prepare($requete);
+    $result = $connect->prepare($requete);
     //& Exécution de la requête
     $result->execute();
 

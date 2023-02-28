@@ -1,14 +1,6 @@
 <?php
 //~ Connexion a ma base de données bibliothèque
-//&Fonction de connexion mysqli_connect(4 parametres pour effectuer la connexion )
-// $conn = mysqli_connect('localhost', 'root', '', 'bibliotheque');
-try {
-    $conn = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-    $conn->query("SET NAMES 'utf8'");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-}
+require '../config.php';
 
 //! Methode securise face a l'injection de SQL dans le form
 //& Préparer la requête

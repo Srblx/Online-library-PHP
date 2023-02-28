@@ -1,14 +1,7 @@
 <?php
 session_start();
 //& Connection a la bdd
-try {
-    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-    $connect->query("SET NAMES 'utf8'");
-    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-}
-
+require '../config.php';
 
 //& Vérifier que toutes les données requises sont entrées correctement
 if (empty($_POST['mail']) || empty($_POST['mdp'])) {

@@ -20,15 +20,7 @@
     <?php
     require '../fournisseur.php';
     // Connexion à la base de données
-    try {
-        $pdo = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-        $pdo->query("SET NAMES 'utf8'");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-
-
-        die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-    }
+    require '../config.php';
 
     // Récupération des données de la base de données
     if (isset($_POST['pays'])) {

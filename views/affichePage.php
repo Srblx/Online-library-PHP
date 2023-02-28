@@ -1,3 +1,4 @@
+<?php require '../config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,15 +25,6 @@
         </fieldset>
     </form>
     <?php
-    // Me connecter à ma BDD
-    try {
-        $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-        $connect->query("SET NAMES 'utf8'");
-        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-    }
-
     //& isset() Détermine si une variable est déclarée et est différente de null
     if (isset($_POST['nbPage'])) {
         // Si la connexion fonctionne

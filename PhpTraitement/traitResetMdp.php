@@ -1,13 +1,7 @@
 
 <?php
 // Connexion à la base de données
-try {
-    $db = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-    $db->query("SET NAMES 'utf8'");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-}
+require '../config.php';
 
 // Récupération des données envoyées via le formulaire
 $email = $_POST["mail"];

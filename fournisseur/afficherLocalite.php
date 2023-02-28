@@ -1,3 +1,4 @@
+<?php require '../config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,19 +24,12 @@
             <select id="localite" name="localite" onchange="validerSelection()">
                 <option value="">Sélectionnez un fournisseur</option>
                 <?php
-                try {
-                    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-                    $connect->query("SET NAMES 'utf8'");
-                    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $request = "SELECT DISTINCT localite FROM `fornisseur`";
-                    $result = $connect->query($request);
-                    while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
-                        echo '<option value="' . $donnees->localite . '">' . $donnees->localite . '</option>';
-                    }
-                } catch (PDOException $e) {
-                    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-                }
-                ?>
+
+                $request = "SELECT DISTINCT localite FROM `fornisseur`";
+                $result = $connect->query($request);
+                while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+                    echo '<option value="' . $donnees->localite . '">' . $donnees->localite . '</option>';
+                } ?>
             </select>
         </fieldset>
     </form>

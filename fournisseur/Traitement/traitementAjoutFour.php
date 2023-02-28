@@ -1,11 +1,5 @@
 <?php
-try {
-    $conn = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-    $conn->query("SET NAMES 'utf8'");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-}
+require '../config.php';
 
 // Vérifier que toutes les données requises sont entrées correctement
 if (empty($_POST['code_fournisseur']) || empty($_POST['pays']) || empty($_POST['tel_fournisseur']) || empty($_POST['mail_fournisseur'])) {

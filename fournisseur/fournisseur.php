@@ -20,12 +20,6 @@
     header("Location: ../index.php");
     exit;
   } ?>
-
-  <!-- <script>
-  // Alerte d'inscription 
-  alert('Les fournisseurs non-inscrits doivent s\'inscrire en selectionnant "Ajouter un fournisseur" dans le menu.');
-  </script> -->
-
   <h1>Bibliothèque en ligne</h1>
   <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
   <nav>
