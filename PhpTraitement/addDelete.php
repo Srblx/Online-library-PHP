@@ -1,12 +1,5 @@
 <?php
-
-try {
-    $connect = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
-    $connect->query("SET NAMES 'utf8'");
-    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('<p> Echec de connection. Erreur[' . $e->getCode() . '] : [' . $e->getMessage() . '<p>');
-}
+require '../config.php';
 
 $id = $_GET['id'];
 if (!$connect) {
@@ -27,5 +20,3 @@ if (!$connect) {
         echo "Erreur lors de la mise à jour des informations : " . $stmt->errorInfo()[2];
     }
 }
-//~ Cloture de la connexion a la base de données 
-// mysqli_close($connect);

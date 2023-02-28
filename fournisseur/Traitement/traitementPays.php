@@ -16,16 +16,42 @@
 </head>
 
 <body>
+    <?php session_start();
+    if (!isset($_SESSION['role'])) {
+        header("Location: ../index.php");
+        exit;
+    } ?>
+    <h1>Bibliothèque en ligne</h1>
+    <div class="btnDark" id="btnDark"><i class="fa-solid fa-moon"></i></div>
+    <nav>
 
+        <!-- Mode dark  -->
+        </div>
+        <div class="infoCoG">
+
+            <a href="deco.php" id="deco" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?');">Déconnexion</a>
+        </div>
+        <div class="infoCoD">
+            <?= "Bonjour " . '<br>'; ?>
+            <?= $_SESSION['prenom'] . ' ' . $_SESSION['nom']; ?>
+        </div>
+    </nav>
+    <!-- </form> -->
+    <div class="btn">
+        <a href="../views/slideAcceuil.php" id="test" onclick="alert('Vous allez être rediriger sur la page d\'accueil !');">Accueil</a>
+        <i class="fa-brands fa-readme" style="color: #0366d6;"></i>
+        <a href="fournisseur.php" id="test">Fournisseur</a>
+    </div>
+    <h2 id="title">Bienvenue sur l'acceuil fournisseur</h2>
+    <a href="../afficherPays.php" class="backdisplay">Retour sur la page de recherche.</a>
     <?php
-    require '../fournisseur.php';
     // Connexion à la base de données
-    require '../config.php';
+    require '../../config.php';
 
     // Récupération des données de la base de données
     if (isset($_POST['pays'])) {
         $query = 'SELECT * FROM fornisseur WHERE pays = :pays';
-        $statement = $pdo->prepare($query);
+        $statement = $connect->prepare($query);
         $statement->bindParam(':pays', $_POST['pays']);
         $statement->execute();
         // $result = $statement->fetchAll(PDO::FETCH_OBJ);
@@ -68,7 +94,6 @@
     }
     // header('location: ../afficherPays.php');
     ?>
-    <a href="../afficherPays.php" class="backdisplay">Retour sur la page de recherche.</a>
 </body>
 
 </html>

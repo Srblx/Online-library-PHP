@@ -14,6 +14,7 @@ if (isset($_POST['mail']) && isset($_POST['mdp'])) {
     $stmt->bindParam(':mail', $mail);
     $stmt->execute();
     $donnees = $stmt->fetch();
+
     // Vérifier si la requête a réussi
     if ($donnees) {
         // Vérifier si le mot de passe entré correspond au mot de passe stocké

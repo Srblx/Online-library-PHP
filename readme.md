@@ -24,8 +24,6 @@ Vous devrez ensuite passer à l'intégration de vos maquettes.
 
   - Utilisez les types et les attributs HTML pertinents pour les inputs.
 
-  - Ajoutez une validation javascript interdisant la soumission du formulaire si les contraintes ne sont pas satisfaites.
-
 #### **_Contraintes de validation_**
 
 ### Bonus Track
@@ -44,3 +42,5 @@ Docs :
 
 - ISBN : [https://openlibrary.org/dev/docs/api/books](https://openlibrary.org/dev/docs/api/books)
 - Covers : [https://openlibrary.org/dev/docs/api/covers](https://openlibrary.org/dev/docs/api/covers)
+
+<!-- ! FAIRE UN PARTIE FORUM DISCUTION  -->

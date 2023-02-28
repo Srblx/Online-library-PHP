@@ -74,9 +74,10 @@
             echo '<td>' . $donnee->prix . " " . '</td>';
             echo '<td>' . $donnee->langue . " " . '</td>';
 
+
             if ($_SESSION['role'] === 1) {
                 //~ Si l'utilisateur est un administrateur, afficher les deux dernières colonnes
-                echo '<td><a href="modifierLigne.php?id=' . $donnees->id . '"><i class="fa-solid fa-pen"></i></a></td>';
+                echo '<td><a href="modifierLigne.php?id=' . $donnee->id . '"><i class="fa-solid fa-pen"></i></a></td>';
                 echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnee->id . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";
             }
             echo '</tr>';

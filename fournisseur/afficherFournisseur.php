@@ -23,7 +23,7 @@
     //& Requête pour récupérer les données de la table 'livre'
     $requete = "SELECT * FROM fornisseur";
     //& Préparation de la requête
-    $result = $conn->prepare($requete);
+    $result = $connect->prepare($requete);
     //& Exécution de la requête
     $result->execute();
 
