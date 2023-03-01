@@ -34,8 +34,8 @@
     echo '<td class="td">' . '<b>' .  'Thème ' . '</b>' . '</td>';
     echo '<td class="td">' . '<b>' .  'Nombre Pages' . '</b>' . '</td>';
     echo '<td class="td">' . '<b>' .  'Format' . '</b>' . '</td>';
-    echo '<td class="td">' . '<b>' . 'Nom auteur' . '</b>' . '</td>';
-    echo '<td class="td">' . '<b>' . 'Prénom auteur' . '</b>' . '</td>';
+    echo '<td class="td">' . '<b>' . 'Auteur' . '</b>' . '</td>';
+    // echo '<td class="td">' . '<b>' . 'Prénom auteur' . '</b>' . '</td>';
     echo '<td class="td">' . '<b>' . 'Editeur' . '</b>' . '</td>';
     echo '<td class="td">' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
     echo '<td class="td">' . '<b>' . 'Prix' . '</b>' . '</td>';
@@ -58,8 +58,8 @@
         echo '<td class="td">' . $donnees->theme . " " . '</td>';
         echo '<td class="td">' . $donnees->nombreDePage . " " . '</td>';
         echo '<td class="td">' . $donnees->format . " " . '</td>';
-        echo '<td class="td">' . $donnees->nomAuteur . " " . '</td>';
-        echo '<td class="td">' . $donnees->prenomAuteur . " " . '</td>';
+        echo '<td class="td">' . $donnees->nomAuteur . " " . $donnees->prenomAuteur . " " . '</td>';
+        // echo '<td class="td">' . $donnees->prenomAuteur . " " . '</td>';
         echo '<td class="td">' . $donnees->editeur . " " . '</td>';
         echo '<td class="td">' . $donnees->anneeEdition . " " . '</td>';
         echo '<td class="td">' . $donnees->prix . " " . '</td>';

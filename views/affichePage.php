@@ -46,8 +46,8 @@
             echo '<td>' . '<b>' . 'Thème ' . '</b>' . '</td>';
             echo '<td>' . '<b>' . 'Nombre Pages' . '</b>' . '</td>';
             echo '<td>' . '<b>' . 'Format' . '</b>' . '</td>';
-            echo '<td>' . '<b>' . 'Nom auteur' . '</b>' . '</td>';
             echo '<td>' . '<b>' . 'Prénom auteur' . '</b>' . '</td>';
+            echo '<td>' . '<b>' . 'Nom auteur' . '</b>' . '</td>';
             echo '<td>' . '<b>' . 'Editeur' . '</b>' . '</td>';
             echo '<td>' . '<b>' . 'Année d\'édition' . '</b>' . '</td>';
             echo '<td>' . '<b>' . 'Prix' . '</b>' . '</td>';
@@ -68,8 +68,8 @@
                 echo '<td>' . $donnee->theme . " " . '</td>';
                 echo '<td>' . $donnee->nombreDePage . " " . '</td>';
                 echo '<td>' . $donnee->format . " " . '</td>';
-                echo '<td>' . $donnee->nomAuteur . " " . '</td>';
                 echo '<td>' . $donnee->prenomAuteur . " " . '</td>';
+                echo '<td>' . $donnee->nomAuteur . " " . '</td>';
                 echo '<td>' . $donnee->editeur . " " . '</td>';
                 echo '<td>' . $donnee->anneeEdition . " " . '</td>';
                 echo '<td>' . $donnee->prix . " " . '</td>';
