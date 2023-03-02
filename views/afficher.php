@@ -50,6 +50,8 @@
     echo '</tr>';
 
     while ($donnees = $result->fetch(PDO::FETCH_OBJ)) {
+        //~ Si l'utilisateur est un administrateur, afficher les deux dernières colonnes
+        if ($_SESSION['role'] === 1) {
         //& $donnees recuperé avec la fonction ci dessus (ATTENTION array pas SENSIBLE a la CASSE)
         //~ Les valeurs que j'affiche dans le tableau
         echo '<tr class="value">';
@@ -64,11 +66,21 @@
         echo '<td class="td">' . $donnees->anneeEdition . " " . '</td>';
         echo '<td class="td">' . $donnees->prix . " " . '</td>';
         echo '<td class="td">' . $donnees->langue . " " . '</td>';
-
-        if ($_SESSION['role'] === 1) {
-            //~ Si l'utilisateur est un administrateur, afficher les deux dernières colonnes
-            echo '<td><a href="modifierLigne.php?id=' . $donnees->id . '"><i class="fa-solid fa-pen"></i></a></td>';
-            echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnees->id . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";
+        echo '<td><a href="modifierLigne.php?id=' . $donnees->id . '"><i class="fa-solid fa-pen"></i></a></td>';
+        echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnees->id . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";
+        } else {
+            echo '<tr class="value">';
+        echo '<td class="td">' . $donnees->isbn . "  " . '</td>';
+        echo '<td class="td">' . $donnees->titre . "  " . '</td>';
+        echo '<td class="td">' . $donnees->theme . " " . '</td>';
+        echo '<td class="td">' . $donnees->nombreDePage . " " . '</td>';
+        echo '<td class="td">' . $donnees->format . " " . '</td>';
+        echo '<td class="td">' . $donnees->nomAuteur . " " . $donnees->prenomAuteur . " " . '</td>';
+        // echo '<td class="td">' . $donnees->prenomAuteur . " " . '</td>';
+        echo '<td class="td">' . $donnees->editeur . " " . '</td>';
+        echo '<td class="td">' . $donnees->anneeEdition . " " . '</td>';
+        echo '<td class="td">' . $donnees->prix . " " . '</td>';
+        echo '<td class="td">' . $donnees->langue . " " . '</td>';
         }
 
         echo '</tr>';

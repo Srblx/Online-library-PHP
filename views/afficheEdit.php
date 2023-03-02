@@ -65,26 +65,37 @@
     echo '</tr>';
 
     while ($donnee = $result->fetch(PDO::FETCH_OBJ)) {
-
-      //~ Les valeurs que j'affiche dans le tableau
-      echo '<tr class="value">';
-      echo '<td>' . $donnee->isbn . "  " . '</td>';
-      echo '<td>' . $donnee->titre . "  " . '</td>';
-      echo '<td>' . $donnee->theme . " " . '</td>';
-      echo '<td>' . $donnee->nombreDePage . " " . '</td>';
-      echo '<td>' . $donnee->format . " " . '</td>';
-      echo '<td>' . $donnee->prenomAuteur . " " . '</td>';
-      echo '<td>' . $donnee->nomAuteur . " " . '</td>';
-      echo '<td>' . $donnee->editeur . " " . '</td>';
-      echo '<td>' . $donnee->anneeEdition . " " . '</td>';
-      echo '<td>' . $donnee->prix . " " . '</td>';
-      echo '<td>' . $donnee->langue . " " . '</td>';
-
-      if ($_SESSION['role'] === 1) {
-        //~ Si l'utilisateur est un administrateur, afficher les deux dernières colonnes
-        echo '<td><a href="modifierLigne.php?id=' . $donnee->id . '"><i class="fa-solid fa-pen"></i></a></td>';
-        echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnee->id . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";
-      }
+      if ($_SESSION['role'] === 1) {       
+        //~ Les valeurs que j'affiche dans le tableau
+                echo '<tr class="value">';
+                echo '<td class="td">' . $donnee->isbn . "  " . '</td>';
+                echo '<td class="td">' . $donnee->titre . "  " . '</td>';
+                echo '<td class="td">' . $donnee->theme . " " . '</td>';
+                echo '<td class="td">' . $donnee->nombreDePage . " " . '</td>';
+                echo '<td class="td">' . $donnee->format . " " . '</td>';
+                echo '<td class="td">' . $donnee->nomAuteur . " " . $donnee->prenomAuteur . " " . '</td>';
+                // echo '<td class="td">' . $donnees->prenomAuteur . " " . '</td>';
+                echo '<td class="td">' . $donnee->editeur . " " . '</td>';
+                echo '<td class="td">' . $donnee->anneeEdition . " " . '</td>';
+                echo '<td class="td">' . $donnee->prix . " " . '</td>';
+                echo '<td class="td">' . $donnee->langue . " " . '</td>';
+                echo '<td><a href="modifierLigne.php?id=' . $donnee->id . '"><i class="fa-solid fa-pen"></i></a></td>';
+                echo "<td style='text-align:center;'><a href='javascript:void(0)' onclick='confirmDelete(" . $donnee->id . ")' style='color: red;'><i class='fa fa-trash'></i></a></td>";
+                } else {
+                    echo '<tr class="value">';
+                echo '<td class="td">' . $donnee->isbn . "  " . '</td>';
+                echo '<td class="td">' . $donnee->titre . "  " . '</td>';
+                echo '<td class="td">' . $donnee->theme . " " . '</td>';
+                echo '<td class="td">' . $donnee->nombreDePage . " " . '</td>';
+                echo '<td class="td">' . $donnee->format . " " . '</td>';
+                echo '<td class="td">' . $donnee->nomAuteur . " " . $donnee->prenomAuteur . " " . '</td>';
+                // echo '<td class="td">' . $donnees->prenomAuteur . " " . '</td>';
+                echo '<td class="td">' . $donnee->editeur . " " . '</td>';
+                echo '<td class="td">' . $donnee->anneeEdition . " " . '</td>';
+                echo '<td class="td">' . $donnee->prix . " " . '</td>';
+                echo '<td class="td">' . $donnee->langue . " " . '</td>';
+                }
+        
       echo '</tr>';
     }
   }
